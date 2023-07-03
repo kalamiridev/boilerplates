@@ -1,0 +1,17 @@
+version: '3.3'
+services:
+    jdownloader-2:
+        container_name: jdownloader2
+        ports:
+            - 3129:3129
+            - 5800:5800
+            - 5900:5900
+        network_mode: bridge
+        environment:
+            - TZ=Europe/Zagreb
+            - VNC_PASSWORD=v0267@NC
+        volumes: # NFS Directories
+            - /docker/jdownloader2/config:/config
+            - /docker/jdownloader2/output:/output
+        restart: unless-stopped
+        image: jlesage/jdownloader-2

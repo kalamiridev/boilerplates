@@ -1,0 +1,14 @@
+version: "2"
+services:
+  guacamole:
+    container_name: guacamole
+    volumes: # NFS Directories
+      - /docker/guacamole:/config
+    ports:
+      - 8348:8080
+    network_mode: bridge
+    environment:
+      - TZ=Europe/Zagreb
+      - EXTENSIONS=auth-totp
+    image: jwetzell/guacamole:latest
+    restart: always

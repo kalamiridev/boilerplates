@@ -1,0 +1,28 @@
+version: '3.3'
+services:
+    embyserver:
+        container_name: emby
+        ports:
+            - 1900:1900
+            - 7359:7359
+            - 8096:8096
+            - 8920:8920
+        network_mode: bridge
+        environment:
+            - TZ=Europe/Zagreb
+        labels:
+            - flame.type=application
+            - flame.name=emby
+            - flame.url=https://emby.kalamiri.synology.me
+            - flame.icon=Emby.png #/docker/flame/uploads/Emby.png
+        volumes: # NFS Directories
+            - /docker/emby:/config
+            - /volume1/media/movies/animirani:/animirani
+            - /volume1/media/movies/dokumentarni:/dokumentarni
+            - /volume1/media/movies/igrani:/movies
+            - /volume1/media/tvshows:/tvshows
+            - /volume1/media/music:/music
+            - /volume1/media/metube:/metube
+            - /volume1/media/razno:/razno
+        restart: always
+        image: emby/embyserver

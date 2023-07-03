@@ -1,0 +1,19 @@
+version: "3.3"
+services:
+  watchtower:
+    container_name: watchtower
+    ports:
+      - 8090:8080
+    network_mode: bridge
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - TZ=Europe/Zagreb
+      - WATCHTOWER_CLEANUP=true #Removes old images after updating
+      - WATCHTOWER_INCLUDE_STOPPED=true #Will also include created and exited containers
+      - WATCHTOWER_INCLUDE_RESTARTING=true #Will also include restarting containers.
+      - WATCHTOWER_ROLLING_RESTART=true #Restart one image at time instead of stopping and starting all at once
+      - WATCHTOWER_HTTP_API_METRICS=true #For Homepage Dashboard Widget
+      - WATCHTOWER_HTTP_API_TOKEN=homepageapi #For Homepage Dashboard Widget
+    restart: always
+    image: containrrr/watchtower

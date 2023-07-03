@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+    sonarr:
+        container_name: sonarr
+        ports:
+            - 8989:8989
+        network_mode: bridge
+        environment:
+            - TZ=Europe/Zagreb
+        volumes: # NFS Directories
+            - /docker/sonarr:/config
+            - /volume1/media/tvshows:/tv
+            - /volume1/downloads:/downloads
+        restart: always
+        image: ghcr.io/linuxserver/sonarr

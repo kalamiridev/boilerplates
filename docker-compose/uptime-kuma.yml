@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+    uptime-kuma:
+        container_name: uptime-kuma
+        ports:
+            - 3444:3001
+        network_mode: bridge
+        environment:
+            - TZ=Europe/Zagreb
+        volumes: # NFS Directories
+            - /docker/uptimekuma:/app/data
+        restart: always
+        image: louislam/uptime-kuma

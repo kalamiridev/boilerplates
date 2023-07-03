@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+    radarr:
+        container_name: radarr
+        ports:
+            - 7878:7878
+        network_mode: bridge
+        environment:
+            - TZ=Europe/Zagreb
+        volumes: # NFS Directories
+            - /docker/radarr:/config
+            - /volume1/media/movies/igrani:/movies
+            - /volume1/downloads:/downloads
+        restart: always
+        image: ghcr.io/linuxserver/radarr

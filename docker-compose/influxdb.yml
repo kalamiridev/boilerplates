@@ -1,0 +1,14 @@
+version: '3'
+services:
+  influxdb:
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    network_mode: bridge
+    environment:
+      - TMPDIR=/opt/temp
+    volumes: # NFS Directories
+      - /docker/influxdb:/var/lib/influxdb2
+      - /docker/influxdb:/etc/influxdb2
+    restart: always
+    image: influxdb:2.1-alpine

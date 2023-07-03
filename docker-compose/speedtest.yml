@@ -1,0 +1,20 @@
+version: '3.3'
+services:
+    speedtest:
+        container_name: speedtest
+        ports:
+            - 8788:80
+        volumes: # NFS Directories
+            - /docker/speedtest:/config
+        network_mode: bridge
+        environment:
+            - TZ=Europe/Zagreb
+            - AUTH=true
+            - OOKLA_EULA_GDPR=true
+        logging:
+            driver: "json-file"
+            options:
+                max-file: "10"
+                max-size: "200k"
+        restart: always
+        image: henrywhitaker3/speedtest-tracker
