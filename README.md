@@ -1,2 +1,2 @@
-# boilerplates
+# Boilerplates
 Template collection
