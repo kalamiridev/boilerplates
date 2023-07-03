@@ -1,0 +1,30 @@
+version: '3'
+services:
+  umami:
+    container_name: umami
+    image: ghcr.io/mikecao/umami:postgresql-latest
+    ports:
+      - 3999:3000
+    environment:
+      DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      DATABASE_TYPE: postgresql
+      HASH_SALT: R9ei571tdLRxGYLRe7MW
+    labels:
+      - flame.type=application
+      - flame.name=Analytics
+      - flame.url=https://analytics.kalamiri.synology.me
+      - flame.icon=Umami.png #/docker/flame/uploads/Umami.png
+    depends_on:
+      - db
+    restart: always
+  db:
+    container_name: umami-db
+    image: postgres:12-alpine
+    environment:
+      POSTGRES_DB: umami
+      POSTGRES_USER: umami
+      POSTGRES_PASSWORD: umami
+    volumes:
+      - /volume1/docker/umami/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
+      - /volume1/docker/umami/db:/var/lib/postgresql/data
+    restart: always

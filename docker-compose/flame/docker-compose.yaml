@@ -1,0 +1,14 @@
+version: '2.1'
+services:
+  flame:
+    image: pawelmalak/flame:latest
+    container_name: flame
+    volumes:
+      - /etc/docker/flame:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 5210:5005
+    network_mode: bridge
+    environment:
+      - PASSWORD=yourpass
+    restart: always
