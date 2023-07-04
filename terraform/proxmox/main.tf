@@ -1,4 +1,4 @@
-# Proxmox Provider
+# https://registry.terraform.io/providers/wearespindle/proxmox/latest/docs
 terraform {
     required_version = ">= 0.13.0"
     required_providers {
