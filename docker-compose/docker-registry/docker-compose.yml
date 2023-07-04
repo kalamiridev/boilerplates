@@ -1,0 +1,18 @@
+dversion: '3.5'
+services:
+  registry:
+    container_name: docker-registry
+    ports:
+      - 5000:5000
+    network_mode: bridge
+    #environment:
+      #- REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/docker # custom root dir
+      #- REGISTRY_STORAGE_DELETE_ENABLED=TRUE # Removing and retaging images
+      #- REGISTRY_AUTH: htpasswd
+      #- REGISTRY_AUTH_HTPASSWD_PATH: /auth/htpasswd
+      #- REGISTRY_AUTH_HTPASSWD_REALM: Registry Realm
+    volumes:
+      - /backup:/var/lib/registry
+      - /docker/registry:/auth
+    image: registry:latest
+    restart: always

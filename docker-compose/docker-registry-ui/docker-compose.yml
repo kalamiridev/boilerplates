@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  registry-ui:
+    container_name: docker-registry-ui
+    ports:
+      - 5001:80
+    network_mode: bridge
+    environment:
+      - SINGLE_REGISTRY=true
+      - REGISTRY_TITLE=Registry Name
+      - DELETE_IMAGES=true
+      - SHOW_CONTENT_DIGEST=true
+      - NGINX_PROXY_PASS_URL=http://192.168.99.104:5000
+      - SHOW_CATALOG_NB_TAGS=true
+      - CATALOG_MIN_BRANCHES=1
+      - CATALOG_MAX_BRANCHES=1
+      - TAGLIST_PAGE_SIZE=100
+      - REGISTRY_SECURED=false
+      - CATALOG_ELEMENTS_LIMIT=1000
+    image: joxit/docker-registry-ui:main
+    restart: unless-stopped

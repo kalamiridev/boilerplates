@@ -1,0 +1,17 @@
+version: '3.9'
+services:
+    ajnart:
+        container_name: homarr
+        ports:
+            - 7575:7575
+        network_mode: bridge
+        volumes:
+            - /docker/homarr/icons:/app/public/icons
+            - /docker/homarr/configs:/app/data/configs
+        environment:
+            - TZ=Europe/Zagreb
+            - DISABLE_EDIT_MODE=TRUE
+            - EDIT_MODE_PASSWORD=yourpass
+            #- PASSWORD=yourpass
+        image: ghcr.io/ajnart/homarr:latest
+        restart: unless-stopped

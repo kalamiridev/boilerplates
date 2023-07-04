@@ -5,11 +5,6 @@ services:
         ports:
             - 8147:80
         network_mode: bridge
-        labels:
-            - flame.type=application
-            - flame.name=File Browser
-            - flame.url=https://filebrowser.kalamiri.synology.me
-            - flame.icon=File-Browser.png #/docker/flame/uploads/File-Browser.png
         volumes:
             - /volume1:/srv
             - /volume1/docker/filebrowser/config/database.db:/database.db
