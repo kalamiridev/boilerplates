@@ -1,0 +1,14 @@
+services:
+  semaphore:
+    container_name: semaphore
+    ports:
+      - 3000:3000
+    network_mode: bridge
+    environment:
+      SEMAPHORE_DB_DIALECT: bolt
+      SEMAPHORE_ADMIN_PASSWORD: yourpwd
+      SEMAPHORE_ADMIN_NAME: yourname
+      SEMAPHORE_ADMIN_EMAIL: admin@localhost
+      SEMAPHORE_ADMIN: admin
+    restart: unless-stopped
+    image: semaphoreui/semaphore:latest
