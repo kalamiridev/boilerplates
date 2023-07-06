@@ -1,0 +1,1 @@
+sudo ansible -i hosts -m ping media --user root --ask-pass

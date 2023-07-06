@@ -1,0 +1,1 @@
+sudo ansible-playbook playbooks/apt-update.yaml --user root --ask-pass -i hosts
