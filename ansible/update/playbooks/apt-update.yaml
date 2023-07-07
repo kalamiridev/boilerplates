@@ -1,4 +1,5 @@
-- hosts: '*'
+- name: update machine
+  hosts: "{{ hosts }}"
   become: true
   tasks:
     - name: Upgrade all apt packages
