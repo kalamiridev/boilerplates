@@ -1,1 +1,1 @@
-sudo ansible -i hosts -m ping media --user root --ask-pass
+ansible -i inventory -m ping server
