@@ -1,0 +1,18 @@
+$TTL 2d
+
+$ORIGIN your.zone.
+@               IN      SOA     ns.your.zone. email.your.zone. (
+                                2023071300      ; serial
+                                12h             ; refresh
+                                15m             ; retry
+                                3w              ; expire
+                                2h              ; minimal llt
+                                )
+
+                IN      NS      ns.your.zone. 
+
+ns              IN      A       10.10.10.1
+
+;-- add dns record below
+
+dev             IN      A       10.10.10.1
