@@ -15,4 +15,4 @@ ns              IN      A       10.10.10.1
 
 ;-- add dns record below
 
-dev             IN      A       10.10.10.1
+srv1             IN      A       10.10.10.1
