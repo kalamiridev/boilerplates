@@ -13,7 +13,9 @@
 - add Dockers official GPG key
 
 `mkdir -p /etc/apt/keyrings`
+
 `curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg`
+
 `chmod a+r /etc/apt/keyrings/docker.gpg`
 
 - use the following command to set up the repository
@@ -25,6 +27,7 @@
 - install Docker Engine
 
 `apt-get update`
+
 `apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin`
 
 ## Uninstall Docker Engine
