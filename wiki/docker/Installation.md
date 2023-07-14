@@ -9,7 +9,7 @@
     curl \
     gnupg \
     lsb-release`
-    
+
 - add Dockers official GPG key
 
 `mkdir -p /etc/apt/keyrings`
@@ -34,4 +34,5 @@
 -  delete all images, containers, and volumes
 
 `rm -rf /var/lib/docker`
+
 `rm -rf /var/lib/containerd`
