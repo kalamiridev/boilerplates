@@ -1,7 +1,7 @@
-https://hub.docker.com/_/registry   
-https://docs.docker.com/registry    
+https://hub.docker.com/_/registry  
+https://docs.docker.com/registry  
 https://gabrieltanner.org/blog/docker-registry  
-https://www.blackvoid.club/private-docker-registry-with-portainer/
+https://www.blackvoid.club/private-docker-registry-with-portainer
 
 Docker Compose
 
