@@ -1,13 +1,9 @@
 
 version: '3.9'
-volumes:
-  data:
-   name: portainer_data
 services:
     portainer-ee:
         image: 'portainer/portainer-ee:latest'
         volumes:
-            - data:/data
             - /var/run/docker.sock:/var/run/docker.sock
         restart: always
         container_name: portainer
