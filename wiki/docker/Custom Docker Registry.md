@@ -9,21 +9,40 @@ Docker Compose
 
 Registry Commands
 
-`docker pull registry/image:version`
+```docker
+docker pull registry/image:version
+```
 
-`docker tag registry/image:version custom-registry-url/image:version`
+```docker
+docker tag registry/image:version custom-registry-url/image:version
+```
 
-`docker push custom-registry-url/image:version`
+```docker
+docker push custom-registry-url/image:version
+```
 
-`cd /var/lib/docker/volumes/registry_data/_data/docker/registry/v2/repositories`
+```bash
+cd /var/lib/docker/volumes/registry_data/_data/docker/registry/v2/repositories
+```
 
 ERROR: The push refers to repository [custom-registry-url/image:version]
 Get "custom-registry-url/image:version/v2/": http: server gave HTTP response to HTTPS client
 
 SOLUTION:
 
-`sudo nano /etc/docker/daemon.json`
+```bash
+sudo nano /etc/docker/daemon.json
+```
 
-`{ "insecure-registries":["custom-registry-url", "custom-registry-url2"] }`
 
+
+```json
+{ 
+    "insecure-registries":
+    [
+        "custom-registry-url", 
+        "custom-registry-url2"
+    ] 
+}
+```
 `sudo service docker restart`
