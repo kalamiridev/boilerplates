@@ -1,9 +1,13 @@
-https://hub.docker.com/_/registry
-https://docs.docker.com/registry/
-https://gabrieltanner.org/blog/docker-registry/
+https://hub.docker.com/_/registry   
+https://docs.docker.com/registry    
+https://gabrieltanner.org/blog/docker-registry  
 https://www.blackvoid.club/private-docker-registry-with-portainer/
 
-[docker-compose.yml](https://github.com/kalamiridev/boilerplates/blob/main/docker-compose/docker-registry/docker-compose.yml)
+Docker Compose
+
+[docker-registry/docker-compose.yml](https://github.com/kalamiridev/boilerplates/blob/main/docker-compose/docker-registry/docker-compose.yml)
+
+Registry Commands
 
 `docker pull registry/image:version`
 
@@ -18,8 +22,8 @@ Get "custom-registry-url/image:version/v2/": http: server gave HTTP response to 
 
 SOLUTION:
 
-`nano /etc/docker/daemon.json`
+`sudo nano /etc/docker/daemon.json`
 
 `{ "insecure-registries":["custom-registry-url", "custom-registry-url2"] }`
 
-`service docker restart`
+`sudo service docker restart`
