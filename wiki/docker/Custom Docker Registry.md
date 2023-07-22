@@ -34,8 +34,6 @@ SOLUTION:
 sudo nano /etc/docker/daemon.json
 ```
 
-
-
 ```json
 { 
     "insecure-registries":
@@ -45,6 +43,7 @@ sudo nano /etc/docker/daemon.json
     ] 
 }
 ```
+
 ```bash
 sudo service docker restart
 ```
