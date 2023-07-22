@@ -45,4 +45,6 @@ sudo nano /etc/docker/daemon.json
     ] 
 }
 ```
-`sudo service docker restart`
+```bash
+sudo service docker restart
+```
