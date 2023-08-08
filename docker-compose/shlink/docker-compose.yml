@@ -1,0 +1,58 @@
+version: "3.9"
+volumes:
+  data:
+    name: shlink-db_data
+services:
+  shlink-db:
+    image: postgres
+    container_name: shlink-db
+    hostname: shlink-db
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "shlink", "-U", "shlinkuser"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: shlink
+      POSTGRES_USER: shlinkuser
+      POSTGRES_PASSWORD: shlinkpw
+    restart: always
+
+  shlink:
+    image: shlinkio/shlink:stable
+    container_name: shlink
+    hostname: shlink
+    ports:
+      - 8335:8080
+    environment:
+      - TIMEZONE=Europe/Zagreb
+      - INITIAL_API_KEY=your-custom-apy-key
+      - DB_DRIVER=postgres
+      - DB_NAME=shlink
+      - DB_USER=shlinkuser
+      - DB_PASSWORD=shlinkpw
+      - DB_HOST=shlink-db
+      - DB_PORT=5432
+      - DEFAULT_DOMAIN=url.your-domain.com # external url of shlink container without https:// at the beginning
+      - IS_HTTPS_ENABLED=true
+      - GEOLITE_LICENSE_KEY=your-geolite-license-key
+    restart: always
+    depends_on:
+      shlink-db:
+        condition: service_started
+
+  shlink-web:
+    image: shlinkio/shlink-web-client:stable
+    container_name: shlink-web
+    hostname: shlink-web
+    ports:
+      - 8336:80
+    environment:
+      - SHLINK_SERVER_NAME=your-server-name
+      - SHLINK_SERVER_URL=https://url.your-domain.com # external url of shlink container with https:// at the beginning
+      - SHLINK_SERVER_API_KEY=your-custom-apy-key
+    restart: always
+    depends_on:
+      - shlink

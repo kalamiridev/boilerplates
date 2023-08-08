@@ -35,4 +35,5 @@ services:
       - ANSIBLE_HOST_KEY_CHECKING=false  # (optional) change to true if you want to enable host key checking
     restart: unless-stopped
     depends_on:
-      - mysql
+      mysql:
+        condition: service_started
