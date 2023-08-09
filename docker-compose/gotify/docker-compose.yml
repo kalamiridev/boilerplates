@@ -1,0 +1,18 @@
+version: '3.9'
+volumes:
+  data:
+    name: gotify_data
+services:
+  gotify:
+    image: ghcr.io/gotify/server:latest
+    container_name: gotify
+    ports:
+      - 6742:80
+    network_mode: bridge
+    volumes:
+      - data:/app/data
+    environment:
+      TZ: Europe/Zagreb
+      GOTIFY_DEFAULTUSER_NAME: yourusername
+      GOTIFY_DEFAULTUSER_PASS: yourpwd
+    restart: always

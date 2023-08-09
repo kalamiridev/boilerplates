@@ -1,12 +1,16 @@
 version: '3.3'
+volumes:
+  data:
+    name: speedtest_data
 services:
     speedtest:
+        image: henrywhitaker3/speedtest-tracker
         container_name: speedtest
         ports:
             - 8788:80
-        volumes: # NFS Directories
-            - /docker/speedtest:/config
         network_mode: bridge
+        volumes: # NFS Directories
+            - data:/config
         environment:
             - TZ=Europe/Zagreb
             - AUTH=true
@@ -16,5 +20,4 @@ services:
             options:
                 max-file: "10"
                 max-size: "200k"
-        restart: always
-        image: henrywhitaker3/speedtest-tracker
+        restart: always 

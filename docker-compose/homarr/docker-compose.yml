@@ -1,6 +1,7 @@
 version: '3.9'
 services:
     ajnart:
+        image: ghcr.io/ajnart/homarr:latest
         container_name: homarr
         ports:
             - 7575:7575
@@ -13,5 +14,4 @@ services:
             - DISABLE_EDIT_MODE=TRUE
             - EDIT_MODE_PASSWORD=yourpass
             #- PASSWORD=yourpass
-        image: ghcr.io/ajnart/homarr:latest
         restart: unless-stopped
