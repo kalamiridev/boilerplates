@@ -1,0 +1,18 @@
+version: '3.9'
+services:  
+  db:
+    container_name: postgresql
+    image: postgres
+    ports:
+      - 2665:5432
+    mem_limit: 256m
+    cpu_shares: 768
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "marius_DB", "-U", "root"]
+    environment:
+      POSTGRES_USER: postregresusr
+      POSTGRES_PASSWORD: postregrespwd
+      POSTGRES_DB: dbname
+    volumes:
+      - /etc/docker/postgresql:/var/lib/postgresql/data:rw
+    restart: always

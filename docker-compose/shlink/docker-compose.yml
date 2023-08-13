@@ -7,6 +7,8 @@ services:
     image: postgres
     container_name: shlink-db
     hostname: shlink-db
+    ports:
+      - 2665:5432
     healthcheck:
       test: ["CMD", "pg_isready", "-q", "-d", "shlink", "-U", "shlinkuser"]
       interval: 10s

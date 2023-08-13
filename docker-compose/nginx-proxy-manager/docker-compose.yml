@@ -8,12 +8,10 @@ services:
             - 8766:443
         network_mode: bridge
         environment:
-            - PUID=0
-            - PGID=0
             - TZ=Europe/Zagreb
         volumes:
-            - /etc/docker/npm/config.json:/app/config/production.json
-            - /etc/docker/npm/data:/data
-            - /etc/docker/npm/letsencrypt:/etc/letsencrypt
+            - /etc/docker/ngnx/config.json:/app/config/production.json
+            - /etc/docker/ngnx/data:/data
+            - /etc/docker/ngnx/letsencrypt:/etc/letsencrypt
         restart: always
         image: jc21/nginx-proxy-manager
