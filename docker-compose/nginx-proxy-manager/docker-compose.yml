@@ -1,17 +1,16 @@
 version: '3.3'
 services:
-    nginx-proxy-manager:
+    app:
+        image: jc21/nginx-proxy-manager
         container_name: nginx-proxy-manager
         ports:
-            - 8341:80
+            - 80:80
             - 81:81
-            - 8766:443
-        network_mode: bridge
+            - 443:443
         environment:
             - TZ=Europe/Zagreb
         volumes:
-            - /etc/docker/ngnx/config.json:/app/config/production.json
-            - /etc/docker/ngnx/data:/data
-            - /etc/docker/ngnx/letsencrypt:/etc/letsencrypt
+            - /etc/docker/ngnx-proxy-manager/config.json:/app/config/production.json
+            - /etc/docker/ngnx-proxy-manager/data:/data
+            - /etc/docker/ngnx-proxy-manager/letsencrypt:/etc/letsencrypt
         restart: always
-        image: jc21/nginx-proxy-manager
