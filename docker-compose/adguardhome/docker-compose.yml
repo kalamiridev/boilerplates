@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+    app:
+        image: adguard/adguardhome
+        container_name: adguard
+        ports:
+            - 53:53/udp
+            - 53:53/tcp
+            - 3000:3000/tcp
+        volumes:
+            - /etc/docker/adguard/config:/opt/adguardhome/conf
+            - /etc/docker/adguard/data:/opt/adguardhome/work
+        restart: always
