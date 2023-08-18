@@ -1,0 +1,372 @@
+{
+    "titlePrefix": "Kalamiri",
+    "title": "Dashboard",
+    "titleIcon": "fas fa-robot",
+    "theme": "auto",
+    "disableEdit": false,
+    "pages": {
+        "default": {
+            "title": "Infrastructure",
+            "slug": "default",
+            "icon": "fas fa-cloud",
+            "order": 0,
+            "items": [
+                {
+                    "title": "Network",
+                    "icon": "fas fa-cloud",
+                    "id": "group_1692186553469",
+                    "items": [
+                        {
+                            "title": "NAS",
+                            "href": "https://nas.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "dsm.jpg",
+                            "newWindow": true,
+                            "id": "link_001"
+                        },
+                        {
+                            "title": "Gateway",
+                            "href": "https://gateway.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "pfsense.png",
+                            "newWindow": true,
+                            "id": "link_1692268737972"
+                        },
+                        {
+                            "title": "Reverse Proxy",
+                            "href": "https://nginx.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "nginx.png",
+                            "newWindow": true,
+                            "id": "link_1692256578060"
+                        },
+                        {
+                            "title": "Switch",
+                            "href": "https://nsw.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "tp-link.png",
+                            "newWindow": true,
+                            "id": "link_1692269039094"
+                        }
+                    ]
+                },
+                {
+                    "title": "Proxmox",
+                    "icon": "fas fa-computer",
+                    "id": "group_1692195524818",
+                    "items": [
+                        {
+                            "title": "Yoda",
+                            "href": "https://yoda.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "proxmox.png",
+                            "newWindow": true,
+                            "id": "link_1692195524818"
+                        },
+                        {
+                            "title": "PVE",
+                            "href": "https://pve.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "proxmox.png",
+                            "newWindow": true,
+                            "id": "link_002"
+                        }
+                    ]
+                },
+                {
+                    "title": "Portainer",
+                    "icon": "fab fa-docker",
+                    "id": "group_1692194020864",
+                    "items": [
+                        {
+                            "title": "Media",
+                            "href": "https://portainer-media.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_004"
+                        },
+                        {
+                            "title": "Manager",
+                            "href": "https://portainer-manager.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_005"
+                        },
+                        {
+                            "title": "Security",
+                            "href": "https://portainer-security.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_006"
+                        },
+                        {
+                            "title": "Utility",
+                            "href": "https://portainer-utility.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_007"
+                        },
+                        {
+                            "title": "Dev",
+                            "href": "https://portainer-dev.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_008"
+                        },
+                        {
+                            "title": "Monitoring",
+                            "href": "https://portainer-monitoring.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_1692295051408"
+                        }
+                    ]
+                }
+            ],
+            "-1": {
+                "title": "Network",
+                "icon": "fas fa-cloud",
+                "id": "group_1692186553469",
+                "items": [
+                    {
+                        "title": "Synology NAS",
+                        "href": "https://nas.home.kalamiri.com",
+                        "icon": "",
+                        "iconColor": "",
+                        "subTitle": "",
+                        "image": "DSM.png",
+                        "newWindow": true,
+                        "id": "link_001"
+                    }
+                ]
+            }
+        },
+        "media": {
+            "title": "Media",
+            "slug": "media",
+            "icon": "fas fa-photo-film",
+            "order": 2,
+            "items": [
+                {
+                    "title": "Manager",
+                    "icon": "fas fa-file-video",
+                    "id": "group_1692194808073",
+                    "items": [
+                        {
+                            "title": "Sonarr",
+                            "href": "https://sonarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "sonarr.png",
+                            "newWindow": true,
+                            "id": "link_1692194808073"
+                        },
+                        {
+                            "title": "Radarr",
+                            "href": "https://radarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "radarr.png",
+                            "newWindow": true,
+                            "id": "link_013"
+                        },
+                        {
+                            "title": "Lidarr",
+                            "href": "https://lidarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "lidarr.png",
+                            "newWindow": true,
+                            "id": "link_014"
+                        },
+                        {
+                            "title": "Prowlarr",
+                            "href": "https://prowlarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "prowlarr.png",
+                            "newWindow": true,
+                            "id": "link_015"
+                        },
+                        {
+                            "title": "qBittorrent",
+                            "href": "https://qb.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "qbittorrent.png",
+                            "newWindow": true,
+                            "id": "link_016"
+                        }
+                    ]
+                },
+                {
+                    "title": "Media",
+                    "icon": "fas fa-photo-film",
+                    "id": "group_1692195073711",
+                    "items": [
+                        {
+                            "title": "Emby",
+                            "href": "https://emby.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "emby.png",
+                            "newWindow": true,
+                            "id": "link_1692195073711"
+                        },
+                        {
+                            "title": "Calibre web",
+                            "href": "https://eknjige.home.kalamiri.com",
+                            "icon": "fas fa-book-open",
+                            "iconColor": "",
+                            "subTitle": "ebook library",
+                            "image": "calibre.jpg",
+                            "newWindow": true,
+                            "id": "link_010"
+                        },
+                        {
+                            "title": "Kavita",
+                            "href": "https://stripovi.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "comic book library",
+                            "image": "kavita.png",
+                            "newWindow": true,
+                            "id": "link_1692188437360"
+                        },
+                        {
+                            "title": "Audiobookshelf",
+                            "href": "https://aknjige.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "audio book library",
+                            "image": "audiobookshelf.png",
+                            "newWindow": true,
+                            "id": "link_011"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tools": {
+            "title": "Tools",
+            "slug": "tools",
+            "icon": "fas fa-toolbox",
+            "order": 3,
+            "items": [
+                {
+                    "title": "Monitoring",
+                    "icon": "fas fa-chart-pie",
+                    "id": "group_1692195222739",
+                    "items": [
+                        {
+                            "title": "Grafana",
+                            "href": "https://grafana.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "grafana.png",
+                            "newWindow": true,
+                            "id": "link_1692195222739"
+                        },
+                        {
+                            "title": "Monitor",
+                            "href": "https://monitor.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "uptime-kuma.png",
+                            "newWindow": true,
+                            "id": "link_1692341205639"
+                        }
+                    ]
+                },
+                {
+                    "title": "Utility",
+                    "icon": "fas fa-screwdriver-wrench",
+                    "id": "group_1692195286309",
+                    "items": [
+                        {
+                            "title": "IT-Tools",
+                            "href": "https://it-tools.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "it-tools.png",
+                            "newWindow": true,
+                            "id": "link_1692195286309"
+                        },
+                        {
+                            "title": "Notification",
+                            "href": "https://gotify.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "gotify.png",
+                            "newWindow": true,
+                            "id": "link_1692342539766"
+                        },
+                        {
+                            "title": "Link Shortener",
+                            "href": "https://shlink.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "shlink.png",
+                            "newWindow": true,
+                            "id": "link_1692342583063"
+                        }
+                    ]
+                },
+                {
+                    "title": "Database",
+                    "icon": "fas fa-database",
+                    "id": "group_1692341486217",
+                    "items": [
+                        {
+                            "title": "Prometheus",
+                            "href": "https://prometheus.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "prometheus.png",
+                            "newWindow": true,
+                            "id": "link_1692341486217"
+                        },
+                        {
+                            "title": "InfluxDB",
+                            "href": "https://flux.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "influxdb.png",
+                            "newWindow": true,
+                            "id": "link_1692341719460"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
