@@ -1,14 +1,20 @@
 version: '3.9'
+volumes:
+  data:
+    name: plex_data
 services:
     app:
-        image: ghcr.io/linuxserver/plex
+        image: linuxserver/plex
         container_name: plex
         network_mode: host
         volumes:
             - /media/movies/igrani:/movies
+            - /media/movies/dokumentarni:/documentaries
+            - /media/movies/animirani:/cartoons
             - /media/tvshows:/tv
-            - /etc/docker/plex:/config
+            - /media/music:/music
+            - data:/config
         environment:
             - VERSION=docker
             - TZ=Europe/Zagreb
-        restart: always
+        restart: unless-stopped
