@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+    app:
+        image: ghcr.io/linuxserver/plex
+        container_name: plex
+        network_mode: host
+        volumes:
+            - /media/movies/igrani:/movies
+            - /media/tvshows:/tv
+            - /etc/docker/plex:/config
+        environment:
+            - VERSION=docker
+            - TZ=Europe/Zagreb
+        restart: always
