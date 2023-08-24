@@ -24,5 +24,6 @@ services:
             - /volume1/media/music:/music
             - /volume1/media/metube:/metube
             - /volume1/media/razno:/razno
+            - /volume1/backup/emby:/backup
         restart: always
         image: emby/embyserver
