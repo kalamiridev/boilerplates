@@ -3,7 +3,7 @@ volumes:
   data:
     name: shlink-db_data
 services:
-  shlink-db:
+  db:
     image: postgres
     container_name: shlink-db
     hostname: shlink-db
@@ -22,7 +22,7 @@ services:
       POSTGRES_PASSWORD: shlinkpw
     restart: always
 
-  shlink:
+  app:
     image: shlinkio/shlink:stable
     container_name: shlink
     hostname: shlink
@@ -45,7 +45,7 @@ services:
       shlink-db:
         condition: service_started
 
-  shlink-web:
+  web:
     image: shlinkio/shlink-web-client:stable
     container_name: shlink-web
     hostname: shlink-web

@@ -20,17 +20,21 @@ provider "proxmox" {
 }
 
 # Proxmox Full-Clone from Template
-resource "proxmox_lxc" "debian" {
+resource "proxmox_lxc" "new_ct" {
     # Clone VM Template
-    target_node = "yoda"
-    hostname = "debian-1"
+    target_node = var.proxmox_node
+    hostname = var.proxmox_host_name
+    description = "Debian 12 Bookworm (CT)"
     ostemplate = "backup:vztmpl/debian-12-standard_12.0-1_amd64.tar.zst"
-    password = "testera"
+    password =  var.machine_password
     unprivileged = true
-    vmid = "242"
+    vmid = var.proxmox_vmid
     onboot = true
-
+    cores = 1
+    memory = "512"
+    swap = "512"
     force = true
+    start = true
 
     features {
         nesting = true
@@ -44,15 +48,8 @@ resource "proxmox_lxc" "debian" {
     network {
         name = "eth0"
         bridge = "vmbr0"
-        ip = "192.168.99.242/24"
+        ip = "192.168.99.${ var.proxmox_vmid }/24"
         gw = "192.168.99.1"
-        ip6 = "auto"
         firewall = false
     }
-    
-    # (Optional) Add your SSH KEY
-    # sshkeys = <<EOF
-    # #YOUR-PUBLIC-SSH-KEY
-    # EOF
 }
-
