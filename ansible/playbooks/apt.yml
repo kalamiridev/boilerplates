@@ -1,19 +1,11 @@
-- name: update machine
+- name: Update linux machines
   hosts: all
   become: true
   tasks:
     - name: Upgrade all apt packages
       apt:
         update_cache: yes
-        upgrade: 'full'
-
-    - name: Remove useless packages from the cache
-      apt:
-        autoclean: yes
-
-    - name: Remove dependencies that are no longer required
-      apt:
-        autoremove: yes
+        upgrade: 'yes'
 
     - name: Check if Reboot is required
       become: true

@@ -1,1 +1,0 @@
-ansible -i inventory -m ping server
