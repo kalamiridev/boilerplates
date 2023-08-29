@@ -9,17 +9,15 @@
           - ca-certificates
           - curl
           - gnupg
-          - lsb-release
         update_cache: yes
-    - name: add docker gpg key
+    - name: Add Docker GPG apt Key
       apt_key:
         url: https://download.docker.com/linux/debian/gpg
         state: present
-        keyring: /etc/apt/keyrings/docker.gpg
-    - name: add docker repository
+
+    - name: Add Docker Repository
       apt_repository:
-        filename: docker 
-        repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian {{ ansible_lsb.codename | lower }} stable
+        repo: deb https://download.docker.com/linux/debian focal stable
         state: present
     - name: install docker engine
       apt:
