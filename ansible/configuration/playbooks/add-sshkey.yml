@@ -4,9 +4,9 @@
   tasks:
   - name: install public keys
     ansible.posix.authorized_key:
-      user: "{{ lookup('env','USER') }}"
+      user: "{{ user }}"
       state: present
-      key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+      key: "{{ ssh-key }}"
   - name: change sudoers file
     lineinfile:
       path: /etc/sudoers
