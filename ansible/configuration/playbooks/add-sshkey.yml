@@ -4,6 +4,7 @@
   tasks:
   - name: install public keys
     ansible.posix.authorized_key:
+      user: "{{ user }}"
       state: present
       key: "{{ ssh_key }}"
   - name: change sudoers file
