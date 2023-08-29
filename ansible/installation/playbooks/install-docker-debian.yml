@@ -10,15 +10,13 @@
           - curl
           - gnupg
         update_cache: yes
-    - name: add docker gpg key
+    - name: Add Docker GPG key
       apt_key:
         url: https://download.docker.com/linux/debian/gpg
         state: present
-        keyring: /etc/apt/keyrings/docker.gpg
-    - name: add docker repository
+    - name: Add Docker repository
       apt_repository:
-        filename: docker 
-        repo: deb [arch=amd64 signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian {{ ansible_lsb.codename | lower }} stable
+        repo: deb [arch=amd64] https://download.docker.com/linux/debian bookworm stable
         state: present
     - name: install docker engine
       apt:
