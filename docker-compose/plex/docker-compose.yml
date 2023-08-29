@@ -17,4 +17,6 @@ services:
         environment:
             - VERSION=docker
             - TZ=Europe/Zagreb
+        devices:
+            - /dev/dri:/dev/dri
         restart: unless-stopped
