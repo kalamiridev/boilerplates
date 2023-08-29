@@ -13,10 +13,10 @@
       volumes:
         - /var/run/docker.sock:/var/run/docker.sock
       env:
-        TZ: Europe/Zagreb
-        WATCHTOWER_CLEANUP: true #Removes old images after updating
-        WATCHTOWER_INCLUDE_STOPPED: true #Will also include created and exited containers
-        WATCHTOWER_INCLUDE_RESTARTING: true #Will also include restarting containers.
-        WATCHTOWER_ROLLING_RESTART: true #Restart one image at time instead of stopping and starting all at once
+        TZ: "Europe/Zagreb"
+        WATCHTOWER_CLEANUP: "true" 
+        WATCHTOWER_INCLUDE_STOPPED: "true" 
+        WATCHTOWER_INCLUDE_RESTARTING: "true"
+        WATCHTOWER_ROLLING_RESTART: "true"
       restart_policy: always
     
