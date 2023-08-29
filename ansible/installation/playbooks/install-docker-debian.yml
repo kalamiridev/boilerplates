@@ -1,9 +1,9 @@
 ---
-- name: install docker
+- name: Install docker
   hosts: all
   become: true
   tasks:
-    - name: install docker dependencies
+    - name: Install docker dependencies
       apt:
         name:
           - ca-certificates
@@ -18,7 +18,7 @@
       apt_repository:
         repo: deb [arch=amd64] https://download.docker.com/linux/debian bookworm stable
         state: present
-    - name: install docker engine
+    - name: Install docker engine
       apt:
         name:
           - docker-ce

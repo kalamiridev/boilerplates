@@ -6,7 +6,7 @@
   - name: Create new volume
     community.docker.docker_volume:
       name: portainer-data
-  - name: Deploy portainer
+  - name: Deploy Portainer
     community.docker.docker_container:
       name: portainer
       image: "docker.io/portainer/portainer-ce"
