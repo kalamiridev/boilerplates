@@ -52,4 +52,10 @@ resource "proxmox_lxc" "new_ct" {
         gw = "192.168.99.1"
         firewall = false
     }
+
+     lifecycle {
+     ignore_changes = [
+       network
+     ]
+    }
 }
