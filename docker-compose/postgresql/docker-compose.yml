@@ -3,16 +3,10 @@ services:
   db:
     container_name: postgresql
     image: postgres
-    ports:
-      - 2665:5432
-    mem_limit: 256m
-    cpu_shares: 768
-    healthcheck:
-      test: ["CMD", "pg_isready", "-q", "-d", "dbname", "-U", "root"]
     environment:
-      POSTGRES_USER: postregresusr
-      POSTGRES_PASSWORD: postregrespwd
-      POSTGRES_DB: dbname
+      POSTGRES_USER: your-user
+      POSTGRES_PASSWORD: your-password
     volumes:
       - /etc/docker/postgresql:/var/lib/postgresql/data:rw
+    network_mode: host
     restart: always
