@@ -1,0 +1,6 @@
+- name: Update linux machines
+  hosts: all
+  become: true
+  tasks:
+
+sudo rm -rf /var/lib/apt/lists/*
