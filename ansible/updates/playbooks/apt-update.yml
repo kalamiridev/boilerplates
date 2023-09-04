@@ -13,7 +13,10 @@
         upgrade: full 
         force_apt_get: yes
 
-    - name: Check if a reboot is needed
+
+    - name: Check if Reboot is required
+      stat:
+        path: /var/run/reboot-required
       register: reboot_required
       stat: 
         path: /var/run/reboot-required 
