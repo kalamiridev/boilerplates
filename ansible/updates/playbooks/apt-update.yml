@@ -8,11 +8,6 @@
         force_apt_get: yes 
         cache_valid_time: 3600
 
-    - name: Remove apt lock file
-      file:
-        state: absent
-        path: "/var/lib/dpkg/lock"
-
     - name: Upgrade all apt packages
       apt: 
         upgrade: full 
