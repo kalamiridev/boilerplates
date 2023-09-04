@@ -11,7 +11,7 @@
 
     - name: Upgrade all packages on servers
       apt:
-      upgrade: 'yes'
+        upgrade: 'yes'
 
     - name: Check if Reboot is required
       become: true
