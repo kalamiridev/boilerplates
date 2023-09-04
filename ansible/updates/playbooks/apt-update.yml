@@ -6,7 +6,12 @@
     - name: Upgrade all apt packages
       apt:
         update_cache: yes
-        upgrade: 'yes'
+        autoremove: true
+        autoclean: true
+
+    - name: Upgrade all packages on servers
+      apt:
+      upgrade: 'yes'
 
     - name: Check if Reboot is required
       become: true
