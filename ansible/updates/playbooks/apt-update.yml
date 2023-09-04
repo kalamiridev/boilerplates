@@ -10,8 +10,9 @@
 
     - name: Upgrade all apt packages
       apt: 
-        upgrade: dist 
+        upgrade: full 
         force_apt_get: yes
+
     - name: Check if a reboot is needed
       register: reboot_required
       stat: 
