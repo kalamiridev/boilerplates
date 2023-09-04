@@ -2,16 +2,10 @@
   hosts: all
   become: true
   tasks:
-    - name: create /var/lib/apt/lists/
-      file:
-        path: /var/lib/apt/lists/
-        state: directory
-        mode: '0755'
-        check_mode: no
     - name: Upgrade all apt packages
       apt:
         update_cache: yes
-        upgrade: 'yes'
+        upgrade: 'full'
 
     - name: Check if Reboot is required
       become: true
