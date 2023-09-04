@@ -5,6 +5,13 @@
     - name: Update repositories cache
       apt:
         update_cache: yes
+        autoclean: true
+        autoremove: true
+
+    - name: Clean and remove unused dependency packages
+      apt:
+        autoclean: true
+        autoremove: true
         
     - name: Upgrade all packages
       apt:
