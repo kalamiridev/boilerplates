@@ -8,15 +8,17 @@
         force_apt_get: yes 
         cache_valid_time: 3600
 
+    - name: Remove apt lock file
+      file:
+        state: absent
+        path: "/var/lib/dpkg/lock"
+
     - name: Upgrade all apt packages
       apt: 
         upgrade: full 
         force_apt_get: yes
 
-
     - name: Check if Reboot is required
-      stat:
-        path: /var/run/reboot-required
       register: reboot_required
       stat: 
         path: /var/run/reboot-required 
