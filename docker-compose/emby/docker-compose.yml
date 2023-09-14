@@ -15,8 +15,8 @@ services:
         devices:
             - /dev/dri:/dev/dri
         environment:
-            - UID=1026
-            - GID=101
+            - UID=0
+            - GID=0
             - TZ=Europe/Zagreb
         volumes:
             - data:/config
