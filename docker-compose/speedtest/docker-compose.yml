@@ -1,23 +1,24 @@
-version: '3.3'
+version: '3.9'
 volumes:
   data:
     name: speedtest_data
 services:
-    speedtest:
-        image: henrywhitaker3/speedtest-tracker
-        container_name: speedtest
+    speedtest-tracker:
+        image: ghcr.io/alexjustesen/speedtest-tracker:latest
+        container_name: speedtest-tracker
+        healthcheck:
+         test: curl -f http://localhost:80/ || exit 1
         ports:
-            - 8788:80
+            - 8999:80
+            - 8995:9000
         network_mode: bridge
-        volumes: # NFS Directories
-            - data:/config
         environment:
-            - TZ=Europe/Zagreb
-            - AUTH=true
-            - OOKLA_EULA_GDPR=true
-        logging:
-            driver: "json-file"
-            options:
-                max-file: "10"
-                max-size: "200k"
-        restart: always 
+             DB_CONNECTION: pgsql
+             DB_HOST: your-db-host
+             DB_PORT: 5432
+             DB_DATABASE: speedtest_tracker
+             DB_USERNAME: your-db-user-name
+             DB_PASSWORD: your-db-pass
+        volumes:
+            - data:/config
+        restart: always
