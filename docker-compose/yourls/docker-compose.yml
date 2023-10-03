@@ -1,0 +1,37 @@
+version: '3.1'
+volumes:
+  data:
+    name: yourls_db_data
+
+services:
+  yourls:
+    image: yourls
+    container_name: yourls
+    ports:
+      - 8098:80
+    environment:
+      YOURLS_DB_HOST: mysql-db
+      YOURLS_DB_PASS: your-db-pass
+      YOURLS_SITE: https://yourls.kalamiri.dev
+      YOURLS_USER: your-user
+      YOURLS_PASS: your-pass
+    links: 
+      - mysql-db
+    depends_on:
+      mysql-db:
+        condition: service_started
+    restart: always
+
+  mysql-db:
+    image: mysql
+    container_name: yourls-db
+    environment:
+      MYSQL_ROOT_PASSWORD: your-root-pass
+      MYSQL_DATABASE: yourls
+      MYSQL_USER: your-user
+      MYSQL_PASSWORD: your-pass
+    volumes:
+      - data:/var/lib/mysql
+    network_mode: yourls_default
+    restart: always
+  
