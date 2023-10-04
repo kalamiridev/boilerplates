@@ -13,6 +13,6 @@ services:
       - data:/app/data
     environment:
       TZ: Europe/Zagreb
-      GOTIFY_DEFAULTUSER_NAME: yourusername
-      GOTIFY_DEFAULTUSER_PASS: yourpwd
+      GOTIFY_DEFAULTUSER_NAME: username
+      GOTIFY_DEFAULTUSER_PASS: changeme
     restart: always
