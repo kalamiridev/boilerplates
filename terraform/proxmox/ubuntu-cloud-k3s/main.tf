@@ -20,8 +20,8 @@ provider "proxmox" {
 }
 
 resource "proxmox_vm_qemu" "k3s" {
-  count = 4
-  name = "k3s-0${count.index + 1}"
+  count = 3
+  name = "docker-node-0${count.index + 1}"
   target_node = var.proxmox_node
   vmid = "30${count.index + 1}"
   clone = "ubuntu-cloud"
