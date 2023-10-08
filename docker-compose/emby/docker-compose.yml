@@ -1,7 +1,4 @@
 version: '3.3'
-volumes:
-  data:
-    name: emby_data
 services:
     app:
         container_name: emby
@@ -11,15 +8,23 @@ services:
             - 7359:7359
             - 8096:8096
             - 8920:8920
-        network_mode: bridge
+        deploy: # If using Docker Swarm
+            restart_policy:
+                condition: any
+            mode: replicated
+            replicas: 5
+            placement:
+                constraints: [node.role == worker]
+            update_config:
+                delay: 2s
         devices:
             - /dev/dri:/dev/dri
         environment:
-            - UID=0
-            - GID=0
+            - UID=1026
+            - GID=100
             - TZ=Europe/Zagreb
         volumes:
-            - data:/config
+            - /docker/emby:/config
             - /media/movies/animirani:/animirani
             - /media/movies/dokumentarni:/dokumentarni
             - /media/movies/igrani:/movies
@@ -29,4 +34,3 @@ services:
             - /media/razno:/razno
             - /backup/emby:/backup
         restart: always
-        
