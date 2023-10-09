@@ -6,9 +6,12 @@
     - name: Install docker dependencies
       apt:
         name:
-          - ca-certificates
-          - curl
-          - gnupg
+          - lsb-release 
+          - gnupg2 
+          - apt-transport-https 
+          - ca-certificates 
+          - curl 
+          - software-properties-common
         update_cache: yes
     - name: Add Docker GPG key
       apt_key:
@@ -21,10 +24,8 @@
     - name: Install docker engine
       apt:
         name:
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io
-          - docker-buildx-plugin
+          - docker-ce 
+          - docker-ce-cli 
+          - containerd.io 
           - docker-compose-plugin
-          - python3-docker
         update_cache: yes
