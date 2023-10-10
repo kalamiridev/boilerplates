@@ -1,4 +1,4 @@
-- name: Install qemu-guest-agent
+- name: Install qemu-guest-agent and start service
   hosts: all
   become: true
   tasks:
@@ -6,8 +6,17 @@
       apt:
         update_cache: yes
         upgrade: 'yes'
-    - name: install qemu-guest-agent
+    - name: Install qemu-guest-agent
       apt:
         name: qemu-guest-agent
         state: present
         update_cache: true
+    - name: Enable service qemu-guest-agent and ensure it is not masked
+      systemd:
+        name: qemu-guest-agent
+        enabled: yes
+        masked: no
+    - name: Make sure a service is running
+      systemd:
+        state: started
+        name: httpd
