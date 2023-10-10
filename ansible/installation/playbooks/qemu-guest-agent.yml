@@ -15,4 +15,3 @@
       service:
         name: qemu-guest-agent
         state: started
-      become: true 
