@@ -2,10 +2,6 @@
   hosts: all
   become: true
   tasks:
-    - name: apt
-      apt:
-        update_cache: yes
-        upgrade: 'yes'
     - name: Install qemu-guest-agent
       apt:
         name: qemu-guest-agent
