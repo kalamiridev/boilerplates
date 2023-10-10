@@ -11,7 +11,8 @@
       service:
         name: qemu-guest-agent
         enabled: yes
-    - name: Reload service httpd, in all cases
+    - name: Start service, if not started
       service:
-        name: httpd
-        state: reloaded
+        name: qemu-guest-agent
+        state: started
+        
