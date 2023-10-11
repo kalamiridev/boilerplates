@@ -1,0 +1,20 @@
+- name: Install main packages and services
+  hosts: all
+  become: true
+  tasks:
+    - name: Install packages
+      apt:
+        name: 
+          - qemu-guest-agent
+          - nfs-common 
+          - nfs-kernel-server
+        state: present
+        update_cache: true
+    - name: Enable qemu-guest-agent service, and not touch the state
+      service:
+        name: qemu-guest-agent
+        enabled: yes
+    - name: Start qemu-guest-agent service, if not started
+      service:
+        name: qemu-guest-agent
+        state: started
