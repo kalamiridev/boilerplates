@@ -1,13 +1,14 @@
 
 version: '3.9'
 services:
-    portainer-ee:
+    app:
         image: 'portainer/portainer-ee:latest'
-        volumes:
-            - /var/run/docker.sock:/var/run/docker.sock
-        restart: always
         container_name: portainer
+        volumes:
+            - /etc/docker/portainer:/data
+            - /var/run/docker.sock:/var/run/docker.sock
         ports:
             - 9000:9000
             - 8000:8000
         network_mode: bridge
+        restart: always
