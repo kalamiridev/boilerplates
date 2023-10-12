@@ -1,1 +1,663 @@
-{"titlePrefix":"Kalamiri","title":"Dashboard","titleIcon":"fas fa-robot","theme":"dark","disableEdit":false,"pages":{"tools":{"title":"Tools","slug":"tools","icon":"fas fa-toolbox","order":"4","items":[{"title":"Monitoring","icon":"fas fa-chart-pie","id":"group_1692195222739","items":[{"title":"Grafana","href":"https://grafana.home.kalamiri.com","icon":"","iconColor":"","image":"grafana.png","newWindow":true,"id":"link_1692195222739"},{"title":"Monitor","href":"https://monitor.home.kalamiri.com","icon":"","iconColor":"","image":"uptime-kuma.png","newWindow":true,"id":"link_1692341205639"}]},{"title":"Utility","icon":"fas fa-screwdriver-wrench","id":"group_1692195286309","items":[{"title":"IT-Tools","href":"https://it-tools.home.kalamiri.com","icon":"","iconColor":"","image":"it-tools.png","newWindow":true,"id":"link_1692195286309"},{"title":"Notification","href":"https://gotify.home.kalamiri.com","icon":"","iconColor":"","image":"gotify.png","newWindow":true,"id":"link_1692342539766"},{"title":"Link Shortener","href":"https://shlink.home.kalamiri.com","icon":"","iconColor":"","image":"shlink.png","newWindow":true,"id":"link_1692342583063"}]},{"title":"Database","icon":"fas fa-database","id":"group_1692341486217","items":[{"title":"Prometheus","href":"https://prometheus.home.kalamiri.com","icon":"","iconColor":"","image":"prometheus.png","newWindow":true,"id":"link_1692341486217"},{"title":"InfluxDB","href":"https://flux.home.kalamiri.com/","icon":"","iconColor":"","image":"influxdb.png","newWindow":true,"id":"link_1692341719460"}]},{"title":"Code","icon":"fas fa-code","id":"group_1693041333354","items":[{"title":"Ansible Semaphore","href":"https://semaphore.home.kalamiri.com","icon":"","iconColor":"","image":"semaphore.png","newWindow":true,"id":"link_1693041333354"}]}]},"bookmarks":{"title":"Bookmarks","slug":"bookmarks","icon":"fas fa-link","order":4,"items":[{"title":"Development","icon":"fas fa-code","id":"group_1692624556959","items":[{"title":"Github","href":"https://github.com","icon":"fab fa-github","iconColor":"","image":"","newWindow":true,"id":"link_1692624482518"},{"title":"Dockerhub","href":"https://hub.docker.com","icon":"fab fa-docker","iconColor":"","image":"","newWindow":true,"id":"link_1692624556959"},{"title":"Cloudflare","href":"https://dash.cloudflare.com","icon":"fab fa-cloudflare","iconColor":"","image":"","newWindow":true,"id":"link_1692624740960"},{"title":"Regica","href":"https://www.regica.net","icon":"fas fa-link","iconColor":"","image":"","newWindow":true,"id":"link_1692625275404"},{"title":"Marius Hosting","href":"https://mariushosting.com/docker/","icon":"fab fa-docker","iconColor":"","image":"","newWindow":true,"id":"link_1692627014315"}]},{"title":"Admin","icon":"fas fa-barcode","id":"group_1692625482939","items":[{"title":"Telemach","href":"https://telemach.hr/account/signin","icon":"fas fa-mobile","iconColor":"","image":"","newWindow":true,"id":"link_1692625482939"},{"title":"Moj EON","href":"https://mojeon.hr/login","icon":"fas fa-tv","iconColor":"","image":"","newWindow":true,"id":"link_1692625545119"}]},{"title":"Invest","icon":"fas fa-money-bill","id":"group_1692626236703","items":[{"title":"Tradingview","href":"https://www.tradingview.com","icon":"fas fa-chart-line","iconColor":"","image":"","newWindow":true,"id":"link_1692626236703"},{"title":"Banka zlata","href":"https://www.centarzlata.com","icon":"fas fa-coins","iconColor":"","image":"","newWindow":true,"id":"link_1692626369825"},{"title":"Binance","href":"https://accounts.binance.com/en/login","icon":"fas fa-bitcoin-sign","iconColor":"","image":"","newWindow":true,"id":"link_1692626491347"}]}],"-1":{"title":"Admin","icon":"fas fa-barcode","id":"group_1692625482939","items":[{"title":"Telemach","href":"https://telemach.hr/account/signin","icon":"fas fa-mobile","iconColor":"","image":"","newWindow":true,"id":"link_1692625482939"},{"title":"Moj EON","href":"https://mojeon.hr/login","icon":"fas fa-tv","iconColor":"","image":"","newWindow":true,"id":"link_1692625545119"}]}},"default":{"title":"Infrastructure","slug":"default","icon":"fas fa-network-wired","order":0,"items":[{"title":"Home Network","icon":"fas fa-ethernet","id":"group_1692186553469","items":[{"title":"Router ISP","href":"https://router.home.kalamiri.com","icon":"fr","iconColor":"","image":"fritz-box.png","newWindow":true,"id":"link_1692878523369"},{"title":"Router Home","href":"https://gateway.home.kalamiri.com","icon":"","iconColor":"","image":"pfsense.png","newWindow":true,"id":"link_1692268737972"},{"title":"Switch","href":"https://nsw.home.kalamiri.com","icon":"","iconColor":"","image":"tp-link.png","newWindow":true,"id":"link_1692269039094"},{"title":"Hypervisor","href":"https://yoda.home.kalamiri.com","icon":"","iconColor":"","image":"proxmox.png","newWindow":true,"id":"link_1692195524818"},{"title":"Reverse Proxy","href":"https://nginx.home.kalamiri.com","icon":"","iconColor":"","image":"nginx.png","newWindow":true,"id":"link_1692256578060"}]},{"title":"Synology NAS","icon":"fas fa-cloud","id":"group_1692884927720","items":[{"title":"DSM","href":"https://nas.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"synology-dsm.png","newWindow":true,"id":"link_001"},{"title":"Drive","href":"https://drive.home.kalamiri.com","icon":"","iconColor":"","image":"synology-drive.png","newWindow":true,"id":"link_1692352039826"},{"title":"Photos","href":"https://photos.home.kalamiri.com","icon":"","iconColor":"","image":"synology-photos.png","newWindow":true,"id":"link_1692887087466"},{"title":"Backup","href":"https://backup.home.kalamiri.com","icon":"","iconColor":"","image":"synology-active-backup-for-business.png","newWindow":true,"id":"link_1692885927244"}]},{"title":"Docker","icon":"fab fa-docker","id":"group_1692194020864","items":[{"title":"Media","href":"https://portainer-media.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"portainer.png","newWindow":true,"id":"link_004"},{"title":"Manager","href":"https://portainer-manager.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"portainer.png","newWindow":true,"id":"link_005"},{"title":"Utility","href":"https://portainer-utility.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"portainer.png","newWindow":true,"id":"link_007"},{"title":"Dev","href":"https://portainer-dev.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"portainer.png","newWindow":true,"id":"link_008"}]}]},"media":{"title":"Multimedia","slug":"media","icon":"fas fa-photo-film","order":2,"items":[{"title":"Media","icon":"fas fa-photo-film","id":"group_1692195073711","items":[{"title":"Emby","href":"https://emby.home.kalamiri.com","icon":"","iconColor":"","image":"emby.png","newWindow":true,"id":"link_1692195073711"},{"title":"Photos","href":"https://photos.home.kalamiri.com","icon":"","iconColor":"","image":"synology-photos.png","newWindow":true,"id":"link_1692887021831"},{"title":"Calibre web","href":"https://eknjige.home.kalamiri.com","icon":"fas fa-book-open","iconColor":"","subTitle":"ebook library","image":"calibre.jpg","newWindow":true,"id":"link_010"},{"title":"Kavita","href":"https://stripovi.home.kalamiri.com","icon":"","iconColor":"","subTitle":"comic book library","image":"kavita.png","newWindow":true,"id":"link_1692188437360"},{"title":"Audiobookshelf","href":"https://aknjige.home.kalamiri.com","icon":"","iconColor":"","subTitle":"audio book library","image":"audiobookshelf.png","newWindow":true,"id":"link_011"}]},{"title":"Manager","icon":"fas fa-cloud-arrow-down","id":"group_1692194808073","items":[{"title":"Sonarr","href":"https://sonarr.home.kalamiri.com","icon":"","iconColor":"","image":"sonarr.png","newWindow":true,"id":"link_1692194808073"},{"title":"Radarr","href":"https://radarr.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"radarr.png","newWindow":true,"id":"link_013"},{"title":"Lidarr","href":"https://lidarr.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"lidarr.png","newWindow":true,"id":"link_014"},{"title":"Prowlarr","href":"https://prowlarr.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"prowlarr.png","newWindow":true,"id":"link_015"},{"title":"qBittorrent","href":"https://qb.home.kalamiri.com","icon":"","iconColor":"","subTitle":"","image":"qbittorrent.png","newWindow":true,"id":"link_016"}]}]}}}
+{
+    "titlePrefix": "Kalamiri",
+    "title": "Dashboard",
+    "titleIcon": "fas fa-robot",
+    "theme": "dark",
+    "disableEdit": false,
+    "pages": {
+        "tools": {
+            "title": "Tools",
+            "slug": "tools",
+            "icon": "fas fa-toolbox",
+            "order": "4",
+            "items": [
+                {
+                    "title": "Monitoring",
+                    "icon": "fas fa-chart-pie",
+                    "id": "group_1692195222739",
+                    "items": [
+                        {
+                            "title": "Grafana",
+                            "href": "https://grafana.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "grafana.png",
+                            "newWindow": true,
+                            "id": "link_1692195222739"
+                        },
+                        {
+                            "title": "Monitor",
+                            "href": "https://monitor.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "uptime-kuma.png",
+                            "newWindow": true,
+                            "id": "link_1692341205639"
+                        },
+                        {
+                            "title": "SpeedTest",
+                            "href": "https://speedtest.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "speedtest-tracker.png",
+                            "newWindow": true,
+                            "id": "link_1695991388898"
+                        }
+                    ]
+                },
+                {
+                    "title": "Database",
+                    "icon": "fas fa-database",
+                    "id": "group_1692341486217",
+                    "items": [
+                        {
+                            "title": "Prometheus",
+                            "href": "https://prometheus.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "prometheus.png",
+                            "newWindow": true,
+                            "id": "link_1692341486217"
+                        },
+                        {
+                            "title": "InfluxDB",
+                            "href": "https://flux.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "influxdb.png",
+                            "newWindow": true,
+                            "id": "link_1692341719460"
+                        }
+                    ]
+                },
+                {
+                    "title": "Code",
+                    "icon": "fas fa-code",
+                    "id": "group_1693041333354",
+                    "items": [
+                        {
+                            "title": "Ansible Semaphore",
+                            "href": "https://semaphore.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "semaphore.png",
+                            "newWindow": true,
+                            "id": "link_1693041333354"
+                        },
+                        {
+                            "title": "Docker Registry UI",
+                            "href": "https://docker-registry.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "docker-container-registry.png",
+                            "newWindow": true,
+                            "id": "link_1693403908020"
+                        }
+                    ]
+                },
+                {
+                    "title": "Utility",
+                    "icon": "fas fa-screwdriver-wrench",
+                    "id": "group_1692195286309",
+                    "items": [
+                        {
+                            "title": "IT-Tools",
+                            "href": "https://it-tools.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "it-tools.png",
+                            "newWindow": true,
+                            "id": "link_1692195286309"
+                        },
+                        {
+                            "title": "Web Check",
+                            "href": "https://web-check.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "web-check.png",
+                            "newWindow": true,
+                            "id": "link_1696612254804"
+                        },
+                        {
+                            "title": "Link Shortener",
+                            "href": "https://shlink.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "shlink.png",
+                            "newWindow": true,
+                            "id": "link_1692342583063"
+                        },
+                        {
+                            "title": "Yourls",
+                            "href": "https://yourls.kalamiri.dev/admin",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "yourls.png",
+                            "newWindow": true,
+                            "id": "link_1696332908644"
+                        }
+                    ]
+                },
+                {
+                    "title": "Notification",
+                    "icon": "fas fa-envelopes-bulk",
+                    "id": "group_1697114156742",
+                    "items": [
+                        {
+                            "title": "Telegram",
+                            "href": "https://web.telegram.org/a/",
+                            "icon": "fab fa-telegram",
+                            "iconColor": "",
+                            "image": "telegram.png",
+                            "newWindow": true,
+                            "id": "link_1697114156742"
+                        },
+                        {
+                            "title": "Notification",
+                            "href": "https://gotify.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "gotify.png",
+                            "newWindow": true,
+                            "id": "link_1692342539766"
+                        }
+                    ]
+                }
+            ],
+            "-1": {
+                "title": "Notification",
+                "icon": "fas fa-envelopes-bulk",
+                "id": "group_1697114156742",
+                "items": [
+                    {
+                        "title": "Telegram",
+                        "href": "https://web.telegram.org/a/",
+                        "icon": "fab fa-telegram",
+                        "iconColor": "",
+                        "image": "",
+                        "newWindow": true,
+                        "id": "link_1697114156742"
+                    },
+                    {
+                        "title": "Notification",
+                        "href": "https://gotify.home.kalamiri.com",
+                        "icon": "",
+                        "iconColor": "",
+                        "image": "gotify.png",
+                        "newWindow": true,
+                        "id": "link_1692342539766"
+                    }
+                ]
+            }
+        },
+        "bookmarks": {
+            "title": "Bookmarks",
+            "slug": "bookmarks",
+            "icon": "fas fa-link",
+            "order": 4,
+            "items": [
+                {
+                    "title": "Services",
+                    "icon": "fas fa-cloud",
+                    "id": "group_1695736315415",
+                    "items": [
+                        {
+                            "title": "Cloudflare",
+                            "href": "https://dash.cloudflare.com",
+                            "icon": "fab fa-cloudflare",
+                            "iconColor": "",
+                            "image": "cloudflare.png",
+                            "newWindow": true,
+                            "id": "link_1692624740960"
+                        },
+                        {
+                            "title": "Twingate",
+                            "href": "https://kalamiri.twingate.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "twingate.png",
+                            "newWindow": true,
+                            "id": "link_1695646112518"
+                        },
+                        {
+                            "title": "Tailscale",
+                            "href": "https://login.tailscale.com/admin/machines",
+                            "icon": "fas fa-link",
+                            "iconColor": "",
+                            "image": "tailscale.png",
+                            "newWindow": true,
+                            "id": "link_1695646215485"
+                        }
+                    ]
+                },
+                {
+                    "title": "Development",
+                    "icon": "fas fa-code",
+                    "id": "group_1692624556959",
+                    "items": [
+                        {
+                            "title": "Github",
+                            "href": "https://github.com",
+                            "icon": "fab fa-github",
+                            "iconColor": "",
+                            "image": "github.png",
+                            "newWindow": true,
+                            "id": "link_1692624482518"
+                        },
+                        {
+                            "title": "Dockerhub",
+                            "href": "https://hub.docker.com",
+                            "icon": "fab fa-docker",
+                            "iconColor": "",
+                            "image": "dockerhub.png",
+                            "newWindow": true,
+                            "id": "link_1692624556959"
+                        },
+                        {
+                            "title": "Make",
+                            "href": "https://eu2.make.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "make.png",
+                            "newWindow": true,
+                            "id": "link_1696316156407"
+                        }
+                    ]
+                },
+                {
+                    "title": "Invest",
+                    "icon": "fas fa-money-bill",
+                    "id": "group_1692626236703",
+                    "items": [
+                        {
+                            "title": "Tradingview",
+                            "href": "https://www.tradingview.com",
+                            "icon": "fas fa-chart-line",
+                            "iconColor": "",
+                            "image": "tradingview.png",
+                            "newWindow": true,
+                            "id": "link_1692626236703"
+                        },
+                        {
+                            "title": "Banka zlata",
+                            "href": "https://www.centarzlata.com",
+                            "icon": "fas fa-coins",
+                            "iconColor": "",
+                            "image": "",
+                            "newWindow": true,
+                            "id": "link_1692626369825"
+                        },
+                        {
+                            "title": "Binance",
+                            "href": "https://accounts.binance.com/en/login",
+                            "icon": "fas fa-bitcoin-sign",
+                            "iconColor": "",
+                            "image": "binance.png",
+                            "newWindow": true,
+                            "id": "link_1692626491347"
+                        }
+                    ]
+                },
+                {
+                    "title": "Admin",
+                    "icon": "fas fa-barcode",
+                    "id": "group_1692625482939",
+                    "items": [
+                        {
+                            "title": "Telemach",
+                            "href": "https://telemach.hr/account/signin",
+                            "icon": "fas fa-mobile",
+                            "iconColor": "",
+                            "image": "telemach.png",
+                            "newWindow": true,
+                            "id": "link_1692625482939"
+                        },
+                        {
+                            "title": "Moj EON",
+                            "href": "https://mojeon.hr/login",
+                            "icon": "fas fa-tv",
+                            "iconColor": "",
+                            "image": "eontv.png",
+                            "newWindow": true,
+                            "id": "link_1692625545119"
+                        }
+                    ]
+                },
+                {
+                    "title": "Other",
+                    "icon": "",
+                    "id": "group_1696342672040",
+                    "items": [
+                        {
+                            "title": "Marius Hosting Blog",
+                            "href": "https://mariushosting.com/docker/",
+                            "icon": "fas fa-blog",
+                            "iconColor": "",
+                            "image": "dockerhub.png",
+                            "newWindow": true,
+                            "id": "link_1692627014315"
+                        }
+                    ]
+                }
+            ],
+            "-1": {
+                "title": "Admin",
+                "icon": "fas fa-barcode",
+                "id": "group_1692625482939",
+                "items": [
+                    {
+                        "title": "Telemach",
+                        "href": "https://telemach.hr/account/signin",
+                        "icon": "fas fa-mobile",
+                        "iconColor": "",
+                        "image": "",
+                        "newWindow": true,
+                        "id": "link_1692625482939"
+                    },
+                    {
+                        "title": "Moj EON",
+                        "href": "https://mojeon.hr/login",
+                        "icon": "fas fa-tv",
+                        "iconColor": "",
+                        "image": "",
+                        "newWindow": true,
+                        "id": "link_1692625545119"
+                    }
+                ]
+            }
+        },
+        "default": {
+            "title": "Infrastructure",
+            "slug": "default",
+            "icon": "fas fa-network-wired",
+            "order": 0,
+            "items": [
+                {
+                    "title": "Home Network",
+                    "icon": "fas fa-ethernet",
+                    "id": "group_1692186553469",
+                    "items": [
+                        {
+                            "title": "Router ISP",
+                            "href": "https://router.home.kalamiri.com",
+                            "icon": "fr",
+                            "iconColor": "",
+                            "image": "fritz-box.png",
+                            "newWindow": true,
+                            "id": "link_1692878523369"
+                        },
+                        {
+                            "title": "Router Home",
+                            "href": "https://gateway.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "pfsense.png",
+                            "newWindow": true,
+                            "id": "link_1692268737972"
+                        },
+                        {
+                            "title": "Switch",
+                            "href": "https://nsw.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "tp-link.png",
+                            "newWindow": true,
+                            "id": "link_1692269039094"
+                        },
+                        {
+                            "title": "Reverse Proxy",
+                            "href": "https://nginx.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "nginx.png",
+                            "newWindow": true,
+                            "id": "link_1692256578060"
+                        }
+                    ]
+                },
+                {
+                    "title": "Synology NAS",
+                    "icon": "fas fa-cloud",
+                    "id": "group_1692884927720",
+                    "items": [
+                        {
+                            "title": "DSM",
+                            "href": "https://nas.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "synology-dsm.png",
+                            "newWindow": true,
+                            "id": "link_001"
+                        },
+                        {
+                            "title": "Drive",
+                            "href": "https://drive.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "synology-drive.png",
+                            "newWindow": true,
+                            "id": "link_1692352039826"
+                        },
+                        {
+                            "title": "Photos",
+                            "href": "https://photos.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "synology-photos.png",
+                            "newWindow": true,
+                            "id": "link_1692887087466"
+                        },
+                        {
+                            "title": "Backup Portal",
+                            "href": "https://backup-portal.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "synology-active-backup-for-business.png",
+                            "newWindow": true,
+                            "id": "link_1692885927244"
+                        }
+                    ]
+                },
+                {
+                    "title": "Homelab",
+                    "icon": "fab fa-docker",
+                    "id": "group_1696492411243",
+                    "items": [
+                        {
+                            "title": "Proxmox",
+                            "href": "https://hypervisor.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "proxmox.png",
+                            "newWindow": true,
+                            "id": "link_1692195524818"
+                        },
+                        {
+                            "title": "Portainer Docker",
+                            "href": "https://portainer-docker.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_1696963696425"
+                        },
+                        {
+                            "title": "Portainer K3S",
+                            "href": "https://portainer-k3s.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "portainer.png",
+                            "newWindow": true,
+                            "id": "link_008"
+                        },
+                        {
+                            "title": "Rancher",
+                            "href": "https://rancher.home.kalamiri.com/",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "rancher.png",
+                            "newWindow": true,
+                            "id": "link_1696934908177"
+                        }
+                    ]
+                }
+            ],
+            "-1": {
+                "title": "Homelab",
+                "icon": "fab fa-docker",
+                "id": "group_1696492411243",
+                "items": [
+                    {
+                        "title": "Proxmox",
+                        "href": "https://hypervisor.home.kalamiri.com/",
+                        "icon": "",
+                        "iconColor": "",
+                        "image": "proxmox.png",
+                        "newWindow": true,
+                        "id": "link_1692195524818"
+                    },
+                    {
+                        "title": "Portainer",
+                        "href": "https://portainer-dev.home.kalamiri.com",
+                        "icon": "",
+                        "iconColor": "",
+                        "subTitle": "",
+                        "image": "portainer.png",
+                        "newWindow": true,
+                        "id": "link_008"
+                    }
+                ]
+            }
+        },
+        "media": {
+            "title": "Multimedia",
+            "slug": "media",
+            "icon": "fas fa-photo-film",
+            "order": 2,
+            "items": [
+                {
+                    "title": "Media",
+                    "icon": "fas fa-photo-film",
+                    "id": "group_1692195073711",
+                    "items": [
+                        {
+                            "title": "Emby",
+                            "href": "https://emby.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "emby.png",
+                            "newWindow": true,
+                            "id": "link_1692195073711"
+                        },
+                        {
+                            "title": "Stremio",
+                            "href": "https://app.strem.io/shell-v4.4/?streamingServer=https%3A%2F%2Fstremio.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "stremio.png",
+                            "newWindow": true,
+                            "id": "link_1693830370470"
+                        },
+                        {
+                            "title": "Photos",
+                            "href": "https://photos.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "synology-photos.png",
+                            "newWindow": true,
+                            "id": "link_1692887021831"
+                        },
+                        {
+                            "title": "Calibre web",
+                            "href": "https://eknjige.home.kalamiri.com",
+                            "icon": "fas fa-book-open",
+                            "iconColor": "",
+                            "subTitle": "ebook library",
+                            "image": "calibre.jpg",
+                            "newWindow": true,
+                            "id": "link_010"
+                        },
+                        {
+                            "title": "Kavita",
+                            "href": "https://stripovi.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "comic book library",
+                            "image": "kavita.png",
+                            "newWindow": true,
+                            "id": "link_1692188437360"
+                        },
+                        {
+                            "title": "Audiobookshelf",
+                            "href": "https://aknjige.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "audio book library",
+                            "image": "audiobookshelf.png",
+                            "newWindow": true,
+                            "id": "link_011"
+                        }
+                    ]
+                },
+                {
+                    "title": "Manager",
+                    "icon": "fas fa-cloud-arrow-down",
+                    "id": "group_1692194808073",
+                    "items": [
+                        {
+                            "title": "Sonarr",
+                            "href": "https://sonarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "image": "sonarr.png",
+                            "newWindow": true,
+                            "id": "link_1692194808073"
+                        },
+                        {
+                            "title": "Radarr",
+                            "href": "https://radarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "radarr.png",
+                            "newWindow": true,
+                            "id": "link_013"
+                        },
+                        {
+                            "title": "Lidarr",
+                            "href": "https://lidarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "lidarr.png",
+                            "newWindow": true,
+                            "id": "link_014"
+                        },
+                        {
+                            "title": "Prowlarr",
+                            "href": "https://prowlarr.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "prowlarr.png",
+                            "newWindow": true,
+                            "id": "link_015"
+                        },
+                        {
+                            "title": "qBittorrent",
+                            "href": "https://qb.home.kalamiri.com",
+                            "icon": "",
+                            "iconColor": "",
+                            "subTitle": "",
+                            "image": "qbittorrent.png",
+                            "newWindow": true,
+                            "id": "link_016"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
