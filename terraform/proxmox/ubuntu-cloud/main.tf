@@ -19,7 +19,7 @@ provider "proxmox" {
     pm_tls_insecure = true
 }
 
-resource "proxmox_vm_qemu" "k3s" {
+resource "proxmox_vm_qemu" "cloud-vm" {
   count = 3
   name = "k3s-0${count.index + 1}"
   target_node = var.proxmox_node
@@ -30,8 +30,8 @@ resource "proxmox_vm_qemu" "k3s" {
   cores = 1
   sockets = 1
   cpu = "host"
-  memory = 8192
-  balloon = 1
+  memory = 4086
+  # balloon = 0
   scsihw = "virtio-scsi-pci"
   bootdisk = "scsi0"
   onboot = true
