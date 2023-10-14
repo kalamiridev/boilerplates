@@ -19,8 +19,9 @@ provider "proxmox" {
     pm_tls_insecure = true
 }
 
-resource "proxmox_vm_qemu" "tools" {
-  name = "tools"
+resource "proxmox_vm_qemu" "k3s" {
+  count = 1
+  name = "k3s-0${count.index + 1}"
   target_node = var.proxmox_node
   vmid = "600"
   clone = "ubuntu22.04-cloud"
