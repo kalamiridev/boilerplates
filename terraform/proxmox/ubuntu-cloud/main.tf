@@ -19,7 +19,7 @@ provider "proxmox" {
     pm_tls_insecure = true
 }
 
-resource "proxmox_vm_qemu" "cloud-vm" {
+resource "proxmox_vm_qemu" "cloud-vm-k3s" {
   count = 3
   name = "k3s-0${count.index + 1}"
   target_node = var.proxmox_node
