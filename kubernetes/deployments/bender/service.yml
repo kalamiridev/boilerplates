@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bender-loadbalancer
+  namespace: utility
+spec:
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8845
+      targetPort: 8080
+  type: LoadBalancer
+  loadBalancerIP: 192.168.99.220
+  selector:
+    app: bender
