@@ -1,0 +1,8 @@
+- name: Install main packages and services
+  hosts: all
+  become: true
+  tasks:
+    - name: Creates directory
+      file:
+        path: /
+        state: docker
