@@ -29,7 +29,3 @@ spec:
             path: /docker
             type: Directory
           name: docker
-  strategy:
-  type: RollingUpdate
-  rollingUpdate:
-    maxUnavailable: 1
