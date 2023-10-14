@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flame
+  namespace: utility
+  labels:
+    app: flame
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flame
+  template:
+    metadata:
+      labels:
+        app: flame
+    spec:
+      containers:
+      - name: flame
+        image: pawelmalak/flame:latest
+        ports:
+        - containerPort: 5005
+        env:
+        - name: PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: flame
+        volumeMounts:
+          - mountPath: app/data
+            name: docker
+            subPath: flame
+      volumes:
+        - hostPath:
+            path: /docker
+            type: Directory
+          name: docker
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
