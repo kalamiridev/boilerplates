@@ -4,5 +4,5 @@
   tasks:
     - name: Creates directory
       file:
-        path: /
-        state: docker
+        path: /docker
+        state: directory
