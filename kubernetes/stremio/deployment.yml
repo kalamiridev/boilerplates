@@ -6,7 +6,7 @@ metadata:
   labels:
     app: stremio
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: stremio
