@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shlink
+  namespace: utility
+  labels:
+    app: shlink
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shlink
+  template:
+    metadata:
+      labels:
+        app: shlink
+    spec:
+      containers:
+      - name: shlink
+        image: shlinkio/shlink:stable
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TIMEZONE
+          value: Europe/Zagreb
+        - name: INITIAL_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: INITIAL_API_KEY
+              name: shlink
+        - name: DB_DRIVER
+          valueFrom:
+            secretKeyRef:
+              key: DB_DRIVER
+              name: shlink
+        - name: DB_NAME
+          valueFrom:
+            secretKeyRef:
+              key: DB_NAME
+              name: shlink
+        - name: DB_USER
+          valueFrom:
+            secretKeyRef:
+              key: DB_USER
+              name: shlink
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: DB_PASSWORD
+              name: shlink
+        - name: DB_HOST
+          valueFrom:
+            secretKeyRef:
+              key: DB_HOST
+              name: shlink
+        - name: DB_PORT
+          valueFrom:
+            secretKeyRef:
+              key: DB_PORT
+              name: shlink
+        - name: DEFAULT_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              key: DEFAULT_DOMAIN
+              name: shlink
+        - name: IS_HTTPS_ENABLED
+          valueFrom:
+            secretKeyRef:
+              key: IS_HTTPS_ENABLED
+              name: shlink
+        - name: GEOLITE_LICENSE_KEY
+          valueFrom:
+            secretKeyRef:
+              key: GEOLITE_LICENSE_KEY
+              name: shlink
