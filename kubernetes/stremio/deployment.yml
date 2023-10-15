@@ -22,11 +22,11 @@ spec:
         - containerPort: 11470
         resources:
           requests:
-            memory: "50Mi"
-            cpu: "50m"
+            memory: "20Mi"
+            cpu: "1m"
           limits:
-            memory: "500Mi"
-            cpu: "500m"
+            memory: "20Mi"
+            cpu: "1m"
         volumeMounts:
             - mountPath: config
               name: docker
