@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stremio
+  namespace: media
+  labels:
+    app: stremio
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: stremio
+  template:
+    metadata:
+      labels:
+        app: stremio
+    spec:
+      containers:
+      - name: stremio
+        image: stremio/server:latest
+        ports:
+        - containerPort: 11470
+        volumeMounts:
+            - mountPath: config
+              name: docker
+              subPath: stremio
+            - mountPath: root/.stremio-server
+              name: docker
+              subPath: stremio
+      volumes:
+        - hostPath:
+            path: /docker
+            type: Directory
+          name: docker
