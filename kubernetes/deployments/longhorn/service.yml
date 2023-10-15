@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     app: longhorn-ui
-  name: longhorn-frontend
+  name: longhorn-loadbalancer
   namespace: longhorn-system
 spec:
   ports:
