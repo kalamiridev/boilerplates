@@ -26,7 +26,7 @@ spec:
             memory: "50Mi"
           limits:
             cpu: "1000m"
-            memory: "1000Mi"
+            memory: "8000Mi"
         volumeMounts:
             - mountPath: config
               name: docker
