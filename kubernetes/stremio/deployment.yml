@@ -23,10 +23,10 @@ spec:
         resources:
           requests:
             cpu: "50m"
-            memory: "256Mi"
+            memory: "512Mi"
           limits:
             cpu: "1000m"
-            memory: "8192Mi"
+            memory: "4086Mi"
         volumeMounts:
             - mountPath: config
               name: docker
