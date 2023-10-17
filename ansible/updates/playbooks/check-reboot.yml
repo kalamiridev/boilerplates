@@ -8,5 +8,5 @@
         path: /var/run/reboot-required
       register: reboot_required
     - name: Message if required
-      msg: "Reboot is required"
+        msg: "Reboot is required"
       when: reboot_required.stat.exists
