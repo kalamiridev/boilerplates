@@ -1,0 +1,8 @@
+- name: Check if reboot is required Debian/Ubuntu
+  hosts: all
+  become: true
+  tasks:
+    - name: Check if reboot is required
+      become: true
+      stat:
+        path: /var/run/reboot-required
