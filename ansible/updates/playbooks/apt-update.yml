@@ -21,4 +21,6 @@
       register: reboot_required
 
     - name: Reboot is required
+      debug:
+        msg: "Reboot"
       when: reboot_required.stat.exists
