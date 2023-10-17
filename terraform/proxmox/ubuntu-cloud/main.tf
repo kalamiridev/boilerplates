@@ -31,7 +31,7 @@ resource "proxmox_vm_qemu" "cloud-vm-k3s" {
   sockets = 1
   cpu = "host"
   memory = 4086
-  # balloon = 0
+  balloon = 0
   scsihw = "virtio-scsi-pci"
   bootdisk = "scsi0"
   onboot = true
