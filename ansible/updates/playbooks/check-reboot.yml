@@ -8,4 +8,4 @@
       register: reboot_required
     - name: Message if required
       debug:
-        msg: "{{ reboot_required }}"
+        msg: "{{ reboot_required.stat.exists }}"
