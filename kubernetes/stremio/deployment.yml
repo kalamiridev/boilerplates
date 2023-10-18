@@ -27,6 +27,13 @@ spec:
           limits:
             cpu: "1000m"
             memory: "4086Mi"
+        topologySpreadConstraints:
+        - maxSkew: 1
+          topologyKey: kubernetes.io/hostname
+          whenUnsatisfiable: ScheduleAnyway
+          labelSelector:
+            matchLabels:
+              type: stremio  
         volumeMounts:
             - mountPath: config
               name: docker
