@@ -39,11 +39,4 @@ spec:
             path: /docker
             type: Directory
           name: docker
-      topologySpreadConstraints:
-      - maxSkew: 1
-        topologyKey: kubernetes.io/hostname
-        whenUnsatisfiable: ScheduleAnyway
-        labelSelector:
-          matchLabels:
-            type: stremio
       
