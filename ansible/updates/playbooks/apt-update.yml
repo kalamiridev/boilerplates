@@ -20,20 +20,12 @@
       stat: path=/var/run/reboot-required get_md5=no
       register: reboot_required
 
-    - name: Test
+    - name: Send telegram bot message if reboot is required
       telegram:
         token: "{{ telegram_token }}"
         api_args:
           chat_id: "{{ telegram_chat_id }}"
           parse_mode: "html"
           #text: "Reboot: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-          text: "{{ hostvars[inventory_hostname]['ansible_nodename'] }}"
-
-    - name: Reboot is required message
-      telegram:
-        token: "{{ telegram_token }}"
-        api_args:
-          chat_id: "{{ telegram_chat_id }}"
-          parse_mode: "html"
-          text: Reboot
+          text: "Reboot: {{ hostvars[inventory_hostname]['ansible_nodename'] }}"
       when: reboot_required.stat.exists
