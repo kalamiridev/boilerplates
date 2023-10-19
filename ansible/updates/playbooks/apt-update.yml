@@ -15,24 +15,24 @@
       apt:
         upgrade: "yes"
 
-    - name: Test telegram
-      telegram:
-        token: "{{ telegram_token }}"
-        api_args:
-          chat_id: "{{ telegram_chat_id }}"
-          parse_mode: "markdown"
-          text: "Text"
-
     - name: Check if reboot is required
       become: true
       stat: path=/var/run/reboot-required get_md5=no
       register: reboot_required
 
-    - name: Reboot is required
-      # debug:
-      #   msg: "Reboot"
+    - name: Test
       telegram:
         token: "{{ telegram_token }}"
-        chat_id: "{{ telegram_chat_id }}"
-        msg: Reboot
+        api_args:
+          chat_id: "{{ telegram_chat_id }}"
+          parse_mode: "html"
+          text: hostvars[inventory_hostname]['ansible_default_ipv4']['address']
+
+    - name: Reboot is required message
+      telegram:
+        token: "{{ telegram_token }}"
+        api_args:
+          chat_id: "{{ telegram_chat_id }}"
+          parse_mode: "html"
+          text: Reboot
       when: reboot_required.stat.exists
