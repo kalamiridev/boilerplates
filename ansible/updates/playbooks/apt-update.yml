@@ -14,6 +14,8 @@
     - name: Upgrade all packages
       apt:
         upgrade: "yes"
+
+    - name: Test variable
       debug:
         msg: "{{ telegram_chat_id }}"
 
