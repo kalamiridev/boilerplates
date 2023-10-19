@@ -16,9 +16,10 @@
         upgrade: "yes"
 
     - name: Test telegram
+      telegram:
         token: "{{ telegram_token }}"
         chat_id: "{{ telegram_chat_id }}"
-        msg: Text
+        msg: text
 
     - name: Check if reboot is required
       become: true
