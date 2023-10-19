@@ -14,6 +14,8 @@
     - name: Upgrade all packages
       apt:
         upgrade: "yes"
+      debug:
+        msg: "{{ telegram_chat_id }}"
 
     - name: Check if reboot is required
       become: true
@@ -26,4 +28,5 @@
       telegram:
         token: "{{ telegram_token }}"
         chat_id: "{{ telegram_chat_id }}"
+        msg: Reboot
       when: reboot_required.stat.exists

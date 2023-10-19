@@ -1,0 +1,22 @@
+replicaCount: 2
+
+service:
+  ports:
+    port: 11470
+    targetPort: 11470
+  loadBalancerIP: 192.168.99.225
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 90
+  # targetMemoryUtilizationPercentage: 80
