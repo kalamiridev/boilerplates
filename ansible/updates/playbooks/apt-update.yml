@@ -20,7 +20,7 @@
       stat: path=/var/run/reboot-required get_md5=no
       register: reboot_required
 
-    - name: Send telegram bot message if reboot is required
+    - name: Send telegram message if reboot is required
       telegram:
         token: "{{ telegram_token }}"
         api_args:
