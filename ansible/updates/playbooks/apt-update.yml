@@ -18,8 +18,9 @@
     - name: Test telegram
       telegram:
         token: "{{ telegram_token }}"
-        chat_id: "{{ telegram_chat_id }}"
-        msg: text
+        api_args:
+          chat_id: "{{ telegram_chat_id }}"
+          text: "Text"
 
     - name: Check if reboot is required
       become: true
