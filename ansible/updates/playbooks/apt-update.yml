@@ -26,6 +26,6 @@
         api_args:
           chat_id: "{{ telegram_chat_id }}"
           parse_mode: "html"
-          #text: "Reboot: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-          text: "Reboot: {{ hostvars[inventory_hostname]['ansible_nodename'] }}"
+          text: "Reboot: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
+          #text: "Reboot: {{ hostvars[inventory_hostname]['ansible_nodename'] }}"
       when: reboot_required.stat.exists
