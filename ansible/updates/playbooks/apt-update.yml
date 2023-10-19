@@ -26,7 +26,7 @@
         api_args:
           chat_id: "{{ telegram_chat_id }}"
           parse_mode: "html"
-          text: "{{ ansible_ssh_host }}""
+          text: "{{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}""
 
     - name: Reboot is required message
       telegram:
