@@ -27,7 +27,7 @@
           chat_id: "{{ telegram_chat_id }}"
           parse_mode: "html"
           #text: "Reboot: {{ hostvars[inventory_hostname]['ansible_default_ipv4']['address'] }}"
-          text: "{{ hostvars[inventory_hostname]['ansible_facts'] }}"
+          text: "{{ hostvars[inventory_hostname]['ansible_nodename'] }}"
 
     - name: Reboot is required message
       telegram:
