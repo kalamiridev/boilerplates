@@ -1,4 +1,4 @@
-- name: Update and check if reboot is required  Debian/Ubuntu
+- name: Update and check if reboot is required Debian/Ubuntu
   hosts: all
   become: true
   tasks:
@@ -6,14 +6,14 @@
       apt:
         update_cache: yes
 
+    - name: Upgrade all packages
+      apt:
+        upgrade: "yes"
+
     - name: Clean and remove unused dependency packages
       apt:
         autoclean: true
         autoremove: true
-
-    - name: Upgrade all packages
-      apt:
-        upgrade: "yes"
 
     - name: Check if reboot is required
       become: true
