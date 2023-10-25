@@ -1,12 +1,14 @@
-version: '3.9'
+version: "3.9"
 services:
-    app:
-        container_name: bender
-        image: jez500/bender
-        ports:
-            - '8845:8080'
-        network_mode: bridge
-        volumes:
-            - '/docker/bender:/app/static'
-        restart: always
-        
+  app:
+    container_name: bender
+    image: jez500/bender
+    ports:
+      - "8845:8080"
+    network_mode: bridge
+    volumes:
+      - "/docker/bender:/app/static"
+    deploy:
+      mode: replicated
+      replicas: 2
+    restart: always
