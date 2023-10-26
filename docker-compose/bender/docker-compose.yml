@@ -5,13 +5,9 @@ services:
     image: jez500/bender
     ports:
       - 8845:8080
-    networks:
-      default:
-        ipv4_address: 192.168.99.44
     volumes:
       - /docker/bender:/app/static
     deploy:
       mode: global
-      endpoint_mode: vip
       restart_policy:
         condition: on-failure
