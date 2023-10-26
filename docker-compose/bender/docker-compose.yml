@@ -8,6 +8,7 @@ services:
     volumes:
       - /docker/bender:/app/static
     deploy:
-      mode: global
+      mode: replicated
+      replicas: 2
       restart_policy:
-        condition: on-failure
+        condition: any
