@@ -4,10 +4,13 @@ services:
     container_name: bender
     image: jez500/bender
     ports:
-      - "8845:8080"
-    network_mode: bridge
+      - 8845:8080
     volumes:
-      - "/docker/bender:/app/static"
+      - /docker/bender:/app/static
     deploy:
       mode: global
-    restart: always
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 5
+        window: 120s
