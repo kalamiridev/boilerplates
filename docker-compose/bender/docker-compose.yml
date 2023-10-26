@@ -6,7 +6,7 @@ services:
     ports:
       - 8845:8080
     networks:
-      bender_default:
+      default:
         ipv4_address: 192.168.99.44
     volumes:
       - /docker/bender:/app/static
