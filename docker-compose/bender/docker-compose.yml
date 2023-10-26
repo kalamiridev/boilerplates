@@ -8,5 +8,6 @@ services:
       - /docker/bender:/app/static
     deploy:
       mode: global
+      endpoint_mode: vip
       restart_policy:
         condition: on-failure
