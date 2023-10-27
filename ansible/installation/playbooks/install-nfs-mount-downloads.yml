@@ -1,0 +1,28 @@
+- name: Mount downloads NFS directory
+  hosts: all
+  become: true
+  vars:
+    nfsmounts:
+      - { path: "/downloads", src: "192.168.99.105:/volume1/downloads" }
+  tasks:
+    - name: Install nfs
+      apt:
+        name:
+          - nfs-common
+          - nfs-kernel-server
+        state: present
+        update_cache: true
+    - name: Creates directory
+      file:
+        path: /downloads
+        state: directory
+    - name: mount the nfsshare in client side
+      mount:
+        fstype: nfs
+        opts: defaults
+        dump: 0
+        passno: 0
+        state: mounted
+        src: "{{ item.src }}"
+        path: "{{ item.path }}"
+      with_items: "{{ nfsmounts }}"
