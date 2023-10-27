@@ -6,8 +6,6 @@ services:
     ports:
       - "443:443"
       - "80:80"
-    environment:
-      - CATTLE_BOOTSTRAP_PASSWORD=eeb3fde0-3e71-4976-b9c1-ca239cec2155
     volumes:
       - /etc/docker/rancher:/var/lib/rancher
       - /etc/docker/rancher/cni:/var/lib/cni
