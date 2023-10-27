@@ -1,0 +1,10 @@
+- name: Install basic packages
+  hosts: all
+  become: true
+  tasks:
+    - name: Install packages
+      apt:
+        name:
+          - unzip
+        state: present
+        update_cache: true
