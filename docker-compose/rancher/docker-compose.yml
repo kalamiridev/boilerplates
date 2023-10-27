@@ -8,8 +8,5 @@ services:
       - "80:80"
     volumes:
       - /docker/rancher:/var/lib/rancher
-      - /docker/rancher/cni:/var/lib/cni
-      - /docker/rancher/kubelet:/var/lib/kubelet
-      - /docker/rancher/log:/var/log
     privileged: true
     restart: always
