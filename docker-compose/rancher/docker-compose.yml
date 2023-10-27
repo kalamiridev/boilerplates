@@ -7,8 +7,7 @@ services:
       - "443:443"
       - "80:80"
     environment:
-      - PGID=100
-      - PUID=1026
+      - CATTLE_BOOTSTRAP_PASSWORD=eeb3fde0-3e71-4976-b9c1-ca239cec2155
     volumes:
       - /docker/rancher:/var/lib/rancher
       - /docker/rancher/cni:/var/lib/cni
