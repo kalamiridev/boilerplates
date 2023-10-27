@@ -27,16 +27,23 @@ spec:
           protocol: UDP
         env:
         - name: WEBUI_PORT
-          value: 8088
+          value: "8088"
         - name: TZ
           value: Europe/Zagreb
         volumeMounts:
           - mountPath: config
             name: docker
-            subPath: qBittorrent
-          - mountPath: config
+            subPath: qbittorrent
+          - mountPath: downloads
             name: downloads
-            subPath: downloads
+            subPath: qbittorrent
+        resources:
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+            memory: {{ .Values.resources.requests.memory }}
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+            memory: {{ .Values.resources.limits.memory }}
       volumes:
         - hostPath:
             path: /docker
