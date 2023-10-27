@@ -1,8 +1,7 @@
-
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: stremio-hps
+  name: stremio-hpa
   namespace: media
   labels:
     app: stremio
