@@ -9,9 +9,9 @@ services:
     environment:
       - CATTLE_BOOTSTRAP_PASSWORD=eeb3fde0-3e71-4976-b9c1-ca239cec2155
     volumes:
-      - /docker/rancher:/var/lib/rancher
-      - /docker/rancher/cni:/var/lib/cni
-      - /docker/rancher/kubelet:/var/lib/kubelet
-      - /docker/rancher/log:/var/log
+      - /etc/docker/rancher:/var/lib/rancher
+      - /etc/docker/rancher/cni:/var/lib/cni
+      - /etc/docker/rancher/kubelet:/var/lib/kubelet
+      - /etc/docker/rancher/log:/var/log
     privileged: true
     restart: always
