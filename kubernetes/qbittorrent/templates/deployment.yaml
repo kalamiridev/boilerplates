@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: qbittorrent
+  namespace: media-manager
+  labels:
+    app: qbittorrent
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: qbittorrent
+  template:
+    metadata:
+      labels:
+        app: qbittorrent
+    spec:
+      containers:
+      - name: qbittorrent
+        image: ghcr.io/linuxserver/qbittorrent
+        ports:
+        - containerPort: 8088
+          protocol: TCP
+        - containerPort: 6881
+          protocol: TCP
+        - containerPort: 6881
+          protocol: UDP
+        env:
+        - name: WEBUI_PORT
+          value: 8088
+        - name: TZ
+          value: Europe/Zagreb
+        volumeMounts:
+          - mountPath: config
+            name: docker
+            subPath: qBittorrent
+          - mountPath: config
+            name: downloads
+            subPath: downloads
+      volumes:
+        - hostPath:
+            path: /docker
+            type: Directory
+          name: docker
+        - hostPath:
+            path: /downloads
+            type: Directory
+          name: downloads
