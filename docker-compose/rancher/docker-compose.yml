@@ -6,7 +6,13 @@ services:
     ports:
       - "443:443"
       - "80:80"
+    environment:
+      - PGID=100
+      - PUID=1026
     volumes:
       - /docker/rancher:/var/lib/rancher
+      - /docker/rancher/cni:/var/lib/cni
+      - /docker/rancher/kubelet:/var/lib/kubelet
+      - /docker/rancher/log:/var/log
     privileged: true
     restart: always
