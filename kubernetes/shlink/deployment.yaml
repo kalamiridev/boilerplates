@@ -6,7 +6,7 @@ metadata:
   labels:
     app: shlink
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: shlink
