@@ -6,5 +6,6 @@
       apt:
         name:
           - unzip
+          - htop
         state: present
         update_cache: true
