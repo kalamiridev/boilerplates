@@ -8,8 +8,10 @@ services:
     network_mode: bridge
     environment:
       - CF_DATABASE_DRIVERCLASS=org.postgresql.Driver
-      - CF_DATABASE_URL=jdbc:postgresql://<yourdb>/commafeed
-      - CF_DATABASE_USER=<user>
-      - CF_DATABASE_PASSWORD=<pass>
+      - CF_DATABASE_URL=jdbc:postgresql://${DATABASE_URL}/commafeed
+      - CF_DATABASE_USER=${DATABASE_USER}
+      - CF_DATABASE_PASSWORD=${DATABASE_PASS}
     volumes:
       - /etc/docker/commafeed:/commafeed/data
+    env_file: .env
+    restart: always

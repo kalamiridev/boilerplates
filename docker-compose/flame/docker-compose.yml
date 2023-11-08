@@ -1,4 +1,4 @@
-version: '2.1'
+version: "2.1"
 services:
   flame:
     image: pawelmalak/flame:latest
@@ -10,5 +10,6 @@ services:
       - 5210:5005
     network_mode: bridge
     environment:
-      - PASSWORD=yourpass
+      - PASSWORD=${PASSWORD}
+    env_file: .env
     restart: always
