@@ -1,0 +1,15 @@
+version: "3.9"
+services:
+  app:
+    image: athou/commafeed:latest
+    container_name: commafeed
+    ports:
+      - 8073:8082
+    network_mode: bridge
+    environment:
+      - CF_DATABASE_DRIVERCLASS=org.postgresql.Driver
+      - CF_DATABASE_URL=jdbc:postgresql://<yourdb>/commafeed
+      - CF_DATABASE_USER=<user>
+      - CF_DATABASE_PASSWORD=<pass>
+    volumes:
+      - /etc/docker/commafeed:/commafeed/data
