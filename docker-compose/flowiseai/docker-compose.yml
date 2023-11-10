@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  flowise:
+    image: flowiseai/flowise:latest
+    command: /bin/sh -c "sleep 3; flowise start"
+    container_name: flowiseai
+    hostname: flowise
+    mem_limit: 4g
+    cpu_shares: 768
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:3000
+    ports:
+      - 8459:3000
+    volumes:
+      - /volume1/docker/flowiseai/data:/root/.flowise:rw
+    env_file: .env
+    environment:
+      DEBUG: false
+      PORT: 3000
+      FLOWISE_USERNAME: ${FLOWISE_USERNAME}
+      FLOWISE_PASSWORD: ${FLOWISE_PASSWORD}
+      DATABASE_PATH: /root/.flowise
+      APIKEY_PATH: /root/.flowise
+      SECRETKEY_PATH: /root/.flowise
+      LOG_LEVEL: info
+      LOG_PATH: /root/.flowise/logs
+      DATABASE_TYPE: ${DATABASE_TYPE}
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_HOST: ${DATABASE_HOST}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    restart: always
