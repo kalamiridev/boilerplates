@@ -3,6 +3,8 @@ services:
   rancher:
     image: rancher/rancher
     container_name: rancher
+    labels:
+      - "com.centurylinklabs.watchtower.enable=false"
     ports:
       - "443:443"
       - "80:80"
