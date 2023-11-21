@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commafeed
+  namespace: utility
+  labels:
+    app: commafeed
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: commafeed
+  template:
+    metadata:
+      labels:
+        app: commafeed
+    spec:
+      containers:
+      - name: commafeed
+        image: athou/commafeed:latest
+        ports:
+        - containerPort: 8082
+        env:
+        - name: CF_DATABASE_DRIVERCLASS
+          valueFrom:
+            secretKeyRef:
+              key: CF_DATABASE_DRIVERCLASS
+              name: commafeed
+        - name: CF_DATABASE_URL
+          valueFrom:
+            secretKeyRef:
+              key: CF_DATABASE_URL
+              name: commafeed
+        - name: CF_DATABASE_USER
+          valueFrom:
+            secretKeyRef:
+              key: CF_DATABASE_USER
+              name: commafeed
+        - name: CF_DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: CF_DATABASE_PASSWORD
+              name: commafeed
+        volumeMounts:
+        - mountPath: commafeed/data
+          name: docker
+          subPath: commafeed
+        volumes:
+          - hostPath:
+              path: /docker
+              type: Directory
+            name: docker
