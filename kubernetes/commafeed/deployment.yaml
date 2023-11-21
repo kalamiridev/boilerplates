@@ -45,8 +45,8 @@ spec:
         - mountPath: commafeed/data
           name: docker
           subPath: commafeed
-        volumes:
-          - hostPath:
-              path: /docker
-              type: Directory
-            name: docker
+      volumes:
+        - hostPath:
+            path: /docker
+            type: Directory
+          name: docker
