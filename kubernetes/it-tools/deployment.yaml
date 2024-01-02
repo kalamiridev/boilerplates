@@ -22,4 +22,7 @@ spec:
         - containerPort: 80
         env:
         - name: BASE_URL
-          value: "https://it-tools.kalamiri.com"
+          valueFrom:
+            secretKeyRef:
+              key: BASE_URL
+              name: it-tools
