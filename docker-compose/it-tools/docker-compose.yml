@@ -6,6 +6,6 @@ services:
       - 5545:80
     network_mode: bridge
     environment:
-      BASE_URL: https://it-tools.kalamiri.com
+      BASE_URL: https://it-tools.home.kalamiri.com
     restart: always
     image: corentinth/it-tools
