@@ -1,0 +1,22 @@
+version: "3.9"
+services:
+  api:
+    image: shlinkio/shlink:stable
+    container_name: shlink-api
+    hostname: shlink-api
+    ports:
+      - 8335:8080
+    environment:
+      - TIMEZONE=Europe/Zagreb
+      - INITIAL_API_KEY=${INITIAL_API_KEY}
+      - DB_DRIVER=${DB_DRIVER}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=5432
+      - DEFAULT_DOMAIN=${DEFAULT_DOMAIN}
+      - IS_HTTPS_ENABLED=true
+      - GEOLITE_LICENSE_KEY=${GEOLITE_LICENSE_KEY}
+    restart: always
+    env_file: .env

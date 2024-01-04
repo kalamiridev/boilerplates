@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  app:
+    image: shlinkio/shlink-web-client:stable
+    container_name: shlink-web
+    hostname: shlink-web
+    ports:
+      - 8336:80
+    environment:
+      - SHLINK_SERVER_NAME=${SHLINK_SERVER_NAME}
+      - SHLINK_SERVER_URL=${SHLINK_SERVER_URL} # external url of shlink container with https:// at the beginning
+      - SHLINK_SERVER_API_KEY=${SHLINK_SERVER_API_KEY}
+    restart: always
+    env_file: .env
