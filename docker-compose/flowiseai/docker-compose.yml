@@ -1,6 +1,6 @@
 version: "3.9"
 services:
-  flowise:
+  app:
     image: flowiseai/flowise:latest
     command: /bin/sh -c "sleep 3; flowise start"
     container_name: flowiseai
@@ -14,7 +14,7 @@ services:
     ports:
       - 8459:3000
     volumes:
-      - /volume1/docker/flowiseai/data:/root/.flowise:rw
+      - /docker/flowiseai/data:/root/.flowise:rw
     env_file: .env
     environment:
       DEBUG: false
