@@ -27,5 +27,5 @@ services:
       - /media/music:/music
       - /media/metube:/metube
       - /media/razno:/razno
-      - /backup/emby:/backup
+      - /C2/emby:/C2
     restart: always
