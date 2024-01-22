@@ -11,7 +11,7 @@ services:
     environment:
       - TZ=Europe/Zagreb
     volumes:
-      - dada:/config
+      - data:/config
       - /media/movies/igrani:/movies
       - /downloads:/downloads
     restart: always
