@@ -1,15 +1,18 @@
-version: '3.3'
+version: "3.3"
+volumes:
+  data:
+    name: jackett_data
 services:
-    jackett:
-        container_name: jackett
-        environment:
-            - AUTO_UPDATE=true
-            - TZ=Europe/Zagreb
-        ports:
-            - 9117:9117
-        network_mode: bridge
-        volumes: # NFS Directories
-            - /docker/jackett:/config
-            - /volume1/downloads:/downloads
-        restart: unless-stopped
-        image: ghcr.io/linuxserver/jackett
+  jackett:
+    container_name: jackett
+    environment:
+      - AUTO_UPDATE=true
+      - TZ=Europe/Zagreb
+    ports:
+      - 9117:9117
+    network_mode: bridge
+    volumes:
+      - data:/config
+      - /downloads:/downloads
+    restart: unless-stopped
+    image: ghcr.io/linuxserver/jackett
