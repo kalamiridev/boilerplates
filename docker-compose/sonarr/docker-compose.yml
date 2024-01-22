@@ -10,7 +10,7 @@ services:
     network_mode: bridge
     environment:
       - TZ=Europe/Zagreb
-    volumes: # NFS Directories
+    volumes:
       - data:/config
       - /media/tvshows:/tv
       - /downloads:/downloads
