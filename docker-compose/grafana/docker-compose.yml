@@ -1,4 +1,7 @@
-version: '3'
+version: "3"
+volumes:
+  data:
+    name: grafana_data
 services:
   grafana:
     image: grafana/grafana-oss:latest
@@ -6,6 +9,6 @@ services:
     ports:
       - 3000:3000
     network_mode: bridge
-    volumes: # NFS Directories
-      - /docker/grafana:/var/lib/grafana
+    volumes:
+      - data:/var/lib/grafana
     restart: unless-stopped
