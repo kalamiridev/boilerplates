@@ -1,17 +1,20 @@
-version: '3.3'
+version: "3.3"
+volumes:
+  data:
+    name: qbittorrent_data
 services:
-    qbittorrent:
-        container_name: qbittorrent
-        ports:
-            - 6881:6881
-            - 6881:6881/udp
-            - 8080:8080
-        network_mode: bridge
-        environment:
-            - WEBUI_PORT=8080
-            - TZ=Europe/Zagreb
-        volumes: # NFS Directories
-            - /docker/qbittorrent:/config
-            - /volume1/downloads:/downloads
-        restart: always
-        image: ghcr.io/linuxserver/qbittorrent
+  qbittorrent:
+    container_name: qbittorrent
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+      - 8088:8088
+    network_mode: bridge
+    environment:
+      - WEBUI_PORT=8088
+      - TZ=Europe/Zagreb
+    volumes: # NFS Directories
+      - data:/config
+      - /downloads:/downloads
+    restart: always
+    image: ghcr.io/linuxserver/qbittorrent
