@@ -12,4 +12,4 @@ services:
       - data:/kavita/config
       - /biblioteka/stripovi:/manga
     restart: always
-    image: kizaing/kavita
+    image: jvmilazz0/kavita:latest
