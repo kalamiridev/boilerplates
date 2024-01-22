@@ -1,24 +1,24 @@
-version: '3.9'
+version: "3.9"
 volumes:
   data:
     name: speedtest_data
 services:
-    speedtest-tracker:
-        image: ghcr.io/alexjustesen/speedtest-tracker:latest
-        container_name: speedtest-tracker
-        healthcheck:
-         test: curl -f http://localhost:80/ || exit 1
-        ports:
-            - 8999:80
-            - 8995:9000
-        network_mode: bridge
-        environment:
-             DB_CONNECTION: pgsql
-             DB_HOST: your-db-host
-             DB_PORT: 5432
-             DB_DATABASE: speedtest_tracker
-             DB_USERNAME: your-db-user-name
-             DB_PASSWORD: your-db-pass
-        volumes:
-            - data:/config
-        restart: always
+  speedtest-tracker:
+    image: ghcr.io/alexjustesen/speedtest-tracker:latest
+    container_name: speedtest-tracker
+    healthcheck:
+      test: curl -f http://localhost:80/ || exit 1
+    ports:
+      - 8999:80
+      - 8995:9000
+    network_mode: bridge
+    environment:
+      DB_CONNECTION: pgsql
+      DB_HOST: ${DB_HOST}
+      DB_PORT: 5432
+      DB_DATABASE: ${POSTGRES_DB}
+      DB_USERNAME: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - data:/config
+    restart: always
