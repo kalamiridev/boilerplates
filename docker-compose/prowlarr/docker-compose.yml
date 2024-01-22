@@ -13,4 +13,4 @@ services:
     volumes:
       - data:/config
     restart: always
-    image: ghcr.io/linuxserver/prowlarr:latest
+    image: ghcr.io/linuxserver/prowlarr:develop
