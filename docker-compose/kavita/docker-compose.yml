@@ -1,12 +1,15 @@
-version: '3.3'
+version: "3.3"
+volumes:
+  data:
+    name: kavita_data
 services:
-    kavita:
-        container_name: kavita
-        ports:
-            - 5471:5000
-        network_mode: bridge
-        volumes: # NFS Directories
-            - /docker/kavita:/kavita/config
-            - /biblioteka/stripovi:/manga
-        restart: always
-        image: kizaing/kavita
+  kavita:
+    container_name: kavita
+    ports:
+      - 5471:5000
+    network_mode: bridge
+    volumes:
+      - data:/kavita/config
+      - /biblioteka/stripovi:/manga
+    restart: always
+    image: kizaing/kavita
