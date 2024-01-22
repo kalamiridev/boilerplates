@@ -1,0 +1,22 @@
+version: "3.9"
+volumes:
+  data:
+    name: slash_data
+services:
+  slash:
+    image: yourselfhosted/slash:latest
+    container_name: slash
+    hostname: slash
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5231/
+    user: 1026:100
+    ports:
+      - 5231:5231
+    environment:
+      DRIVER: postgres
+      DSN: ${DSN}
+    volumes:
+      - data:/var/opt/slash:rw
+    restart: always
