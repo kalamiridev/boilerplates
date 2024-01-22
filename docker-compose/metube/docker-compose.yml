@@ -1,11 +1,11 @@
-version: '3.3'
+version: "3.3"
 services:
-    metube:
-        container_name: metube
-        ports:
-            - 5992:8081
-        network_mode: bridge
-        volumes: # NFS Directories
-            - /media/metube:/downloads
-        restart: always
-        image: alexta69/metube
+  metube:
+    container_name: metube
+    ports:
+      - 5992:8081
+    network_mode: bridge
+    volumes: # NFS Directories
+      - /media/metube:/downloads
+    restart: unless-stopped
+    image: alexta69/metube
