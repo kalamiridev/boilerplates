@@ -18,5 +18,5 @@ services:
       DRIVER: postgres
       DSN: ${DSN}
     volumes:
-      - data:/var/opt/slash:rw
+      - data:/var/opt/slash
     restart: always
