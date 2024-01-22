@@ -1,13 +1,16 @@
 version: "3.3"
+volumes:
+  data:
+    name: audiobookshelf_data
 services:
   audiobookshelf:
     container_name: audiobookshelf
     ports:
       - 13378:80
     network_mode: bridge
-    volumes: # NFS Directories
-      - /docker/audioknjige:/config
-      - /docker/audioknjige:/metadata
+    volumes:
+      - data:/config
+      - data:/metadata
       - /biblioteka/audioknjige:/audiobooks
     restart: always
     image: advplyr/audiobookshelf
