@@ -1,15 +1,18 @@
-version: '3.3'
+version: "3.3"
+volumes:
+  data:
+    name: lidarr_data
 services:
-    lidarr:
-        container_name: lidarr
-        ports:
-            - 8686:8686
-        network_mode: bridge
-        environment:
-            - TZ=Europe/Zagreb
-        volumes: # NFS Directories
-            - /docker/lidarr:/config
-            - /media/music:/music
-            - /downloads:/downloads
-        restart: unless-stopped
-        image: ghcr.io/linuxserver/lidarr
+  lidarr:
+    container_name: lidarr
+    ports:
+      - 8686:8686
+    network_mode: bridge
+    environment:
+      - TZ=Europe/Zagreb
+    volumes:
+      - data:/config
+      - /media/music:/music
+      - /downloads:/downloads
+    restart: unless-stopped
+    image: ghcr.io/linuxserver/lidarr
