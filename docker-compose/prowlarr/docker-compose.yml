@@ -1,13 +1,16 @@
-version: '3.3'
+version: "3.3"
+volumes:
+  data:
+    name: prowlarr_data
 services:
-    app:
-        container_name: prowlarr
-        environment:
-            - TZ=Europe/Zagreb
-        ports:
-            - 9696:9696
-        network_mode: bridge
-        volumes: # NFS Directories
-            - /docker/prowlarr/config:/config
-        restart: always
-        image: ghcr.io/linuxserver/prowlarr:develop
+  app:
+    container_name: prowlarr
+    environment:
+      - TZ=Europe/Zagreb
+    ports:
+      - 9696:9696
+    network_mode: bridge
+    volumes: # NFS Directories
+      - data:/config
+    restart: always
+    image: ghcr.io/linuxserver/prowlarr:latest
