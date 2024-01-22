@@ -1,16 +1,18 @@
-version: '3.3'
+version: "3.3"
+volumes:
+  data:
+    name: calibreweb_data
 services:
-    calibreweb:
-        container_name: calibreweb
-        ports:
-            - 8083:8083
-        network_mode: bridge
-        environment:
-            - PUID=1026
-            - PGID=101
-            - TZ=Europe/Zagreb
-        volumes: # NFS Directories
-            - /docker/calibreweb:/config
-            - /volume1/biblioteka/knjige:/books
-        restart: always
-        image: ghcr.io/linuxserver/calibre-web
+  calibreweb:
+    container_name: calibreweb
+    ports:
+      - 8083:8083
+    network_mode: bridge
+    environment:
+      - PUID=1026
+      - PGID=101
+      - TZ=Europe/Zagreb
+    volumes:
+      - /biblioteka/knjige:/books
+    restart: always
+    image: ghcr.io/linuxserver/calibre-web
