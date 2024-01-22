@@ -10,7 +10,7 @@ services:
     ports:
       - 9696:9696
     network_mode: bridge
-    volumes: # NFS Directories
+    volumes:
       - data:/config
     restart: always
     image: ghcr.io/linuxserver/prowlarr:latest
