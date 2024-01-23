@@ -11,5 +11,4 @@ services:
     network_mode: bridge
     environment:
       - PASSWORD=${PASSWORD}
-    env_file: .env
     restart: always
