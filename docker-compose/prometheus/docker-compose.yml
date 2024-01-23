@@ -1,4 +1,7 @@
-version: '3'
+version: "3"
+volumes:
+  data:
+    name: prometheus_data
 services:
   prometheus:
     image: prom/prometheus:latest
@@ -7,6 +10,6 @@ services:
       - 9090:9090
     network_mode: bridge
     volumes:
-      - /docker/prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml
-      - /docker/prometheus:/prometheus
+      - /etc/docker/prometheus/config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - data:/prometheus
     restart: always
