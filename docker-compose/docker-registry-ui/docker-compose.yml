@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   registry-ui:
     container_name: docker-registry-ui
@@ -7,10 +7,10 @@ services:
     network_mode: bridge
     environment:
       - SINGLE_REGISTRY=true
-      - REGISTRY_TITLE=Registry Name
+      - REGISTRY_TITLE=${REGISTRY_TITLE}
       - DELETE_IMAGES=true
       - SHOW_CONTENT_DIGEST=true
-      - NGINX_PROXY_PASS_URL=http://192.168.99.104:5000
+      - NGINX_PROXY_PASS_URL=${NGINX_PROXY_PASS_URL}
       - SHOW_CATALOG_NB_TAGS=true
       - CATALOG_MIN_BRANCHES=1
       - CATALOG_MAX_BRANCHES=1
