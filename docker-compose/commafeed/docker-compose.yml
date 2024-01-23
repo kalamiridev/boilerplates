@@ -12,6 +12,5 @@ services:
       - CF_DATABASE_USER=${DATABASE_USER}
       - CF_DATABASE_PASSWORD=${DATABASE_PASS}
     volumes:
-      - /etc/docker/commafeed:/commafeed/data
-    env_file: .env
+      - /docker/commafeed:/commafeed/data
     restart: always
