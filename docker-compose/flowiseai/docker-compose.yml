@@ -15,7 +15,6 @@ services:
       - 8459:3000
     volumes:
       - /docker/flowiseai/data:/root/.flowise:rw
-    env_file: .env
     environment:
       DEBUG: false
       PORT: 3000
