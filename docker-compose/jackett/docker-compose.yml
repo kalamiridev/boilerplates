@@ -15,4 +15,4 @@ services:
       - data:/config
       - /downloads:/downloads
     restart: unless-stopped
-    image: ghcr.io/linuxserver/jackett
+    image: ghcr.io/linuxserver/jackett:latest
