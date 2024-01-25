@@ -9,7 +9,9 @@ services:
       - 8989:8989
     network_mode: bridge
     environment:
-      - TZ=Europe/Zagreb
+      PUID: 1026
+      PGID: 100
+      TZ: Europe/Zagreb
     volumes:
       - data:/config
       - /media/tvshows:/tv
