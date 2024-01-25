@@ -14,7 +14,7 @@ services:
       TZ: Europe/Zagreb
     volumes:
       - data:/config
-      - /media/tvshows:/tv
-      - /downloads:/downloads
+      - /media/tvshows:/tv:rw
+      - /downloads:/downloads:rw
     restart: always
     image: ghcr.io/linuxserver/sonarr
