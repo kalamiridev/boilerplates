@@ -4,7 +4,7 @@ terraform {
     required_providers {
         proxmox = {
             source = "telmate/proxmox"
-            version = "2.9.8"
+             version = ">=1.0.0"
         }
     }
 }
@@ -19,9 +19,9 @@ provider "proxmox" {
     pm_tls_insecure = true
 }
 
-resource "proxmox_vm_qemu" "cloud-vm-k3s" {
-  count = 3
-  name = "k3s-0${count.index + 1}"
+resource "proxmox_vm_qemu" "cloud-vm" {
+  count = 1
+  name = "ubuntu-0${count.index + 1}"
   target_node = var.proxmox_node
   vmid = "60${count.index + 1}"
   clone = "ubuntu22.04-cloud"
