@@ -1,0 +1,29 @@
+version: "3"
+volumes:
+  data:
+    name: kitchenowl_data
+services:
+  front:
+    container_name: kitchenowl
+    image: tombursch/kitchenowl-web:latest
+    environment:
+      - FRONT_URL=${FRONT_URL}
+    ports:
+      - 7180:80
+    depends_on:
+      - back
+    networks:
+      - default
+  back:
+    container_name: kitchenowl-api
+    image: tombursch/kitchenowl:latest
+    restart: always
+    networks:
+      - default
+    environment:
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - FRONT_URL=${FRONT_URL}
+    volumes:
+      - data:/data
+networks:
+  default:
