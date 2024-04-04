@@ -13,12 +13,14 @@ services:
       - 8995:9000
     network_mode: bridge
     environment:
+      APP_NAME: Speedtest
       DB_CONNECTION: pgsql
       DB_HOST: ${DB_HOST}
       DB_PORT: 5432
       DB_DATABASE: ${POSTGRES_DB}
       DB_USERNAME: ${POSTGRES_USER}
       DB_PASSWORD: ${POSTGRES_PASSWORD}
+      PUBLIC_DASHBOARD: "true"
     volumes:
       - data:/config
     restart: always
