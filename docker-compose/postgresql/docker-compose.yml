@@ -1,11 +1,12 @@
-version: '3.9'
-services:  
+version: "3.9"
+services:
   db:
     container_name: postgresql
-    image: postgres
+    image: postgres:latest
     environment:
-      POSTGRES_USER: your-user
-      POSTGRES_PASSWORD: your-password
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    env_file: .env
     volumes:
       - /etc/docker/postgresql:/var/lib/postgresql/data:rw
     network_mode: host
