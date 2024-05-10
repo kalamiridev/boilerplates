@@ -6,6 +6,7 @@ services:
     ports:
       - 5961:5432
     environment:
+      POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
