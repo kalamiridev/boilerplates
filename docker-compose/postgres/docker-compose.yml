@@ -1,14 +1,13 @@
 version: "3.9"
 services:
   db:
-    container_name: postgresql-latest
+    container_name: postgres
     image: postgres:latest
     ports:
       - 5961:5432
     environment:
-      POSTGRES_DB: p${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - /etc/docker/postgresql-latest:/var/lib/postgresql-latest/data:rw
+      - /etc/docker/postgres:/var/lib/postgres/data:rw
     restart: always
