@@ -10,5 +10,5 @@ services:
     ports:
       - 2660:5050
     volumes:
-      - /etc/docker/postgresadmin:/var/lib/pgadmin:rw
+      - /etc/docker/postgresadmin:/var/lib/pgadmin
     restart: always
