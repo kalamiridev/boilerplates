@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    mem_limit: 256m
+    cpu_shares: 768
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5050
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_LISTEN_PORT: 5050
+    ports:
+      - 2660:5050
+    volumes:
+      - /etc/docker/postgresadmin:/var/lib/pgadmin:rw
+    restart: always
