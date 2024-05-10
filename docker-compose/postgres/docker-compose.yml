@@ -11,5 +11,4 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - /etc/docker/postgresql-latest:/var/lib/postgresql-latest/data:rw
-    network_mode: host
     restart: always
