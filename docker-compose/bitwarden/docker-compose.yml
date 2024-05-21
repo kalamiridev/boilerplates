@@ -4,7 +4,7 @@ volumes:
     name: bitwarden_data
 services:
   server:
-    container_name: bitwarden/self-host:beta
+    container_name: bitwarden
     ports:
       - 80:8080
     network_mode: bridge
@@ -26,4 +26,4 @@ services:
     volumes:
       - data:/etc/bitwarden
     restart: always
-    image: vaultwarden/server
+    image: bitwarden/self-host:beta
