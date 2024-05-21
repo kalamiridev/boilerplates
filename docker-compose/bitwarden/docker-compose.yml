@@ -4,10 +4,9 @@ volumes:
     name: bitwarden_data
 services:
   server:
-    container_name: bitwarden
+    container_name: bitwarden/self-host:beta
     ports:
-      - 3012:3012
-      - 5151:80
+      - 80:8080
     network_mode: bridge
     environment:
       - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
@@ -25,6 +24,6 @@ services:
       - BW_DB_USERNAME=${BW_DB_USERNAME}
       - BW_DB_PASSWORD=${BW_DB_PASSWORD}
     volumes:
-      - data:/data
+      - data:/etc/bitwarden
     restart: always
     image: vaultwarden/server
