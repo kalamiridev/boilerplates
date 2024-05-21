@@ -23,6 +23,8 @@ services:
       - BW_DB_DATABASE=${BW_DB_DATABASE}
       - BW_DB_USERNAME=${BW_DB_USERNAME}
       - BW_DB_PASSWORD=${BW_DB_PASSWORD}
+      - BW_INSTALLATION_ID=${BW_INSTALLATION_ID}
+      - BW_INSTALLATION_KEY=${BW_INSTALLATION_KEY}
     volumes:
       - data:/etc/bitwarden
     restart: always
