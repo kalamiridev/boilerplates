@@ -1,22 +1,30 @@
-version: '3.3'
+version: "3.3"
+volumes:
+  data:
+    name: bitwarden_data
 services:
-    server:
-        container_name: bitwarden
-        ports:
-            - 3012:3012
-            - 5151:80
-        network_mode: bridge
-        environment:
-            - SIGNUPS_ALLOWED=false
-            - SIGNUPS_VERIFY=true
-            - DOMAIN=https://your.domain.com
-            - SMTP_HOST=smtp.gmail.com
-            - SMTP_FROM=your@mail.com
-            - SMTP_PORT=587
-            - SMTP_SECURITY=starttls
-            - SMTP_USERNAME=your@mail.com
-            - SMTP_PASSWORD=app_password
-        volumes:
-            - /docker/bitwarden:/data
-        restart: always
-        image: vaultwarden/server
+  server:
+    container_name: bitwarden
+    ports:
+      - 3012:3012
+      - 5151:80
+    network_mode: bridge
+    environment:
+      - SIGNUPS_ALLOWED=false
+      - SIGNUPS_VERIFY=true
+      - BW_DOMAIN=${BW_DOMAIN}
+      - SMTP_HOST=${SMTP_HOST}
+      - SMTP_FROM=${SMTP_FROM}
+      - SMTP_PORT=${SMTP_PORT}
+      - SMTP_SECURITY=${SMTP_SECURITY}
+      - SMTP_USERNAME=${SMTP_USERNAME}
+      - SMTP_PASSWORD=${SMTP_PASSWORD}
+      - BW_DB_PROVIDER=${BW_DB_PROVIDER}
+      - BW_DB_SERVER=${BW_DB_SERVER}
+      - BW_DB_DATABASE=${BW_DB_DATABASE}
+      - BW_DB_USERNAME=${BW_DB_USERNAME}
+      - BW_DB_PASSWORD=${BW_DB_PASSWORD}
+    volumes:
+      - data:/data
+    restart: always
+    image: vaultwarden/server
