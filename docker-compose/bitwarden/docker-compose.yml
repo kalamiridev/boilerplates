@@ -22,7 +22,8 @@ services:
       - globalSettings__mail__smtp__ssl=true
       - globalSettings__mail__smtp__username=${SMTP_USERNAME}
       - globalSettings__mail__smtp__password=${SMTP_PASSWORD}
-      - globalSettings__mail__replyToEmail${SMTP_FROM}
+      - globalSettings__mail__replyToEmail=${SMTP_FROM}
+      - globalSettings__enableCloudCommunication=true
     volumes:
       - data:/etc/bitwarden
     restart: always
