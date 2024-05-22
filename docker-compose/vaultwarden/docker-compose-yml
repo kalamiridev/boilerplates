@@ -10,8 +10,8 @@ services:
       - 5151:80
     network_mode: bridge
     environment:
-      - SIGNUPS_ALLOWED=false
-      - SIGNUPS_VERIFY=true
+      - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
+      - SIGNUPS_VERIFY=${SIGNUPS_VERIFY}
       - DOMAIN=${DOMAIN}
       - SMTP_HOST=${SMTP_HOST}
       - SMTP_PORT=${SMTP_PORT}
