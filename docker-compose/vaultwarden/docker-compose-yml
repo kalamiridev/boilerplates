@@ -10,6 +10,7 @@ services:
       - 5151:80
     network_mode: bridge
     environment:
+      - TZ=Europe/Zagreb
       - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
       - SIGNUPS_VERIFY=${SIGNUPS_VERIFY}
       - DOMAIN=${DOMAIN}
