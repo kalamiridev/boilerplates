@@ -4,7 +4,7 @@ volumes:
     name: postgres_data
 services:
   db:
-    image: postgres:16
+    image: postgres
     container_name: semaphore-db
     hostname: postgres
     volumes:
