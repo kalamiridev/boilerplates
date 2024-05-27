@@ -18,7 +18,7 @@
 
     - name: Check if reboot is required
       become: true
-      stat: path=/var/run/reboot-required get_md5=no
+      stat: path=/var/run/reboot-required get_checksum=no
       register: reboot_required
 
     - name: Send telegram message if reboot is required
