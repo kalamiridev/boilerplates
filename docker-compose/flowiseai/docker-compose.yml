@@ -2,7 +2,6 @@ version: "3.9"
 services:
   app:
     image: flowiseai/flowise:latest
-    command: /bin/sh -c "sleep 3; flowise start"
     container_name: flowiseai
     hostname: flowise
     mem_limit: 4g
