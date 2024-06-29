@@ -8,6 +8,8 @@ services:
     ports:
       - 8083:8083
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     environment:
       - PUID=1026
       - PGID=101
