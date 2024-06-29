@@ -11,8 +11,6 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
-      - PUID=1026
-      - PGID=101
       - TZ=Europe/Zagreb
     volumes:
       - /biblioteka/knjige:/books
