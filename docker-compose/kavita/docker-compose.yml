@@ -8,8 +8,10 @@ services:
     ports:
       - 5471:5000
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     volumes:
       - data:/kavita/config
-      - /biblioteka/stripovi:/manga
+      - /biblioteka/stripovi:/comics
     restart: always
     image: jvmilazz0/kavita:latest
