@@ -8,6 +8,8 @@ services:
     ports:
       - 13378:80
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     volumes:
       - data:/config
       - data:/metadata
