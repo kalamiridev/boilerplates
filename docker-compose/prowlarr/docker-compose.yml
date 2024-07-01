@@ -5,11 +5,13 @@ volumes:
 services:
   app:
     container_name: prowlarr
-    environment:
-      - TZ=Europe/Zagreb
     ports:
       - 9696:9696
+    security_opt:
+      - apparmor:unconfined
     network_mode: bridge
+    environment:
+      - TZ=Europe/Zagreb
     volumes:
       - data:/config
     restart: always
