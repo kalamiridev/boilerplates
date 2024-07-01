@@ -13,6 +13,7 @@ services:
     environment:
       - TZ=Europe/Zagreb
     volumes:
+      - data:/config
       - /biblioteka/knjige:/books
     restart: always
     image: ghcr.io/linuxserver/calibre-web
