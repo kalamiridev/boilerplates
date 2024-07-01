@@ -8,13 +8,15 @@ services:
     ports:
       - 8989:8989
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     environment:
       PUID: 1026
       PGID: 100
       TZ: Europe/Zagreb
     volumes:
       - data:/config
-      - /media/tvshows:/tv:rw
+      - /mymedia/tvshows:/tv:rw
       - /downloads:/downloads:rw
     restart: always
     image: ghcr.io/linuxserver/sonarr
