@@ -10,6 +10,8 @@ services:
       - 6881:6881/udp
       - 8088:8088
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     environment:
       - WEBUI_PORT=8088
       - TZ=Europe/Zagreb
