@@ -8,11 +8,13 @@ services:
     ports:
       - 7878:7878
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     environment:
       - TZ=Europe/Zagreb
     volumes:
       - data:/config
-      - /media/movies/igrani:/movies
+      - /mymedia/movies/igrani:/movies
       - /downloads:/downloads
     restart: always
     image: ghcr.io/linuxserver/radarr
