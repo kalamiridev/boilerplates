@@ -8,11 +8,13 @@ services:
     ports:
       - 8686:8686
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     environment:
       - TZ=Europe/Zagreb
     volumes:
       - data:/config
-      - /media/music:/music
+      - /mymedia/music:/music
       - /downloads:/downloads
     restart: unless-stopped
     image: ghcr.io/linuxserver/lidarr
