@@ -12,6 +12,6 @@ services:
       - apparmor:unconfined
     volumes:
       - data:/kavita/config
-      - /biblioteka/stripovi:/comics
+      - /mnt/biblioteka/stripovi:/comics
     restart: always
     image: jvmilazz0/kavita:latest

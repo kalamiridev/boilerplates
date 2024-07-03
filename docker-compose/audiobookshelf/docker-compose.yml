@@ -13,6 +13,6 @@ services:
     volumes:
       - data:/config
       - data:/metadata
-      - /biblioteka/audioknjige:/audiobooks
+      - /mnt/biblioteka/audioknjige:/audiobooks
     restart: always
     image: advplyr/audiobookshelf
