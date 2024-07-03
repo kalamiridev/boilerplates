@@ -20,12 +20,12 @@ services:
       - TZ=Europe/Zagreb
     volumes:
       - data:/config
-      - /media/movies/animirani:/animirani
-      - /media/movies/dokumentarni:/dokumentarni
-      - /media/movies/igrani:/movies
-      - /media/tvshows:/tvshows
-      - /media/music:/music
-      - /media/metube:/metube
-      - /media/razno:/razno
-      - /C2/emby:/C2
+      - /mnt/media/movies/animirani:/animirani
+      - /mnt/media/movies/dokumentarni:/dokumentarni
+      - /mnt/media/movies/igrani:/movies
+      - /mnt/media/tvshows:/tvshows
+      - /mnt/media/music:/music
+      - /mnt/media/metube:/metube
+      - /mnt/media/razno:/razno
+      - /mnt/C2/emby:/C2
     restart: always

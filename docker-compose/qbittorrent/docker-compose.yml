@@ -17,6 +17,6 @@ services:
       - TZ=Europe/Zagreb
     volumes:
       - data:/config
-      - /downloads:/downloads
+      - /mnt/downloads:/downloads
     restart: always
     image: ghcr.io/linuxserver/qbittorrent

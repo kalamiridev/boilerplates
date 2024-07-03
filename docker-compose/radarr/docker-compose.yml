@@ -14,7 +14,7 @@ services:
       - TZ=Europe/Zagreb
     volumes:
       - data:/config
-      - /mymedia/movies/igrani:/movies
-      - /downloads:/downloads
+      - /mnt/media/movies/igrani:/movies
+      - /mnt/downloads:/downloads
     restart: always
     image: ghcr.io/linuxserver/radarr
