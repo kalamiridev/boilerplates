@@ -13,7 +13,7 @@ services:
     ports:
       - 8459:3000
     volumes:
-      - /docker/flowiseai/data:/root/.flowise:rw
+      - /mnt/docker/flowiseai/data:/root/.flowise:rw
     environment:
       DEBUG: false
       PORT: 3000

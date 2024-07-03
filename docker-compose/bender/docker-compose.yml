@@ -7,5 +7,5 @@ services:
       - 8845:8080
     network_mode: bridge
     volumes:
-      - /docker/bender:/app/static
+      - /mnt/docker/bender:/app/static
     restart: always

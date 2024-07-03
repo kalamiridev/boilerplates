@@ -4,7 +4,7 @@ services:
     image: pawelmalak/flame:latest
     container_name: flame
     volumes:
-      - /docker/flame:/app/data
+      - /mnt/docker/flame:/app/data
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - 5210:5005
