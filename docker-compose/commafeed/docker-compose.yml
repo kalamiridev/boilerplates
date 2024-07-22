@@ -1,4 +1,7 @@
 version: "3.9"
+volumes:
+  data:
+    name: commafeed_data
 services:
   app:
     image: athou/commafeed:latest
@@ -11,4 +14,6 @@ services:
       - CF_DATABASE_URL=jdbc:postgresql://${DATABASE_URL}/commafeed
       - CF_DATABASE_USER=${DATABASE_USER}
       - CF_DATABASE_PASSWORD=${DATABASE_PASS}
+    volumes:
+      - data:/commafeed/data
     restart: always
