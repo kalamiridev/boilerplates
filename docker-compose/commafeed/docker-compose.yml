@@ -11,6 +11,4 @@ services:
       - CF_DATABASE_URL=jdbc:postgresql://${DATABASE_URL}/commafeed
       - CF_DATABASE_USER=${DATABASE_USER}
       - CF_DATABASE_PASSWORD=${DATABASE_PASS}
-    volumes:
-      - /mnt/docker/commafeed:/commafeed/data
     restart: always
