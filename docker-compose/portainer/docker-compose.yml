@@ -1,13 +1,16 @@
-version: "3.9"
+---
+volumes:
+  data:
+    name: portainer_data
 services:
-  app:
-    image: "portainer/portainer-ee:2.20.1"
+  portainer-ee:
+    image: "portainer/portainer-ee:latest"
     container_name: portainer
     volumes:
-      - /etc/docker/portainer:/data
-      - /var/run/docker.sock:/var/run/docker.sock
+      - data:/data
+      - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
-      - 9000:9000
-      - 8000:8000
+      - "9443:9443"
+      - "8000:8000"
     network_mode: bridge
     restart: always
