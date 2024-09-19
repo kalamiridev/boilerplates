@@ -13,7 +13,7 @@ services:
     environment:
       - POLLING_INTERVAL=300
       - SERVER_URL=http://localhost:80
-      - DATABASE_URL=jdbc:postgresql://${DATABASE_URL}/podfetch?user=${DATABASE_USER}&password=${DATABASE_PASS}
+      - DATABASE_URL=postgresql://${DATABASE_USER}:${DATABASE_PASS}/${DATABASE_URL}/podfetch
       - GPODDER_INTEGRATION_ENABLED=true
       - BASIC_AUTH=true
       - USERNAME=${USERNAME}
