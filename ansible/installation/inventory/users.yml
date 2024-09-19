@@ -1,0 +1,4 @@
+- users:
+    - username: test
+      password: test
+      groups: sudo,docker

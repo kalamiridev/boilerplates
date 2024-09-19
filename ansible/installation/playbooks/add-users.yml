@@ -1,0 +1,15 @@
+---
+- name: Create users and add to groups
+  hosts: all
+  become: true
+  gederive_facts: true
+  vars_files: inventory/users.yml
+  tasks:
+    - name: Create Users Task
+      user:
+        name: "{{ item.username }}"
+        state: present
+        password: "{{ item.password | password_hash('sha512','A512') }}"
+        shell: /bin/bash
+        group: "{{ item.groups }}"
+      loop: "{{ users }}"
