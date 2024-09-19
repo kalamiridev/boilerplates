@@ -12,7 +12,7 @@ services:
       - data:/app/podcasts:rw
     environment:
       - POLLING_INTERVAL=300
-      - SERVER_URL=http://localhost:80
+      - SERVER_URL=${SERVER_URL}
       - DATABASE_URL=postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/podfetch
       - GPODDER_INTEGRATION_ENABLED=true
       - BASIC_AUTH=true
