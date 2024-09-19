@@ -1,0 +1,21 @@
+---
+volumes:
+  data:
+    name: podfetch_data
+services:
+  app:
+    image: samuel19982/podfetch:latest
+    container_name: podfetch
+    ports:
+      - 4135:8000
+    volumes:
+      - data:/app/podcasts:rw
+    environment:
+      - POLLING_INTERVAL=300
+      - SERVER_URL=http://localhost:80
+      - DATABASE_URL=postgresql://${DATABASE_USER}:${DATABASE_PASS}/${DATABASE_URL}/podfetch
+      - GPODDER_INTEGRATION_ENABLED=true
+      - BASIC_AUTH=true
+      - USERNAME=${USERNAME}
+      - PASSWORD=${PASSWORD}
+    restart: unless-stopped
