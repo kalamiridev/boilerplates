@@ -18,4 +18,6 @@ services:
       - BASIC_AUTH=true
       - USERNAME=${USERNAME}
       - PASSWORD=${PASSWORD}
+    security_opt:
+      - apparmor:unconfined
     restart: unless-stopped
