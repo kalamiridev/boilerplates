@@ -18,6 +18,7 @@ services:
       - BASIC_AUTH=true
       - USERNAME=${USERNAME}
       - PASSWORD=${PASSWORD}
+      - APIKEY=${API_KEY}
     security_opt:
       - apparmor:unconfined
     restart: unless-stopped
