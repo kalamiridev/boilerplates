@@ -19,5 +19,5 @@ services:
       - USERNAME=${USERNAME}
       - PASSWORD=${PASSWORD}
     security_opt:
-      - apparmor:unconfined
+      - no-new-privileges:true
     restart: unless-stopped
