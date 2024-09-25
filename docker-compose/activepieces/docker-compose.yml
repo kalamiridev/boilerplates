@@ -1,0 +1,43 @@
+---
+volumes:
+  data:
+    name: activepieces_data
+services:
+  activepieces:
+    image: activepieces/activepieces:latest
+    container_name: activepieces
+    mem_limit: 6g
+    cpu_shares: 1024
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: timeout 20s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
+      interval: 10s
+      timeout: 7s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 8310:80
+    volumes:
+      - data:/usr/src/cache:rw
+      - data:/usr/src/packages:rw
+    environment:
+      ## 256 bit encryption key, 32 hex character
+      AP_ENCRYPTION_KEY: ${AP_ENCRYPTION_KEY}
+      ## JWT Secret
+      AP_JWT_SECRET: ${AP_JWT_SECRET}
+      AP_ENVIRONMENT: prod
+      AP_FRONTEND_URL: ${AP_FRONTEND_URL}
+      AP_ENGINE_EXECUTABLE_PATH: dist/packages/engine/main.js
+      AP_NODE_EXECUTABLE_PATH: /usr/local/bin/node
+      AP_EXECUTION_MODE: UNSANDBOXED
+      AP_POSTGRES_DATABASE: ${AP_POSTGRES_DATABASE}
+      AP_POSTGRES_HOST: ${AP_POSTGRES_HOST}
+      AP_POSTGRES_PORT: 5432
+      AP_POSTGRES_USERNAME: ${AP_POSTGRES_USERNAME}
+      AP_POSTGRES_PASSWORD: ${AP_POSTGRES_PASSWORD}
+      AP_REDIS_HOST: ${AP_REDIS_HOST}
+      AP_REDIS_PORT: 6379
+      AP_FLOW_TIMEOUT_SECONDS: 600
+      AP_TELEMETRY_ENABLED: false
+    restart: on-failure:5
