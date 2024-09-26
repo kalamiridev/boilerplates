@@ -1,6 +1,6 @@
-version: "3.9"
+---
 services:
-  app:
+  flowiseai:
     image: flowiseai/flowise:latest
     container_name: flowiseai
     hostname: flowise

@@ -1,5 +1,4 @@
-
-version: '3'
+---
 services:
   bind9:
     container_name: bind9

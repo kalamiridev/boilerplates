@@ -1,14 +1,14 @@
-version: '3.9'
+---
 volumes:
   data:
-   name: website-shot_data
+    name: website-shot_data
 services:
-    website-shot:
-        container_name: website-shot
-        volumes:
-            - data:/usr/src/website-shot/screenshots
-        ports:
-            - 3616:3000
-        network_mode: bridge
-        image: flowko1/website-shot
-        restart: unless-stopped
+  website-shot:
+    container_name: website-shot
+    volumes:
+      - data:/usr/src/website-shot/screenshots
+    ports:
+      - 3616:3000
+    network_mode: bridge
+    image: flowko1/website-shot
+    restart: unless-stopped

@@ -1,16 +1,15 @@
-
-version: '3.3'
+---
 services:
-    pihole:
-        container_name: pihole
-        environment:
-            - WEB_PORT=8080
-            - WEBPASSWORD=yourpassword
-            - ServerIP=yourip
-            - DNSMASQ_LISTENING=local
-        volumes:
-            - /docker/pihole/dnsmasq.d:/etc/dnsmasq.d
-            - /docker/pihole/pihole:/etc/pihole
-        network_mode: host
-        restart: always
-        image: pihole/pihole
+  pihole:
+    container_name: pihole
+    environment:
+      - WEB_PORT=8080
+      - WEBPASSWORD=yourpassword
+      - ServerIP=yourip
+      - DNSMASQ_LISTENING=local
+    volumes:
+      - /docker/pihole/dnsmasq.d:/etc/dnsmasq.d
+      - /docker/pihole/pihole:/etc/pihole
+    network_mode: host
+    restart: always
+    image: pihole/pihole

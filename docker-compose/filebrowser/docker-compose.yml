@@ -1,12 +1,12 @@
-version: '3.3'
+---
 services:
-    filebrowser:
-        container_name: filebrowser
-        ports:
-            - 8147:80
-        network_mode: bridge
-        volumes:
-            - /volume1:/srv
-            - /volume1/docker/filebrowser/config/database.db:/database.db
-        restart: always
-        image: filebrowser/filebrowser
+  filebrowser:
+    container_name: filebrowser
+    ports:
+      - 8147:80
+    network_mode: bridge
+    volumes:
+      - /volume1:/srv
+      - /volume1/docker/filebrowser/config/database.db:/database.db
+    restart: always
+    image: filebrowser/filebrowser

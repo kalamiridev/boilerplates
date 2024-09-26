@@ -1,9 +1,9 @@
-version: "3.3"
+---
 volumes:
   data:
     name: bitwarden_data
 services:
-  server:
+  bitwarden:
     container_name: bitwarden
     ports:
       - 80:8080

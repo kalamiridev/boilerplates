@@ -1,15 +1,15 @@
-version: '3.9'
+---
 volumes:
   data:
     name: stremio_data
 services:
-    server:
-        container_name: stremio
-        ports:
-            - 11470:11470
-        network_mode: bridge
-        volumes:
-            - data:/config
-            - data:/root/.stremio-server
-        restart: always
-        image: stremio/server:latest
+  server:
+    container_name: stremio
+    ports:
+      - 11470:11470
+    network_mode: bridge
+    volumes:
+      - data:/config
+      - data:/root/.stremio-server
+    restart: always
+    image: stremio/server:latest

@@ -1,13 +1,13 @@
-version: '3.9'
+---
 services:
-    benphelps:
-        container_name: homepage
-        ports:
-            - 3000:3000
-        network_mode: bridge
-        volumes:
-            - /docker/homepage:/app/config
-            - /docker/homepage/images:/app/public/images
-            - /var/run/docker.sock:/var/run/docker.sock
-        restart: always
-        image: ghcr.io/benphelps/homepage:latest
+  benphelps:
+    container_name: homepage
+    ports:
+      - 3000:3000
+    network_mode: bridge
+    volumes:
+      - /docker/homepage:/app/config
+      - /docker/homepage/images:/app/public/images
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
+    image: ghcr.io/benphelps/homepage:latest

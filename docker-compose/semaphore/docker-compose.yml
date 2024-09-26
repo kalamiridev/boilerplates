@@ -1,4 +1,4 @@
-version: "3.3"
+---
 volumes:
   data:
     name: postgres_data
@@ -14,7 +14,7 @@ services:
       - POSTGRES_PASSWORD=${DB_PASS}
       - POSTGRES_DB=semaphore
     restart: always
-  app:
+  semaphore:
     container_name: semaphore
     image: semaphoreui/semaphore:latest
     ports:

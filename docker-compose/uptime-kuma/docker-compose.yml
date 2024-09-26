@@ -1,16 +1,16 @@
-version: '3.3'
+---
 volumes:
   data:
     name: uptime-kuma_data
 services:
-    uptime-kuma:
-        image: louislam/uptime-kuma
-        container_name: uptime-kuma
-        ports:
-            - 3444:3001
-        network_mode: bridge
-        environment:
-            - TZ=Europe/Zagreb
-        volumes:
-            - data:/app/data
-        restart: always
+  uptime-kuma:
+    image: louislam/uptime-kuma
+    container_name: uptime-kuma
+    ports:
+      - 3444:3001
+    network_mode: bridge
+    environment:
+      - TZ=Europe/Zagreb
+    volumes:
+      - data:/app/data
+    restart: always

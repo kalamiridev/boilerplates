@@ -9,7 +9,7 @@ services:
     mem_limit: 6g
     cpu_shares: 1024
     security_opt:
-      - no-new-privileges:true
+      - apparmor:unconfined
     healthcheck:
       test: timeout 20s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
       interval: 10s
@@ -40,4 +40,6 @@ services:
       AP_REDIS_PORT: 6379
       AP_FLOW_TIMEOUT_SECONDS: 600
       AP_TELEMETRY_ENABLED: false
+    env_file:
+      - .env
     restart: on-failure:5

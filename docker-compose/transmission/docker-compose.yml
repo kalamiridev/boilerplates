@@ -1,4 +1,4 @@
-version: "3.9"
+---
 services:
   transmission:
     container_name: transmission
@@ -20,5 +20,3 @@ services:
       TZ: Europe/Zagreb
       USER: <username>
       PASS: <pass>
-      PUID: 1026
-      PGID: 100

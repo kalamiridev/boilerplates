@@ -1,11 +1,13 @@
-version: "3.3"
+---
 services:
   it-tools:
     container_name: it-tools
     ports:
       - 5545:80
     network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
     environment:
-      BASE_URL: https://your.url
+      BASE_URL: https://it-tools.kalamiri.com/
     restart: always
     image: corentinth/it-tools

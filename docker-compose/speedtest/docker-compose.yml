@@ -1,4 +1,4 @@
-version: "3.9"
+---
 volumes:
   data:
     name: speedtest_data

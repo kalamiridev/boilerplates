@@ -1,16 +1,16 @@
-version: '3.3'
+---
 services:
-    app:
-        image: jc21/nginx-proxy-manager
-        container_name: nginx-proxy-manager
-        ports:
-            - 80:80
-            - 81:81
-            - 443:443
-        environment:
-            - TZ=Europe/Zagreb
-        volumes:
-            - /etc/docker/nginx-proxy-manager/config.json:/app/config/production.json
-            - /etc/docker/nginx-proxy-manager/data:/data
-            - /etc/docker/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
-        restart: always
+  app:
+    image: jc21/nginx-proxy-manager
+    container_name: nginx-proxy-manager
+    ports:
+      - 80:80
+      - 81:81
+      - 443:443
+    environment:
+      - TZ=Europe/Zagreb
+    volumes:
+      - /etc/docker/nginx-proxy-manager/config.json:/app/config/production.json
+      - /etc/docker/nginx-proxy-manager/data:/data
+      - /etc/docker/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
+    restart: always

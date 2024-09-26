@@ -1,9 +1,9 @@
-version: "3.9"
+---
 volumes:
   data:
     name: commafeed_data
 services:
-  app:
+  commafeed:
     image: athou/commafeed:latest
     container_name: commafeed
     ports:

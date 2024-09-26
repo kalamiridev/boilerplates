@@ -1,4 +1,4 @@
-version: "3.3"
+---
 volumes:
   data:
     name: audiobookshelf_data
