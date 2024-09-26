@@ -1,0 +1,17 @@
+---
+services:
+  languagetool:
+    image: erikvl87/languagetool
+    container_name: languagetool
+    ports:
+      - "8010:8010"
+    network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - "/etc/docker/languagetool:/ngrams"
+    environment:
+      - Java_Xmx=1g
+      - Java_Xms=1g
+      - langtool_languageModel=/ngrams
+    restart: always
