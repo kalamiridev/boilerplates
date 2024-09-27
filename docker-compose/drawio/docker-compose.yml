@@ -1,0 +1,11 @@
+---
+services:
+  drawio:
+    image: jgraph/drawio
+    container_name: drawio
+    ports:
+      - "5022:8080"
+    network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
+    restart: always
