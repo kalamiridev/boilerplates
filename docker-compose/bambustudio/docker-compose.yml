@@ -15,9 +15,10 @@ services:
       - 8233:3000
     volumes:
       - data:/config
+    devices:
+      - /dev/dri:/dev/dri
     environment:
       DARK_MODE: true #optional
-      DRINODE: /dev/dri/renderD128
       TZ: Europe/Zagreb
       TITLE: Bambu-Studio
       CUSTOM_USER: ${CUSTOM_USER}
