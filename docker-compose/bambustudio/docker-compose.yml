@@ -1,0 +1,22 @@
+---
+volumes:
+  data:
+    name: bambu-studio_data
+services:
+  bambustudio:
+    image: ghcr.io/linuxserver/bambustudio:latest
+    container_name: bambu-studio
+    mem_limit: 4g
+    cpu_shares: 1024
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 8233:3000
+    volumes:
+      - data:/config
+    environment:
+      TZ: Europe/Zagreb
+      TITLE: Bambu-Studio
+      CUSTOM_USER: ${CUSTOM_USER}
+      PASSWORD: ${PASSWORD}
+    restart: on-failure:5
