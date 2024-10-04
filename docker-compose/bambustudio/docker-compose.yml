@@ -6,8 +6,8 @@ services:
   bambustudio:
     image: ghcr.io/linuxserver/bambustudio:latest
     container_name: bambu-studio
-    mem_limit: 4g
-    cpu_shares: 1024
+    mem_limit: 8g
+    cpu_shares: 2048
     security_opt:
       - apparmor:unconfined
     ports:
