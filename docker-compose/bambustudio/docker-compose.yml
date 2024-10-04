@@ -17,6 +17,7 @@ services:
       - data:/config
     environment:
       DARK_MODE: true #optional
+      DRINODE: /dev/dri/renderD128
       TZ: Europe/Zagreb
       TITLE: Bambu-Studio
       CUSTOM_USER: ${CUSTOM_USER}
