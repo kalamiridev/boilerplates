@@ -4,7 +4,7 @@ volumes:
     name: commafeed_data
 services:
   commafeed:
-    image: athou/commafeed
+    image: athou/commafeed:latest
     container_name: commafeed
     ports:
       - 8073:8082
