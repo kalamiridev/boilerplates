@@ -22,6 +22,7 @@ services:
       DB_PASSWORD: ${POSTGRES_PASSWORD}
       APP_KEY: ${APP_KEY}
       PUBLIC_DASHBOARD: "true"
+      APP_TIMEZONE: "Europe/Zagreb"
     volumes:
       - data:/config
     restart: always
