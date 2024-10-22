@@ -23,6 +23,9 @@ services:
       APP_KEY: ${APP_KEY}
       PUBLIC_DASHBOARD: "true"
       APP_TIMEZONE: "Europe/Zagreb"
+      DISPLAY_TIMEZONE: "Europe/Zagreb"
+      SPEEDTEST_SCHEDULE: "0 * * * *"
+      SPEEDTEST_SERVERS: 2453,31004,55191,44719
     volumes:
       - data:/config
     restart: always
