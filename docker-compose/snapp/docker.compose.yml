@@ -1,0 +1,23 @@
+---
+services:
+  snapp:
+    container_name: snapp
+    image: uraniadev/snapp:latest
+    mem_limit: 4g
+    cpu_shares: 1024
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 6421:3000
+    environment:
+      ORIGIN: https://snapp.home.kalamiri.com
+      ADMIN_USERNAME: ${ADMIN_USERNAME}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD}
+      NODE_ENV: production
+      TIMEZONE: Europe/Zagreb
+      DATABASE_PROVIDER: postgres
+      DATABASE_POSTGRES_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/snapp
+      TOKEN_SECRET: ${TOKEN_SECRET}
+    env_file:
+      - .env
+    restart: always
