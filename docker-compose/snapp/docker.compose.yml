@@ -10,7 +10,7 @@ services:
     ports:
       - 6421:3000
     environment:
-      ORIGIN: https://snapp.home.kalamiri.com
+      ORIGIN: ${ORIGIN}
       ADMIN_USERNAME: ${ADMIN_USERNAME}
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       NODE_ENV: production
