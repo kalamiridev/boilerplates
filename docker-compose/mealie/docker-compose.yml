@@ -13,6 +13,7 @@ services:
     read_only: false
     ports:
       - 9925:9000
+    network_mode: bridge
     volumes:
       - data:/app/data/
     environment:
