@@ -34,6 +34,4 @@ services:
       # SMTP_FROM_EMAIL: Your-own-gmail-address
       # SMTP_USER: Your-own-gmail-address
       # SMTP_PASSWORD: Your-own-app-password
-    env_file:
-      - .env
     restart: on-failure:5
