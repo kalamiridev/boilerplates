@@ -5,7 +5,7 @@ services:
     healthcheck:
       test: curl -f http://localhost:80/ || exit 1
     ports:
-      - "3000:3000"
+      - "3003:3000"
     security_opt:
       - apparmor:unconfined
     environment:
