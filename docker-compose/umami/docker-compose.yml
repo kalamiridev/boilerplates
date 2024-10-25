@@ -1,30 +1,18 @@
 ---
 services:
   umami:
-    container_name: umami
-    image: ghcr.io/mikecao/umami:postgresql-latest
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
     ports:
-      - 3999:3000
+      - "3000:3000"
+    security_opt:
+      - apparmor:unconfined
     environment:
-      DATABASE_URL: postgresql://umami:umami@db:5432/umami
+      DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/umami
       DATABASE_TYPE: postgresql
-      HASH_SALT: R9ei571tdLRxGYLRe7MW
-    labels:
-      - flame.type=application
-      - flame.name=Analytics
-      - flame.url=https://analytics.kalamiri.synology.me
-      - flame.icon=Umami.png #/docker/flame/uploads/Umami.png
-    depends_on:
-      - db
-    restart: always
-  db:
-    container_name: umami-db
-    image: postgres:12-alpine
-    environment:
-      POSTGRES_DB: umami
-      POSTGRES_USER: umami
-      POSTGRES_PASSWORD: umami
-    volumes:
-      - /volume1/docker/umami/schema.postgresql.sql:/docker-entrypoint-initdb.d/schema.postgresql.sql:ro
-      - /volume1/docker/umami/db:/var/lib/postgresql/data
+      APP_SECRET: ${APP_SECRET}
     restart: always
