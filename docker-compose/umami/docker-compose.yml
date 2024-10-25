@@ -3,10 +3,7 @@ services:
   umami:
     image: ghcr.io/umami-software/umami:postgresql-latest
     healthcheck:
-      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
+      test: curl -f http://localhost:80/ || exit 1
     ports:
       - "3000:3000"
     network_mode: bridge
