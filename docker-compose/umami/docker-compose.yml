@@ -13,6 +13,8 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
+      TRACKER_SCRIPT_NAME: getinfo
+      API_COLLECT_ENDPOINT: all
       DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/umami
       DATABASE_TYPE: postgresql
       APP_SECRET: ${APP_SECRET}
