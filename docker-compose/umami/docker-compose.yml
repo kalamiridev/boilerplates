@@ -6,7 +6,6 @@ services:
       test: curl -f http://localhost:80/ || exit 1
     ports:
       - "3000:3000"
-    network_mode: bridge
     security_opt:
       - apparmor:unconfined
     environment:
