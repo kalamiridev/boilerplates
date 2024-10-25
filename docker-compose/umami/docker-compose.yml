@@ -3,8 +3,6 @@ services:
   umami:
     image: ghcr.io/umami-software/umami:postgresql-latest
     container_name: umami
-    healthcheck:
-      test: curl -f http://localhost:80/ || exit 1
     ports:
       - "3003:3000"
     network_mode: bridge
