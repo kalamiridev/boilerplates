@@ -37,4 +37,4 @@ services:
       SMTP_PASSWORD: ${SMTP_PASSWORD}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       OPENAI_MODEL: ${OPENAI_MODEL}
-    restart: on-failure:5
+    restart: always
