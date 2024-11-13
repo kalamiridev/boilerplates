@@ -1,0 +1,11 @@
+---
+services:
+  monkeytype:
+    image: themythologist/monkeytype:frontend-latest
+    container_name: monkeytype
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 5450:5000
+    network_mode: bridge
+    restart: always
