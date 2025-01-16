@@ -1,0 +1,23 @@
+---
+services:
+  app:
+    image: moonrailgun/tianji
+    container_name: tianji
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 12345 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 12345:12345
+    network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/tianji
+      JWT_SECRET: ${JWT_SECRET}
+      ALLOW_REGISTER: false
+      ALLOW_OPENAPI: true
+      OPENAI_API_KEY: Your-OpenAI-APIKEY #NOT mandatory to add.
+    restart: always
