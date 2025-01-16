@@ -6,6 +6,8 @@ services:
     tty: true
     pull_policy: always
     container_name: openhands
+    security_opt:
+      - apparmor:unconfined
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/3000' || exit 1
       interval: 10s
