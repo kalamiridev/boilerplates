@@ -1,0 +1,25 @@
+---
+services:
+  openhands:
+    image: docker.all-hands.dev/all-hands-ai/openhands:0.20
+    stdin_open: true
+    tty: true
+    pull_policy: always
+    container_name: openhands
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/3000' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    environment:
+      - SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.20-nikolaik
+      - LOG_ALL_EVENTS=true
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/docker/openhands:/.openhands-state:rw
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    ports:
+      - 3993:3000
+    restart: always
