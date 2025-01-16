@@ -19,5 +19,5 @@ services:
       JWT_SECRET: ${JWT_SECRET}
       ALLOW_REGISTER: false
       ALLOW_OPENAPI: true
-      OPENAI_API_KEY: Your-OpenAI-APIKEY #NOT mandatory to add.
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
     restart: always
