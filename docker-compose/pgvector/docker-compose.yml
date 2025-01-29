@@ -1,0 +1,14 @@
+---
+services:
+  db:
+    container_name: pgvector
+    image: ankane/pgvector
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - /etc/docker/pgvector:/var/lib/postgresql/data
+    restart: always
