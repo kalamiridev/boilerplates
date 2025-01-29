@@ -1,0 +1,15 @@
+---
+services:
+  app:
+    image: searxng/searxng
+    container_name: searxng
+    ports:
+      - 5147:8080
+    mem_limit: 8g
+    cpu_shares: 2048
+    network_mode: bridge
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/docker/searxng:/etc/searxng:rw
+    restart: always
