@@ -1,12 +1,19 @@
 ---
+volumes:
+  data:
+    name: ollama-webui_data
 services:
   webui:
-    image: ollama-webui:latest
+    image: ghcr.io/open-webui/open-webui:main
     container_name: ollama-webui
+    expose:
+      - 8080/tcp
     network_mode: bridge
     ports:
-      - 3000:8080
+      - 8080:8080/tcp
     security_opt:
       - no-new-privileges:true
     environment:
       - OLLAMA_BASE_URL=http://localhost:11434/api
+    volumes:
+      - data:/app/backend/data
