@@ -26,7 +26,7 @@ services:
       WEBHOOK_URL: https://${N8N_HOST}
       GENERIC_TIMEZONE: ${TZ}
       N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
-      N8N_SECURE_COOKIE: true #or false if you want to use n8n without synology.me DDNS
+      N8N_SECURE_COOKIE: true
       TZ: ${TZ}
       DB_TYPE: postgresdb
       DB_POSTGRESDB_DATABASE: n8n
@@ -34,4 +34,6 @@ services:
       DB_POSTGRESDB_PORT: 5432
       DB_POSTGRESDB_USER: ${DATABASE_USER}
       DB_POSTGRESDB_PASSWORD: ${DATABASE_PASS}
+    env_file:
+      - .env
     restart: on-failure:5
