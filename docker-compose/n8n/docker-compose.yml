@@ -15,6 +15,7 @@ services:
       - apparmor:unconfined
     ports:
       - 5678:5678
+    network_mode: bridge
     volumes:
       - /etc/docker/n8n/data:/home/node/.n8n:rw
       - /etc/docker/n8n/files:/files:rw
@@ -36,4 +37,4 @@ services:
       DB_POSTGRESDB_PASSWORD: ${DATABASE_PASS}
     env_file:
       - .env
-    restart: on-failure:5
+    restart: always
