@@ -1,0 +1,13 @@
+---
+services:
+  qdrant:
+    image: qdrant/qdrant
+    container_name: qdrant
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 6333:6333
+    network_mode: bridge
+    volumes:
+      - /etc/docker/qdrant:/qdrant/storage
+    restart: always

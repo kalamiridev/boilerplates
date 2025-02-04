@@ -20,6 +20,7 @@ services:
       - /etc/docker/n8n/data:/home/node/.n8n:rw
       - /etc/docker/n8n/files:/files:rw
     environment:
+      N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
       N8N_HOST: ${N8N_HOST}
       N8N_PORT: 5678
       N8N_PROTOCOL: https
