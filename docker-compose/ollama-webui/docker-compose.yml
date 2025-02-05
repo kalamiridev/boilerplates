@@ -5,7 +5,7 @@ volumes:
 services:
   webui:
     container_name: ollama-webui
-    image: ghcr.io/open-webui/open-webui
+    image: ghcr.io/open-webui/open-webui:main
     volumes:
       - data:/app/backend/data
     environment:
