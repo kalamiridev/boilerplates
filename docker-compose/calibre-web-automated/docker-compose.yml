@@ -1,7 +1,4 @@
 ---
-volumes:
-  data:
-    name: calibre-web-automated_data
 services:
   app:
     image: crocodilestick/calibre-web-automated
@@ -22,7 +19,7 @@ services:
       PGID: 100
       TZ: Europe/Zagreb
     volumes:
-      - data:/config:rw
+      - /mnt/biblioteka/calibre-web-automated/data:/config:rw
       - /mnt/biblioteka/ingest:/cwa-book-ingest:rw
       - /mnt/biblioteka/knjige:/calibre-library:rw
     restart: always
