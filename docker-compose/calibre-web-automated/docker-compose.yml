@@ -1,0 +1,26 @@
+---
+volumes:
+  data:
+    name: calibre-web-automated_data
+services:
+  app:
+    image: crocodilestick/calibre-web-automated
+    container_name: calibre-web-automated
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 8083 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 8213:8083
+    network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      TZ: Europe/Zagreb
+    volumes:
+      - data:/config
+      - /mnt/biblioteka/ingest:/cwa-book-ingest
+      - /mnt/biblioteka/knjige:/calibre-library
+    restart: always
