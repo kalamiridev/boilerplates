@@ -18,9 +18,11 @@ services:
     security_opt:
       - apparmor:unconfined
     environment:
+      PUID: 1026
+      PGID: 100
       TZ: Europe/Zagreb
     volumes:
-      - data:/config
-      - /mnt/biblioteka/ingest:/cwa-book-ingest
-      - /mnt/biblioteka/knjige:/calibre-library
+      - data:/config:rw
+      - /mnt/biblioteka/ingest:/cwa-book-ingest:rw
+      - /mnt/biblioteka/knjige:/calibre-library:rw
     restart: always
