@@ -4,4 +4,4 @@
 db.home.*
 .env
 .secret*
-/.vscode
+.vscode/*
