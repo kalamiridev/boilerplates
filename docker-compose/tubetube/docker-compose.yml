@@ -1,4 +1,7 @@
 ---
+volumes:
+  data:
+    name: tubetube_data
 services:
   tubetube:
     image: ghcr.io/mattblackonly/tubetube:latest
@@ -12,7 +15,7 @@ services:
       - /mnt/downloads:/data/Music:rw
       - /mnt/downloads:/data/Podcast:rw
       - /mnt/downloads:/data/Video:rw
-      - /etc/docker/tubetube/config:/config:rw
+      - data:/config:rw
     environment:
       THREAD_COUNT: 1
       PUID: 1026
