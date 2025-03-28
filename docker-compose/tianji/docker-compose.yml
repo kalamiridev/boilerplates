@@ -1,7 +1,7 @@
 ---
 services:
   app:
-    image: moonrailgun/tianji:1.19.3
+    image: moonrailgun/tianji:latest
     container_name: tianji
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 12345 || exit 1"]
