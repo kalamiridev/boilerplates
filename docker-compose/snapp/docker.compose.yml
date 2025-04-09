@@ -16,7 +16,7 @@ services:
       NODE_ENV: production
       TIMEZONE: Europe/Zagreb
       DATABASE_PROVIDER: postgres
-      DATABASE_POSTGRES_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/snapp
+      DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/snapp
       TOKEN_SECRET: ${TOKEN_SECRET}
     env_file:
       - .env
