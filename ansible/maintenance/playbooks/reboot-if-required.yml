@@ -1,6 +1,7 @@
 - name: Reboot if required Debian/Ubuntu
   hosts: all
   become: true
+  become_user: root
   tasks:
     - name: Check if reboot is required
       become: true
