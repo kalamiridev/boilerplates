@@ -9,7 +9,7 @@
         path: /var/run/reboot-required
       register: reboot_required
 
-    - name: Reboot if required
+    - name: Reboot
       reboot:
         msg: "Reboot initiated by Ansible due to kernel updates"
         connect_timeout: 5
