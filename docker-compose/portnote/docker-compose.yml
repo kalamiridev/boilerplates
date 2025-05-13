@@ -1,0 +1,27 @@
+---
+services:
+  portnote:
+    image: haedlessdev/portnote:latest
+    container_name: portnote
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 3477:3000
+    environment:
+      JWT_SECRET: ${JWT_SECRET}
+      USER_SECRET: ${USER_SECRET}
+      LOGIN_USERNAME: ${LOGIN_USERNAME}
+      LOGIN_PASSWORD: ${LOGIN_PASSWORD}
+      DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/portnote
+    restart: always
+
+  portnoteagent:
+    image: haedlessdev/portnote-agent:latest
+    container_name: portnote-agent
+    environment:
+      DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/portnote
+    restart: always
