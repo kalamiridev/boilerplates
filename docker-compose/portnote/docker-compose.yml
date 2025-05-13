@@ -11,6 +11,8 @@ services:
       start_period: 90s
     ports:
       - 3477:3000
+    security_opt:
+      - apparmor:unconfined
     environment:
       JWT_SECRET: ${JWT_SECRET}
       USER_SECRET: ${USER_SECRET}
@@ -24,4 +26,6 @@ services:
     container_name: portnote-agent
     environment:
       DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/portnote
+    security_opt:
+      - apparmor:unconfined
     restart: always
