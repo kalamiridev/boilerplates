@@ -1,0 +1,38 @@
+---
+volumes:
+  data:
+    name: warracker_data
+services:
+  app:
+    image: ghcr.io/sassanix/warracker/main:latest
+    container_name: warracker
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/80' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 5313:80
+    volumes:
+      - data:/data/uploads
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+      SECRET_KEY: ${SECRET_KEY}
+      FRONTEND_URL: https://warracker.home.kalamiri.com
+      APP_BASE_URL: https://warracker.home.kalamiri.com
+      MAX_UPLOAD_MB: 512
+      NGINX_MAX_BODY_SIZE_VALUE: 512M
+      FLASK_ENV: production
+    restart: always
+    env_file:
+      - .env
