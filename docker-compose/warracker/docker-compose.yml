@@ -34,5 +34,3 @@ services:
       NGINX_MAX_BODY_SIZE_VALUE: 512M
       FLASK_ENV: production
     restart: always
-    env_file:
-      - .env
