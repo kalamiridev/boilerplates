@@ -35,7 +35,7 @@ services:
         https_only: true
     restart: always
     depends_on:
-      inv_sig_helper:
+      invidious_sig_helper:
         condition: service_started
 
   invidious_sig_helper:
