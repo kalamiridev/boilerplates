@@ -4,7 +4,7 @@ volumes:
     name: companioncache
 services:
   app:
-    image: quay.io/invidious/invidious:master
+    image: quay.io/invidious/invidious:latest
     container_name: invidious
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
