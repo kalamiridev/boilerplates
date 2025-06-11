@@ -12,7 +12,7 @@ services:
     hostname: invidious
     user: 100:100
     security_opt:
-      - no-new-privileges:true
+      - apparmor:unconfined
     ports:
       - 7601:3000
     environment:
@@ -49,5 +49,5 @@ services:
       - ALL
     read_only: true
     security_opt:
-      - no-new-privileges:true
+      - apparmor:unconfined
     restart: always
