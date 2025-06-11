@@ -1,4 +1,7 @@
 ---
+volumes:
+  data:
+    name: companioncache
 services:
   app:
     image: quay.io/invidious/invidious:master
@@ -23,31 +26,45 @@ services:
           password: ${DB_PASSWORD}
           host: ${DB_HOST}
           port: ${DB_PORT}
-        check_tables: true
-        captcha_enabled: false
-        default_user_preferences:
-          locale: hr
-          region: HR
-        external_port: 443
-        signature_server: invidious_sig_helper:12999
-        domain: ${DOMAIN}
-        hmac_key: ${HMAC_KEY}
-        https_only: true
+          check_tables: true
+          invidious_companion:
+          # URL used for the internal communication between invidious and invidious companion
+          # There is no need to change that except if Invidious companion does not run on the same docker compose file.
+          - private_url: "http://192.168.99.108:8282"
+          # (public) URL used for the communication between your browser and invidious companion
+          # IF you are using a reverse proxy OR accessing invidious from an external IP then you NEED to change this value
+          # Please consult for more doc: https://github.com/unixfox/invidious/blob/invidious-companion/config/config.example.yml#L57-L88
+          # And make sure to add the routes from the post install when using a reverse proxy!
+            public_url: ${PUBLIC_URL}
+          # IT is NOT recommended to use the same key as HMAC KEY. Generate a new key!
+          # Use the key generated in the 2nd step
+          invidious_companion_key: ${INVIDIOUS_COMPANION_KEY}
+          # external_port:
+          # domain:
+          # https_only: false
+          # statistics_enabled: false
+          # Use the key generated in the 2nd step
+          hmac_key: ${HMAC_KEY}
     restart: always
-    depends_on:
-      invidious_sig_helper:
-        condition: service_started
 
-  invidious_sig_helper:
-    image: quay.io/invidious/inv-sig-helper:latest
-    container_name: invidious_sig_helper
-    init: true
-    command: ["--tcp", "0.0.0.0:12999"]
+  companion:
+    image: quay.io/invidious/invidious-companion:latest
     environment:
-      - RUST_LOG=info
+      # Use the key generated in the 2nd step
+      - SERVER_SECRET_KEY=${INVIDIOUS_COMPANION_KEY}
+    restart: always
+    # Remove "127.0.0.1:" if used from an external IP
+    ports:
+      - "127.0.0.1:8282:8282"
+    logging:
+      options:
+        max-size: "1G"
+        max-file: "4"
     cap_drop:
       - ALL
     read_only: true
+    # cache for youtube library
+    volumes:
+      - data:/var/tmp/youtubei.js:rw
     security_opt:
       - apparmor:unconfined
-    restart: always
