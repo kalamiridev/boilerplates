@@ -1,0 +1,53 @@
+---
+services:
+  app:
+    image: quay.io/invidious/invidious:latest
+    container_name: invidious
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    hostname: invidious
+    user: 100:100
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 7601:3000
+    environment:
+      INVIDIOUS_CONFIG: |
+        db:
+          dbname: ${DB_NAME}
+          user: ${DB_USER}
+          password: ${DB_PASSWORD}
+          host: ${DB_HOST}
+          port: ${DB_PORT}
+        check_tables: true
+        captcha_enabled: false
+        default_user_preferences:
+          locale: hr
+          region: HR
+        external_port: 443
+        signature_server: invidious_sig_helper:12999
+        domain: ${DOMAIN}
+        hmac_key: ${HMAC_KEY}
+        https_only: true
+    restart: always
+    depends_on:
+      invidious_sig_helper:
+        condition: service_started
+
+  invidious_sig_helper:
+    image: quay.io/invidious/inv-sig-helper:latest
+    container_name: invidious_sig_helper
+    init: true
+    command: ["--tcp", "0.0.0.0:12999"]
+    environment:
+      - RUST_LOG=info
+    cap_drop:
+      - ALL
+    read_only: true
+    security_opt:
+      - apparmor:unconfined
+    restart: always
