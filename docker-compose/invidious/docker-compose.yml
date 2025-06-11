@@ -1,7 +1,4 @@
 ---
-volumes:
-  data:
-    name: companioncache
 services:
   app:
     image: quay.io/invidious/invidious:latest
@@ -65,7 +62,9 @@ services:
       - ALL
     read_only: true
     # cache for youtube library
+    user: 100:100
+    # cache for youtube library
     volumes:
-      - data:/var/tmp/youtubei.js:rw
+      - /var/tmp/youtubei.js:/var/tmp/youtubei.js:rw
     security_opt:
       - apparmor:unconfined
