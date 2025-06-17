@@ -4,7 +4,7 @@ volumes:
     name: activepieces_data
 services:
   activepieces:
-    image: activepieces/activepieces:0.58.0 #latest not working after update to 0.60.0
+    image: activepieces/activepieces
     container_name: activepieces
     mem_limit: 6g
     cpu_shares: 1024
