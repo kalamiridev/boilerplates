@@ -1,0 +1,36 @@
+---
+services:
+  immich-server:
+    image: ghcr.io/immich-app/immich-server:release
+    container_name: immich
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      - TZ=Europe/Zagreb
+      - NODE_ENV=production
+      - REDIS_HOSTNAME=${REDIS_HOSTNAME}
+      - REDIS_PORT=6379
+      - DB_HOSTNAME=${DB_HOSTNAME}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_DATABASE=${DB_DATABASE}
+    ports:
+      - 8212:2283
+    volumes:
+      - /etc/docker/immich/upload:/usr/src/app/upload:rw
+    env_file:
+      - .env
+    restart: always
+
+  immich-machine-learning:
+    image: ghcr.io/immich-app/immich-machine-learning:release
+    container_name: immich-ml
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - /etc/docker/immich/upload:/usr/src/app/upload:rw
+      - /etc/docker/immich/cache:/cache:rw
+      - /etc/docker/immich/matplotlib:/matplotlib:rw
+    environment:
+      - MPLCONFIGDIR=/matplotlib
+    restart: always
