@@ -14,11 +14,12 @@ services:
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_DATABASE=${DB_DATABASE}
+      # Set permissions to the nfs directory
+      # sudo chown -R [user]:users ${UPLOAD_LOCATION}
+      - UPLOAD_LOCATION=${UPLOAD_LOCATION}
     ports:
       - 8212:2283
     network_mode: bridge
-    volumes:
-      - /etc/docker/immich/upload:/usr/src/app/upload:rw
     restart: always
 
   immich-machine-learning:
