@@ -3,6 +3,7 @@ services:
   immich-server:
     image: ghcr.io/immich-app/immich-server:release
     container_name: immich
+    user: 1000:1000
     security_opt:
       - apparmor:unconfined
     environment:
@@ -18,8 +19,6 @@ services:
       - 8212:2283
     volumes:
       - /etc/docker/immich/upload:/usr/src/app/upload:rw
-    env_file:
-      - .env
     restart: always
 
   immich-machine-learning:
