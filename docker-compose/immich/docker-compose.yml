@@ -21,6 +21,10 @@ services:
     ports:
       - 8212:2283
     network_mode: bridge
+    volumes:
+      # Set permissions to the host directory
+      # sudo chown -R [user]:users /etc/docker/immich
+      - /mnt/photos/upload:/usr/src/app/upload
     restart: always
 
   immich-machine-learning:
