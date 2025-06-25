@@ -16,7 +16,8 @@ services:
       - DB_DATABASE=${DB_DATABASE}
       # Set permissions to the nfs directory
       # sudo chown -R [user]:users ${UPLOAD_LOCATION}
-      - UPLOAD_LOCATION=${UPLOAD_LOCATION}
+      - UPLOAD_LOCATION=/mnt/photos
+      - UPLOAD_LOCATION_TYPE=nfs
     ports:
       - 8212:2283
     network_mode: bridge
@@ -28,9 +29,9 @@ services:
     security_opt:
       - apparmor:unconfined
     volumes:
-      - /etc/docker/immich/upload:/usr/src/app/upload:rw
-      - /etc/docker/immich/cache:/cache:rw
-      - /etc/docker/immich/matplotlib:/matplotlib:rw
+      - /mnt/photos:/usr/src/app/upload
+      - /mnt/photos/cache:/cache
+      - /mnt/photos/matplotlib:/matplotlib
     environment:
       - MPLCONFIGDIR=/matplotlib
     restart: always
