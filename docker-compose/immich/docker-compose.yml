@@ -8,16 +8,12 @@ services:
       - apparmor:unconfined
     environment:
       - TZ=Europe/Zagreb
-      - NODE_ENV=production
       - REDIS_HOSTNAME=${REDIS_HOSTNAME}
       - REDIS_PORT=6379
       - DB_HOSTNAME=${DB_HOSTNAME}
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_DATABASE=${DB_DATABASE}
-      - UPLOAD_LOCATION=/mnt/homes/sasa/Photos
-      - UPLOAD_LOCATION_READONLY=false
-      - IMMICH_IGNORE_MOUNT_CHECK_ERRORS=true
     ports:
       - 8212:2283
     network_mode: bridge
