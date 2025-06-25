@@ -24,7 +24,7 @@ services:
     volumes:
       # Set permissions to the host directory
       # sudo chown -R [user]:users /etc/docker/immich
-      - /mnt/photos/upload:/usr/src/app/upload
+      - /mnt/photos:/usr/src/app/upload
     restart: always
 
   immich-machine-learning:
