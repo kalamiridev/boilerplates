@@ -3,7 +3,7 @@ services:
   immich-server:
     image: ghcr.io/immich-app/immich-server:release
     container_name: immich
-    user: 1000:100
+    user: 1000:1000
     security_opt:
       - apparmor:unconfined
     environment:
@@ -15,11 +15,12 @@ services:
       - DB_USERNAME=${DB_USERNAME}
       - DB_PASSWORD=${DB_PASSWORD}
       - DB_DATABASE=${DB_DATABASE}
-      - UPLOAD_LOCATION=/mnt/homes/sasa/Photos/
+      - UPLOAD_LOCATION=/mnt/homes/sasa/Photos
       - UPLOAD_LOCATION_READONLY=false
       - IMMICH_IGNORE_MOUNT_CHECK_ERRORS=true
     ports:
       - 8212:2283
+    network_mode: bridge
     volumes:
       - /etc/docker/immich/upload:/usr/src/app/upload:rw
     restart: always
