@@ -6,8 +6,6 @@ services:
   app:
     image: ghcr.io/donkie/spoolman:latest
     container_name: spoolman
-    security_opt:
-      - no-new-privileges:true
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:8000/
     ports:
@@ -21,7 +19,6 @@ services:
       SPOOLMAN_DB_USERNAME: ${SPOOLMAN_DB_USERNAME}
       SPOOLMAN_DB_PASSWORD: ${SPOOLMAN_DB_PASSWORD}
       TZ: Europe/Zagreb
-      FORWARDED_ALLOW_IPS: "*"
       SPOOLMAN_DEBUG_MODE: TRUE
     volumes:
       - data:/home/app/.local/share/spoolman
