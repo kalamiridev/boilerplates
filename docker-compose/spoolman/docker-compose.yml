@@ -22,8 +22,6 @@ services:
       SPOOLMAN_DB_USERNAME: ${SPOOLMAN_DB_USERNAME}
       SPOOLMAN_DB_PASSWORD: ${SPOOLMAN_DB_PASSWORD}
       TZ: Europe/Zagreb
-      FORWARDED_ALLOW_IPS: "*"
-      SPOOLMAN_DEBUG_MODE: TRUE
     volumes:
-      - data:/home/app/.local/share/spoolman:rw
+      - data:/home/app/.local/share/spoolman
     restart: unless-stopped
