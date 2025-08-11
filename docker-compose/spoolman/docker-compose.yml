@@ -6,18 +6,13 @@ services:
   app:
     image: ghcr.io/donkie/spoolman:latest
     container_name: spoolman
-    entrypoint: ["uvicorn"]
-    command:
-      - "spoolman.main:app"
-      - "--host"
-      - "${SPOOLMAN_HOST:-0.0.0.0}"
-      - "--port"
-      - "${SPOOLMAN_PORT:-8000}"
+    hostname: spoolman
+    security_opt:
+      - no-new-privileges:true
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:8000/
     ports:
       - 7912:8000
-    network_mode: bridge
     environment:
       SPOOLMAN_DB_TYPE: postgres
       SPOOLMAN_DB_HOST: ${SPOOLMAN_DB_HOST}
@@ -26,7 +21,8 @@ services:
       SPOOLMAN_DB_USERNAME: ${SPOOLMAN_DB_USERNAME}
       SPOOLMAN_DB_PASSWORD: ${SPOOLMAN_DB_PASSWORD}
       TZ: Europe/Zagreb
+      FORWARDED_ALLOW_IPS: "*"
       SPOOLMAN_DEBUG_MODE: TRUE
     volumes:
-      - data:/home/app/.local/share/spoolman
+      - data:/home/app/.local/share/spoolman:rw
     restart: unless-stopped
