@@ -24,5 +24,5 @@ services:
       FORWARDED_ALLOW_IPS: "*"
       SPOOLMAN_DEBUG_MODE: TRUE
     volumes:
-      - data:/home/app/.local/share/spoolman:rw
+      - data:/home/app/.local/share/spoolman
     restart: unless-stopped
