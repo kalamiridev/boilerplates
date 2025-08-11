@@ -13,6 +13,7 @@ services:
       test: wget --no-verbose --tries=1 --spider http://localhost:8000/
     ports:
       - 7912:8000
+    network_mode: bridge
     environment:
       SPOOLMAN_DB_TYPE: postgres
       SPOOLMAN_DB_HOST: ${SPOOLMAN_DB_HOST}
