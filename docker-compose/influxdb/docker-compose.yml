@@ -14,4 +14,4 @@ services:
       - data:/var/lib/influxdb2
       - data:/etc/influxdb2
     restart: always
-    image: influxdb:2.1-alpine
+    image: influxdb
