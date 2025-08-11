@@ -6,7 +6,6 @@ services:
   app:
     image: ghcr.io/donkie/spoolman:latest
     container_name: spoolman
-    hostname: spoolman
     security_opt:
       - no-new-privileges:true
     healthcheck:
@@ -14,7 +13,6 @@ services:
     ports:
       - 7912:8000
     environment:
-      SPOOLMAN_PORT: 8000
       SPOOLMAN_DB_TYPE: postgres
       SPOOLMAN_DB_HOST: ${SPOOLMAN_DB_HOST}
       SPOOLMAN_DB_PORT: 5432
