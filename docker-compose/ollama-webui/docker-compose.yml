@@ -9,7 +9,7 @@ services:
     volumes:
       - data:/app/backend/data
     environment:
-      OLLAMA_BASE_URL: http://192.168.99.202:11434
+      OLLAMA_BASE_URL: http://192.168.99.91:11434
       WEBUI_SECRET_KEY: dOxZYTTZgXKMHkqLBIQVImayQXAVWdzGBPuFJKggzcgvgPJPXpWzqzKaUOIOGGIr
     healthcheck:
       test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/8080' || exit 1
