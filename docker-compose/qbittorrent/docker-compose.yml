@@ -4,6 +4,7 @@ volumes:
     name: qbittorrent_data
 services:
   qbittorrent:
+    image: ghcr.io/linuxserver/qbittorrent
     container_name: qbittorrent
     ports:
       - 6881:6881
@@ -15,8 +16,9 @@ services:
     environment:
       - WEBUI_PORT=8088
       - TZ=Europe/Zagreb
+      - DOCKER_MODS=ghcr.io/vuetorrent/vuetorrent-lsio-mod:latest
     volumes:
       - data:/config
       - /mnt/downloads:/downloads
     restart: always
-    image: ghcr.io/linuxserver/qbittorrent
+    
