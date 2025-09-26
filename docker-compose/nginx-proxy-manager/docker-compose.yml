@@ -13,4 +13,4 @@ services:
       - /etc/docker/nginx-proxy-manager/config.json:/app/config/production.json
       - /etc/docker/nginx-proxy-manager/data:/data
       - /etc/docker/nginx-proxy-manager/letsencrypt:/etc/letsencrypt
-    restart: always
+    restart: unless-stopped
