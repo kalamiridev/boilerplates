@@ -1,14 +1,51 @@
 ---
 services:
-  reverse-proxy:
+  traefik:
+    image: traefik:v3.5.2
     container_name: traefik
+    command:
+      - "--log.level=DEBUG"
+      - "--api.insecure=true" # enable dashboard (insecure)
+      - "--api.dashboard=true"
+      - "--providers.docker=true" # enable docker provider
+      - "--providers.docker.exposedbydefault=false" # disable auto expose
+      - "--providers.file.directory=/dynamic" # enable file provider
+      - "--providers.file.watch=true"
+      - "--serverstransport.insecureskipverify=true"
+      - "--entrypoints.web.address=:80" # http
+      - "--entrypoints.websecure.address=:443" # https
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure" # redirect http to https
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https" # redirect http to https
+      #- "--certificatesresolvers.cloudflare.acme.caServer=https://acme-staging-v02.api.letsencrypt.org/directory" # use staging to avoid rate limits
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge=true" # use dns challenge
+      - "--entrypoints.websecure.http.tls.certresolver=cloudflare" # use cloudflare cert resolver
+      - "--certificatesresolvers.cloudflare.acme.dnschallenge.provider=cloudflare" # use cloudflare provider
+      - "--certificatesresolvers.cloudflare.acme.email=${CF_API_EMAIL}" # email for letsencrypt
+      - "--certificatesresolvers.cloudflare.acme.storage=/certs/acme.json" # storage for letsencrypt
+
+      - "--metrics.prometheus=true"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.reverse-proxy.rule=Host(`reverse-proxy.home.kalamiri.com`)"
+      - "traefik.http.routers.reverse-proxy.entrypoints=websecure"
+      - "traefik.http.routers.reverse-proxy.service=api@internal"
+      - "traefik.http.routers.reverse-proxy.tls=true"
+      - "traefik.http.routers.reverse-proxy.tls.certresolver=cloudflare"
     ports:
       - 80:80
       - 443:443
       - 8080:8080
+      - 8082:8082 # Exposes metrics to host
+    networks:
+      - proxy
+    environment:
+      - CF_DNS_API_TOKEN=${CF_DNS_API_TOKEN}
+      - CF_API_EMAIL=${CF_API_EMAIL}
     volumes:
-      - /docker/traefik/config:/etc/traefik
-      - /docker/traefik/ssl-certs:/ssl-certs
-      - /var/run/docker.sock:/var/run/docker.sock
-    restart: always
-    image: traefik:v2.10
+      - ./dynamic:/dynamic:ro # file provider (optional)
+      - ./certs:/certs:rw # letsencrypt store
+      - /var/run/docker.sock:/var/run/docker.sock:ro # docker provider
+    restart: unless-stopped
+networks:
+  proxy:
+    external: true
