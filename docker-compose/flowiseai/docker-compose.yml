@@ -32,4 +32,4 @@ services:
       DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     env_file:
       - .env
-    restart: always
+    restart: unless-stopped
