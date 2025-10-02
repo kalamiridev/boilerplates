@@ -1,0 +1,36 @@
+---
+services:
+  evolution-api:
+    container_name: evolution-api
+    image: atendai/evolution-api:v2.1.1
+    ports:
+      - "8080:8080"
+    network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
+    env_file:
+      - .env
+    environment:
+      - SERVER_URL=${SERVER_URL}
+      - DEL_INSTANCE=false
+      - DATABASE_ENABLED=true
+      - DATABASE_PROVIDER=${DATABASE_PROVIDER}
+      - DATABASE_CONNECTION_URI=${DATABASE_CONNECTION_URI}
+      - DATABASE_SAVE_DATA_INSTANCE=true
+      - DATABASE_SAVE_DATA_NEW_MESSAGE=true
+      - DATABASE_SAVE_MESSAGE_UPDATE=true
+      - DATABASE_SAVE_DATA_CONTACTS=true
+      - DATABASE_SAVE_DATA_CHATS=true
+      - DATABASE_SAVE_DATA_LABELS=true
+      - DATABASE_SAVE_DATA_HISTORIC=true
+      - DATABASE_CONNECTION_CLIENT_NAME=evolution_v2
+      - CACHE_REDIS_ENABLED=true
+      - CACHE_REDIS_URI=${CACHE_REDIS_URI}
+      - CACHE_REDIS_PREFIX_KEY=evolution_v2
+      - CACHE_REDIS_SAVE_INSTANCES=false
+      - CACHE_LOCAL_ENABLED=false
+      - AUTHENTICATION_API_KEY=${AUTHENTICATION_API_KEY}
+      - CONFIG_SESSION_PHONE_VERSION=${CONFIG_SESSION_PHONE_VERSION} #qr code
+    volumes:
+      - /etc/docker/evolution-api/data:/evolution/instances
+    restart: unless-stopped
