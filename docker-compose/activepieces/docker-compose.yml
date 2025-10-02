@@ -42,4 +42,4 @@ services:
       AP_TELEMETRY_ENABLED: false
     env_file:
       - .env
-    restart: always
+    restart: unless-stopped
