@@ -31,6 +31,7 @@ services:
       CACHE_LOCAL_ENABLED: false
       AUTHENTICATION_API_KEY: ${AUTHENTICATION_API_KEY}
       CONFIG_SESSION_PHONE_VERSION: ${CONFIG_SESSION_PHONE_VERSION} #qr code
+      CHATWOOT_ENABLED: true
     volumes:
       - /etc/docker/evolution-api/data:/evolution/instances
     restart: unless-stopped
