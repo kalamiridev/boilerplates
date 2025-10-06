@@ -8,7 +8,7 @@ services:
     container_name: beszel
     network_mode: bridge
     ports:
-      - 8090:8090
+      - 8099:8090
     volumes:
       - data:/beszel_data
     restart: unless-stopped
