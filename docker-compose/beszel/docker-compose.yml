@@ -1,0 +1,14 @@
+---
+volumes:
+  data:
+    name: beszel_data
+services:
+  beszel:
+    image: henrygd/beszel
+    container_name: beszel
+    network_mode: bridge
+    ports:
+      - 8090:8090
+    volumes:
+      - data:/beszel_data
+    restart: unless-stopped
