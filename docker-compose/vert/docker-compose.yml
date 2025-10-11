@@ -1,0 +1,22 @@
+---
+services:
+  vert:
+    image: ghcr.io/vert-sh/vert:latest
+    container_name: vert
+    security_opt:
+      - apparmor:unconfined
+    ports:
+      - 3884:80
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 80 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    environment:
+      PUB_HOSTNAME: http://192.168.99.106:3884
+      PUB_VERTD_URL: http://192.168.99.106:3884
+      #PUB_PLAUSIBLE_URL: Type in the Plausible link #Only if you have plausible installed https://mariushosting.com/how-to-install-plausible-on-your-synology-nas/
+      PUB_ENV: production
+      PORT: 3884
+    restart: unless-stopped
