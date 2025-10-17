@@ -1,0 +1,29 @@
+---
+services:
+  bentopdf:
+    image: bentopdf/bentopdf:latest
+    container_name: bentopdf
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 80 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 3183:80
+    network_mode: bridge
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      - TZ=Europe/Zagreb
+      - BENTOPDF_LOG_LEVEL=info # Available levels: debug, info, warning, error, critical
+      - BENTOPDF_MAX_CONCURRENT_JOBS=4 # Adjust based on your server resources
+      - BENTOPDF_JOB_TIMEOUT=300 # Job timeout in seconds
+      - BENTOPDF_ENABLE_AUTH=false # Set to true to enable basic authentication
+      #- BENTOPDF_AUTH_USERNAME=yourusername
+      #- BENTOPDF_AUTH_PASSWORD=yourpassword
+      - BENTOPDF_ALLOWED_ORIGINS=* # CORS settings, adjust as needed
+      - BENTOPDF_STORAGE_PATH=/bentopdf_data # Path inside the container for storing temporary files
+    volumes:
+      - /etc/docker/bentopdf/data:/bentopdf_data
+    restart: unless-stopped
