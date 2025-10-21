@@ -2,6 +2,7 @@
 services:
   it-tools:
     container_name: it-tools
+    image: corentinth/it-tools:latest
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 80 || exit 1"]
       interval: 10s
@@ -15,5 +16,4 @@ services:
       - apparmor:unconfined
     environment:
       BASE_URL: https://it-tools.kalamiri.com/
-    restart: always
-    image: corentinth/it-tools
+    restart: unless-stopped
