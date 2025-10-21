@@ -10,7 +10,11 @@ services:
     security_opt:
       - apparmor:unconfined
     healthcheck:
-      test: wget --no-verbose --tries=1 --spider http://localhost:8000/
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:8000/ || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
     ports:
       - 7912:8000
     network_mode: bridge
