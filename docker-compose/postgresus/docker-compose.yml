@@ -1,0 +1,15 @@
+services:
+  postgresus:
+    image: rostislavdugin/postgresus:latest
+    container_name: postgresus
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/4005' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 4005:4005
+    volumes:
+      - /etc/docker/postgresus:/postgresus-data:rw
+    restart: unless-stopped
