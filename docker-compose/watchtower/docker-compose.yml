@@ -1,7 +1,7 @@
 ---
 services:
   watchtower:
-    image: containrrr/watchtower
+    image: containrrr/watchtower:latest
     container_name: watchtower
     ports:
       - 8090:8080
