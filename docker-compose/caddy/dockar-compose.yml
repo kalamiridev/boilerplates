@@ -1,0 +1,27 @@
+services:
+  caddy:
+    image: ghcr.io/caddybuilds/caddy-cloudflare:latest
+    container_name: caddy
+    env_file:
+      - .env
+    environment:
+      - CLOUDFLARE_EMAIL=${CF_EMAIL}
+      - CLOUDFLARE_API_TOKEN=${CF_API_TOKEN}
+      - ACME_AGREE=true
+    ports:
+      - 2019:2019 # remove if you do not want admin API
+      - 80:80
+      - 443:443
+    volumes:
+      - /etc/docker/caddy/config.json:/etc/caddy/config.json:ro
+      - /etc/docker/caddy/config:/config
+      - /etc/docker/caddy/data:/data
+    networks:
+      - proxy # add other containers onto this network to use dns name
+    command: ["caddy", "run", "--config", "/etc/caddy/config.json"]
+    restart: unless-stopped
+
+# create this first before running the docker-compose - docker network create caddy
+networks:
+  proxy:
+    external: true
