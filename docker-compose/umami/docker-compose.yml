@@ -6,8 +6,6 @@ services:
     ports:
       - "3003:3000"
     network_mode: bridge
-    security_opt:
-      - apparmor:unconfined
     environment:
       DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/umami
       DATABASE_TYPE: postgresql
