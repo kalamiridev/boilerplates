@@ -5,8 +5,6 @@ services:
     image: uraniadev/snapp:latest
     mem_limit: 4g
     cpu_shares: 1024
-    security_opt:
-      - apparmor:unconfined
     ports:
       - 6421:3000
     environment:
