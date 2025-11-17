@@ -1,7 +1,4 @@
 ---
-volumes:
-  data:
-    name: speedtest_data
 services:
   speedtest-tracker:
     image: lscr.io/linuxserver/speedtest-tracker:latest
@@ -17,9 +14,9 @@ services:
       DB_CONNECTION: pgsql
       DB_HOST: ${DB_HOST}
       DB_PORT: 5432
-      DB_DATABASE: ${POSTGRES_DB}
-      DB_USERNAME: ${POSTGRES_USER}
-      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      DB_DATABASE: ${DB_DATABASE}
+      DB_USERNAME: ${DB_USERNAME}
+      DB_PASSWORD: ${DB_PASSWORD}
       APP_KEY: ${APP_KEY}
       PUBLIC_DASHBOARD: "true"
       APP_TIMEZONE: "Europe/Zagreb"
@@ -28,5 +25,5 @@ services:
       SPEEDTEST_SERVERS: 2453,31004,55191,44719
       PRUNE_RESULTS_OLDER_THAN: 90 # days
     volumes:
-      - data:/config
+      - /etc/docker/speedtest/config:/config
     restart: always
