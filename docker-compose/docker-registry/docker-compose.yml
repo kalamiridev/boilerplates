@@ -1,21 +1,19 @@
 ---
 services:
-  registry-ui:
+  registry:
+    image: registry:latest
     container_name: docker-registry
     ports:
-      - 5001:80
+      - 5000:5000
     network_mode: bridge
     environment:
-      - SINGLE_REGISTRY=true
-      - REGISTRY_TITLE=${REGISTRY_TITLE}
-      - DELETE_IMAGES=true
-      - SHOW_CONTENT_DIGEST=true
-      - NGINX_PROXY_PASS_URL=${NGINX_PROXY_PASS_URL}
-      - SHOW_CATALOG_NB_TAGS=true
-      - CATALOG_MIN_BRANCHES=1
-      - CATALOG_MAX_BRANCHES=1
-      - TAGLIST_PAGE_SIZE=100
-      - REGISTRY_SECURED=false
-      - CATALOG_ELEMENTS_LIMIT=1000
-    image: joxit/docker-registry-ui:main
-    restart: unless-stopped
+      - REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY=/data # custom root dir
+      - REGISTRY_STORAGE_DELETE_ENABLED=TRUE # Removing and retaging images
+      - REGISTRY_AUTH=htpasswd
+      - REGISTRY_AUTH_HTPASSWD_PATH=/auth/registry.password
+      - REGISTRY_AUTH_HTPASSWD_REALM=Registry Realm
+    volumes:
+      #- /etc/docker/registry/backup:/var/lib/registry
+      - /etc/docker/registry/data:/data
+      - /etc/docker/registry/auth/registry.password:/auth/registry.password
+    restart: always
