@@ -1,0 +1,21 @@
+---
+services:
+  app:
+    image: joxit/docker-registry-ui:main
+    container_name: docker-registry-ui
+    ports:
+      - 5001:80
+    network_mode: bridge
+    environment:
+      - SINGLE_REGISTRY=true
+      - REGISTRY_TITLE=${REGISTRY_TITLE}
+      - DELETE_IMAGES=true
+      - SHOW_CONTENT_DIGEST=true
+      - NGINX_PROXY_PASS_URL=${NGINX_PROXY_PASS_URL}
+      - SHOW_CATALOG_NB_TAGS=true
+      - CATALOG_MIN_BRANCHES=1
+      - CATALOG_MAX_BRANCHES=1
+      - TAGLIST_PAGE_SIZE=100
+      - REGISTRY_SECURED=false
+      - CATALOG_ELEMENTS_LIMIT=1000
+    restart: unless-stopped
