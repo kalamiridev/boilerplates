@@ -1,13 +1,10 @@
 ---
-volumes:
-  data:
-    name: portainer_data
 services:
   portainer-ee:
     image: "portainer/portainer-ee:latest"
     container_name: portainer
     volumes:
-      - data:/data
+      - /etc/portainer/data:/data
       - "/var/run/docker.sock:/var/run/docker.sock"
     ports:
       - "9443:9443"
