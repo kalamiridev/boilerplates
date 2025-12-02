@@ -1,0 +1,29 @@
+---
+services:
+  linkwarden:
+    image: ghcr.io/linkwarden/linkwarden:latest
+    container_name: linkwarden
+    healthcheck:
+      test: timeout 10s bash -c ':> /dev/tcp/127.0.0.1/3000' || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    ports:
+      - 7461:3000
+    security_opt:
+      - apparmor:unconfined
+    volumes:
+      - /etc/docker/linkwarden/data:/data/data:rw
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
+      NEXTAUTH_URL: http://localhost:3000/api/v1/auth
+# Additional Optional Settings
+#      PAGINATION_TAKE_COUNT: 
+#      STORAGE_FOLDER: 
+#      AUTOSCROLL_TIMEOUT: 
+      NEXT_PUBLIC_DISABLE_REGISTRATION: false #or true
+    env_file:
+      - .env
+    restart: unless-stopped
