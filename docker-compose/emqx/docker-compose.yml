@@ -1,0 +1,25 @@
+---
+volumes:
+  emqx-data:
+    name: emqx-data
+  emqx-etc:
+    name: emqx-etc
+  emqx-log:
+    name: emqx-log
+
+services:
+  emqx:
+    image: emqx:latest
+    container_name: emqx
+    ports:
+      - 1883:1883
+      - 18083:18083
+    volumes:
+      - emqx-data:/opt/emqx/data
+      - emqx-etc:/opt/emqx/etc
+      - emqx-log:/opt/emqx/log
+    environment:
+      - EMQX_NAME==${EMQX_NAME}
+      - EMQX_HOST==${EMQX_HOST}
+      - EMQX_NODE__COOKIE==${EMQX_NODE__COOKIE}
+    restart: always
