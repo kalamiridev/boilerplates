@@ -1,0 +1,20 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mosquitto
+    ports:
+      - "21883:1883" # MQTT
+      - "8883:8883" # MQTTS (secure)
+      - "9001:9001" # WebSockets
+    volumes:
+      - ./config:/mosquitto/config
+      - ./data:/mosquitto/data
+      - ./log:/mosquitto/log
+      - /etc/letsencrypt/archive/mqtt.local:/mosquitto/certs
+    networks:
+      - proxy
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
