@@ -7,6 +7,7 @@
             "servers": {
                 "srv0": {
                     "listen": [
+                        ":80",
                         ":443"
                     ],
                     "routes": [
@@ -14,21 +15,312 @@
                             "match": [
                                 {
                                     "host": [
-                                        "{env.HOST}"
+                                        "caddy.kalamiri.dev"
                                     ]
                                 }
                             ],
                             "handle": [
                                 {
-                                    "handler": "subroute",
-                                    "routes": [
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
                                         {
-                                            "handle": [
-                                                {
-                                                    "handler": "file_server",
-                                                    "root": "/usr/share/caddy"
-                                                }
-                                            ]
+                                            "dial": "10.9.10.111:2019"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "gw.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "transport": {
+                                        "protocol": "http",
+                                        "tls": {
+                                            "insecure_skip_verify": true
+                                        }
+                                    },
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.1:443"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "euhr-r1-gw-prod.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "transport": {
+                                        "protocol": "http",
+                                        "tls": {
+                                            "insecure_skip_verify": true
+                                        }
+                                    },
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.1:443"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "euhr-r1-s1-prod-hv.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "transport": {
+                                        "protocol": "http",
+                                        "tls": {
+                                            "insecure_skip_verify": true
+                                        }
+                                    },
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.11:8006"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "euhr-r1-s2-prod-st.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "transport": {
+                                        "protocol": "http",
+                                        "tls": {
+                                            "insecure_skip_verify": true
+                                        }
+                                    },
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.21:443"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "db-backup.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.102:4005"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "db-admin.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.102:2660"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "semaphore.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.102:3000"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "n8n.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.102:5678"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "speedtest.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.104:8999"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "uptime.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.104:3444"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "analytics.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.104:3003"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "vnet.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.183:80"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "portainer.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "transport": {
+                                        "protocol": "http",
+                                        "tls": {
+                                            "insecure_skip_verify": true
+                                        }
+                                    },
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.102:9443"
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "match": [
+                                {
+                                    "host": [
+                                        "registry.kalamiri.dev"
+                                    ]
+                                }
+                            ],
+                            "handle": [
+                                {
+                                    "handler": "reverse_proxy",
+                                    "upstreams": [
+                                        {
+                                            "dial": "10.9.10.102:5000"
                                         }
                                     ]
                                 }
@@ -43,7 +335,7 @@
                 "policies": [
                     {
                         "subjects": [
-                            "{env.DOMAIN_NAME}"
+                            "*.kalamiri.dev"
                         ],
                         "issuers": [
                             {
@@ -54,7 +346,7 @@
                                             "name": "cloudflare",
                                             "api_token": "{env.CF_API_TOKEN}"
                                         },
-                                        "propagation_delay": "5m",
+                                        "propagation_delay": "2m",
                                         "resolvers": [
                                             "1.1.1.1"
                                         ]

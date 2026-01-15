@@ -1,0 +1,32 @@
+version: 4
+homeassistant:
+  enabled: true
+  discovery_topic: client/[id]/ha
+  status_topic: client/[id]/ha/status
+  legacy_entity_attributes: false
+  legacy_triggers: false
+mqtt:
+  base_topic: client/[id]/z2m
+  server: mqtt://mosquitto:1883
+  keepalive: 60 # ping local broker every 60s
+  discovery: true
+  discovery_prefix: client/[id]/ha
+serial:
+  port: /dev/ttyUSB0
+  adapter: ember
+  baudrate: 115200
+frontend:
+  enabled: true
+  port: 8080
+  host: 0.0.0.0
+reporting: true # Enable device reporting (battery, temp, occupancy)
+advanced:
+  log_level: info
+  permit_join: true # Only enable when pairing new devices
+  health_check: true # Monitor device responsiveness
+  pan_id: 0x1a62 # Random unused 16-bit PAN ID
+  channel: 20
+  retain: true
+  watchdog:
+    enabled: true # Auto-restart Zigbee2MQTT on errors
+  network_key: GENERATE # Generates a network key automatically

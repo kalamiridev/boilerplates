@@ -1,17 +1,22 @@
 ---
 services:
   zigbee2mqtt:
-    image: koenkk/zigbee2mqtt:latest
+    image: koenkk/zigbee2mqtt:2.7.2
     container_name: zigbee2mqtt
     ports:
       - 8080:8080
+    networks:
+      - proxy
     environment:
       - TZ=Europe/Zagreb
     volumes:
       - ./data:/app/data
-      - ./certs:/app/certs # Mount folder with ca.crt if using secure MQTT
       - /run/udev:/run/udev:ro
     devices:
       # Make sure this matched your adapter location
-      - /dev/serial/by-id/usb-Texas_Instruments_TI_CC2531_USB_CDC___0X00124B0018ED3DDF-if00:/dev/ttyACM0
+      - /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Lite_MG21_c0fa0ce36e8bef11a6a822ccef8776e9-if00-port0:/dev/ttyUSB0
     restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
