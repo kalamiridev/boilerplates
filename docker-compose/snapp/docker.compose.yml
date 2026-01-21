@@ -15,7 +15,7 @@ services:
       TIMEZONE: Europe/Zagreb
       DATABASE_PROVIDER: postgres
       DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/snapp
-      TOKEN_SECRET: ${TOKEN_SECRET}
+      BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET}
     env_file:
       - .env
     restart: always
