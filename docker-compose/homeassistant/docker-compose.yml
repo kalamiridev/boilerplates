@@ -1,7 +1,7 @@
 ---
 services:
   homeassistant:
-    image: homeassistant/home-assistant:stable
+    image: ghcr.io/home-assistant/home-assistant:stable
     container_name: homeassistant
     ports:
       - 8123:8123
@@ -14,7 +14,7 @@ services:
       timeout: 10s
       retries: 6
     volumes:
-      - /opt/homeassistant:/config
+      - /opt/homeassistant/config:/config
       - /etc/localtime:/etc/localtime:ro
     environment:
       - TZ=Europe/Zagreb
