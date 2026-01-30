@@ -1,17 +1,11 @@
 ---
-volumes:
-  data:
-    name: influxdb_data
 services:
   influxdb:
+    image: influxdb
     container_name: influxdb
     ports:
       - 8086:8086
     network_mode: bridge
-    environment:
-      - TMPDIR=/opt/temp
     volumes: # NFS Directories
-      - data:/var/lib/influxdb2
-      - data:/etc/influxdb2
-    restart: always
-    image: influxdb
+      - /mnt/influxdb2:/var/lib/influxdb2
+    restart: unless-stopped
