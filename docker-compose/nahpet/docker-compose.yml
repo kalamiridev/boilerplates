@@ -1,0 +1,26 @@
+---
+services:
+  nahpet:
+    image: ghcr.io/anhostfr/nah.pet:latest
+    container_name: nahpet
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
+    command: sh -c "npx prisma migrate deploy && node build/index.js"
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: 3000
+      DATABASE_URL: postgresql://${DATABASE_USER}:${DATABASE_PASS}@${DATABASE_URL}/nahpet?schema=public
+      ADMIN_EMAIL: ${ADMIN_EMAIL}
+      #OAUTH_CLIENT_ID: clientID
+      #OAUTH_CLIENT_SECRET: clientSECRET
+      PUBLIC_MAIN_DOMAIN: ${PUBLIC_MAIN_DOMAIN}
+    ports:
+      - 8296:3000
+    restart: on-failure:5
+    env_file:
+      - .env
