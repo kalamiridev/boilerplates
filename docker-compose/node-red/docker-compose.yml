@@ -1,17 +1,20 @@
 ---
+volumes:
+  data:
+    name: node-red_data
+
 services:
   node-red:
     image: nodered/node-red
     container_name: node-red
     command: "-R 1000:1000 /opt/node-red"
     ports:
-      - "6335:1880"
-    network_mode: bridge
+      - "1880:1880"
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
     volumes:
-      - node-red-data:/data
+      - data:/data
     environment:
       - TZ=Europe/Zagreb
     restart: unless-stopped
-
-volumes:
-  node-red-data:
