@@ -1,0 +1,35 @@
+---
+services:
+  z2m:
+    image: koenkk/zigbee2mqtt:2.7.2
+    container_name: z2m
+    ports:
+      - 8080:8080
+    networks:
+      - proxy
+    environment:
+      - TZ=Europe/Zagreb
+    volumes:
+      - ./z2m-data:/app/data
+      - /run/udev:/run/udev:ro
+    devices:
+      # Make sure this matched your adapter location
+      - /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Lite_MG21_f0a018a4e39bef118358b89061ce3355-if00-port0:/dev/ttyUSB0
+    restart: unless-stopped
+  mqtt:
+    image: eclipse-mosquitto:2.0.22
+    container_name: mqtt
+    networks:
+      - proxy
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mqtt-data/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mqtt-data:/mosquitto/data
+      - ./mqtt-log:/mosquitto/log
+      - /etc/ssl/certs/ca-certificates.crt:/mosquitto/config/ca.crt:ro
+    restart: unless-stopped
+
+networks:
+  proxy:
+    external: true
