@@ -4,7 +4,7 @@ volumes:
     name: calibre-web-automated_data
 services:
   app:
-    image: crocodilestick/calibre-web-automated
+    image: crocodilestick/calibre-web-automated:v3.1.4
     container_name: calibre-web-automated
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 8083 || exit 1"]
