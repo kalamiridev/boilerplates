@@ -4,7 +4,7 @@ volumes:
     name: spoolman_data
 services:
   app:
-    image: ghcr.io/donkie/spoolman:latest
+    image: ghcr.io/donkie/spoolman:0.22
     container_name: spoolman
     hostname: spoolman
     security_opt:
