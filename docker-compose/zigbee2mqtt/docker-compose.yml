@@ -2,7 +2,7 @@
 services:
   zigbee2mqtt:
     image: koenkk/zigbee2mqtt:2.7.2
-    container_name: zigbee2mqtt
+    container_name: z2m
     ports:
       - 8080:8080
     networks:
@@ -12,9 +12,9 @@ services:
     volumes:
       - ./data:/app/data
       - /run/udev:/run/udev:ro
-    devices:
-      # Make sure this matched your adapter location
-      - /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Lite_MG21_c0fa0ce36e8bef11a6a822ccef8776e9-if00-port0:/dev/ttyUSB0
+    #devices:
+    # Make sure this matched your adapter location if using a USB dongle
+    #- /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Lite_MG21_fad4b11988a0ef11b5baa1a361ce3355-if00-port0:/dev/ttyUSB0
     restart: unless-stopped
 
 networks:
