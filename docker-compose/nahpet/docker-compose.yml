@@ -21,6 +21,6 @@ services:
       PUBLIC_MAIN_DOMAIN: ${PUBLIC_MAIN_DOMAIN}
     ports:
       - 8296:3000
-    restart: on-failure:5
+    restart: unless-stopped
     env_file:
       - .env
