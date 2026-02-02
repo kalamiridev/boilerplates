@@ -17,7 +17,7 @@ services:
       - /dev/serial/by-id/usb-SONOFF_SONOFF_Dongle_Lite_MG21_f0a018a4e39bef118358b89061ce3355-if00-port0:/dev/ttyUSB0
     restart: unless-stopped
   mqtt:
-    image: eclipse-mosquitto:2.0.22
+    image: eclipse-mosquitto:2.1.0-alpine
     container_name: mqtt
     networks:
       - proxy

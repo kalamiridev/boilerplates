@@ -1,0 +1,55 @@
+---
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:2.1.0-alpine
+    container_name: mqtt
+    ports:
+      - "1884:1883"
+    volumes:
+      - ./mosquitto-data/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - ./mosquitto-data:/mosquitto/data
+      - ./mosquitto-log:/mosquitto/log
+      - /etc/ssl/certs/ca-certificates.crt:/mosquitto/config/ca.crt:ro
+    restart: unless-stopped
+
+  otbr-mqtt-sn:
+    image: local/otbr-mqtt-sn:latest
+    container_name: otbr-mqtt-sn
+    restart: unless-stopped
+    privileged: true # Required for access to radio and tun
+    devices:
+      - /dev/serial/by-id/usb-SMLIGHT_SMLIGHT_SLZB-06U_SLZB-06U091144-if00:/dev/ttyACM0
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - "8080:80" # OTBR web UI port
+    dns:
+      - 172.0.0.1
+    environment:
+      OTBR_WEB_ENABLE: "1" # Enable web UI
+    command:
+      - "--network-name"
+      - "MyThreadMesh"
+      - "--radio-url"
+      - "spinel+hdlc+uart:///dev/ttyACM0?uart-baudrate=460800&uart-flowcontrol=0"
+      - "--panid"
+      - "0xABCD"
+      - "--xpanid"
+      - "DEAD00BEEF00CAFE"
+      - "--network-key"
+      - "00112233445566778899AABBCCDDEEFF"
+      - "--pskc"
+      - "00112233445566778899AABBCCDDEEFF"
+      - "--interface"
+      - "wpan0"
+      - "--nat64-prefix"
+      - "64:ff9b::/96"
+      - "--disable-default-prefix-route"
+      - "Enabled"
+      - "--disable-default-prefix-slaac"
+      - "Enabled"
+      - "--backbone-interface"
+      - "eth0"
+      - "--broker"
+      - "mqtt:1884"
+      - "--mqttsn-broadcast-address"
+      - "ff33:40:MESH::1"
