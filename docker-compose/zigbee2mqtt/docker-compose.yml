@@ -1,7 +1,7 @@
 ---
 services:
   zigbee2mqtt:
-    image: koenkk/zigbee2mqtt:2.7.2
+    image: koenkk/zigbee2mqtt:2.8.0
     container_name: z2m
     ports:
       - 8080:8080
