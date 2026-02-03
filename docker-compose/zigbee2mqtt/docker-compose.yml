@@ -7,8 +7,6 @@ services:
       - 8080:8080
     networks:
       - proxy
-    environment:
-      - TZ=Europe/Zagreb
     volumes:
       - ./data:/app/data
       - /run/udev:/run/udev:ro
