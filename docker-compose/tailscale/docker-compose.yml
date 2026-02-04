@@ -1,0 +1,24 @@
+---
+services:
+  tailscale:
+    image: tailscale/tailscale:latest
+    container_name: ts
+    hostname: your-hostname-here
+    cap_add:
+      - NET_ADMIN # allows creating TUN device
+    devices:
+      - /dev/net/tun # required for networking
+    environment:
+      - TS_AUTHKEY=tskey-auth-yourkeyhere
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+    network_mode: "host" # simplifies networking inside container
+    command: >
+      tailscaled --state=/tailscale/tailscaled.state --tun=userspace-networking
+    volumes:
+      - ts-authkey:/var/lib/tailscale
+      - /dev/net/tun:/dev/net/tun
+    restart: unless-stopped
+volumes:
+  ts-authkey:
+    driver: local
