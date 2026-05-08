@@ -1,0 +1,14 @@
+services:
+  app:
+    image: snapotter/snapotter:latest
+    container_name: snapotter
+    ports:
+      - 1349:1349
+    volumes:
+      - ./data:/data:rw
+    environment:
+      AUTH_ENABLED: true
+      DEFAULT_USERNAME: sasa
+      DEFAULT_PASSWORD: sasav
+      STORAGE_MODE: local
+    restart: unless-stopped
