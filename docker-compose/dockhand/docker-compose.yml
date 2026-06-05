@@ -4,9 +4,12 @@ services:
     container_name: dockhand
     environment:
       - SKIP_DF_COLLECTION=true
+      - TZ=Europe/Zagreb
     volumes:
       - /opt/dockhand/data:/app/data:rw
       - /var/run/docker.sock:/var/run/docker.sock
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     ports:
       - 3866:3000
     restart: always
