@@ -1,13 +1,10 @@
----
-volumes:
-  data:
-    name: sonarr_data
 services:
   sonarr:
+    image: ghcr.io/linuxserver/sonarr:latest
     container_name: sonarr
+    restart: unless-stopped
     ports:
-      - 8989:8989
-    network_mode: bridge
+      - "8989:8989"
     security_opt:
       - apparmor:unconfined
     environment:
@@ -18,5 +15,7 @@ services:
       - data:/config
       - /mnt/media/tvshows:/tv
       - /mnt/downloads:/downloads
-    restart: always
-    image: ghcr.io/linuxserver/sonarr
+
+volumes:
+  data:
+    name: sonarr_data

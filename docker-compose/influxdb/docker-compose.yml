@@ -1,11 +1,14 @@
----
 services:
   influxdb:
-    image: influxdb
+    image: influxdb:latest
     container_name: influxdb
-    ports:
-      - 8086:8086
-    network_mode: bridge
-    volumes: # NFS Directories
-      - /mnt/influxdb2:/var/lib/influxdb2
     restart: unless-stopped
+    ports:
+      - "8086:8086"
+    volumes:
+      - data:/var/lib/influxdb2
+      - /opt/influxdb/config:/etc/influxdb2
+
+volumes:
+  data:
+    name: influxdb_data

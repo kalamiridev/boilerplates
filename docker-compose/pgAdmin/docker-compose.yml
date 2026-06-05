@@ -1,15 +1,14 @@
----
 services:
   pgadmin:
-    container_name: pgadmin
     image: dpage/pgadmin4:latest
+    container_name: pgadmin
+    restart: unless-stopped
+    user: "${UID}:${GID}"
+    ports:
+      - "2660:5050"
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
       PGADMIN_LISTEN_PORT: 5050
-    user: "${UID}:${GID}"
-    ports:
-      - 2660:5050
     volumes:
-      - /etc/docker/postgresadmin:/var/lib/pgadmin
-    restart: always
+      - /opt/pgadmin/data:/var/lib/pgadmin

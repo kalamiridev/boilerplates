@@ -1,18 +1,17 @@
----
-volumes:
-  data:
-    name: audiobookshelf_data
 services:
   audiobookshelf:
+    image: advplyr/audiobookshelf:latest
     container_name: audiobookshelf
+    restart: unless-stopped
     ports:
-      - 13378:80
-    network_mode: bridge
+      - "13378:80"
     security_opt:
       - apparmor:unconfined
     volumes:
       - data:/config
       - data:/metadata
       - /mnt/biblioteka/audioknjige:/audiobooks
-    restart: always
-    image: advplyr/audiobookshelf
+
+volumes:
+  data:
+    name: audiobookshelf_data

@@ -1,17 +1,16 @@
----
-volumes:
-  data:
-    name: kavita_data
 services:
   kavita:
+    image: jvmilazz0/kavita:latest
     container_name: kavita
+    restart: unless-stopped
     ports:
-      - 5471:5000
-    network_mode: bridge
+      - "5471:5000"
     security_opt:
       - apparmor:unconfined
     volumes:
       - data:/kavita/config
       - /mnt/biblioteka/stripovi:/comics
-    restart: always
-    image: jvmilazz0/kavita:latest
+
+volumes:
+  data:
+    name: kavita_data

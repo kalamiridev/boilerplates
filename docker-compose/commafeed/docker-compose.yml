@@ -1,19 +1,18 @@
----
+services:
+  commafeed:
+    image: athou/commafeed:latest
+    container_name: commafeed
+    restart: unless-stopped
+    ports:
+      - "8073:8082"
+    environment:
+      CF_DATABASE_DRIVERCLASS: org.postgresql.Driver
+      CF_DATABASE_URL: jdbc:postgresql://${DATABASE_URL}/commafeed
+      CF_DATABASE_USER: ${DATABASE_USER}
+      CF_DATABASE_PASSWORD: ${DATABASE_PASS}
+    volumes:
+      - data:/commafeed/data
+
 volumes:
   data:
     name: commafeed_data
-services:
-  commafeed:
-    image: athou/commafeed
-    container_name: commafeed
-    ports:
-      - 8073:8082
-    network_mode: bridge
-    environment:
-      - CF_DATABASE_DRIVERCLASS=org.postgresql.Driver
-      - CF_DATABASE_URL=jdbc:postgresql://${DATABASE_URL}/commafeed
-      - CF_DATABASE_USER=${DATABASE_USER}
-      - CF_DATABASE_PASSWORD=${DATABASE_PASS}
-    volumes:
-      - data:/commafeed/data
-    restart: always
