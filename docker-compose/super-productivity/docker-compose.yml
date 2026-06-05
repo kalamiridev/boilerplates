@@ -1,0 +1,11 @@
+services:
+  app:
+    container_name: super-productivity
+    image: johannesjo/super-productivity:latest
+    mem_limit: 4g
+    cpu_shares: 768
+    security_opt:
+      - no-new-privileges:true
+    ports:
+      - 4567:80
+    restart: unless-stopped
