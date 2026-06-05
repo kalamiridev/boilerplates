@@ -1,0 +1,12 @@
+services:
+  app:
+    image: "fnsys/dockhand:latest"
+    container_name: dockhand
+    environment:
+      - SKIP_DF_COLLECTION=true
+    volumes:
+      - /opt/dockhand/data:/app/data:rw
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 3866:3000
+    restart: always
