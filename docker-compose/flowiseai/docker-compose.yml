@@ -1,4 +1,3 @@
----
 services:
   flowiseai:
     image: flowiseai/flowise:latest
@@ -13,7 +12,7 @@ services:
     ports:
       - 8459:3000
     volumes:
-      - /etc/docker/flowiseai/data:/root/.flowise:rw
+      - /opt/flowiseai/data:/root/.flowise:rw
     environment:
       DEBUG: false
       PORT: 3000
