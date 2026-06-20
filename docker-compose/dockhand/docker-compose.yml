@@ -6,7 +6,7 @@ services:
       - SKIP_DF_COLLECTION=true
       - TZ=Europe/Zagreb
     volumes:
-      - /opt/dockhand/data:/app/data:rw
+      - ./data:/app/data:rw
       - /var/run/docker.sock:/var/run/docker.sock
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
