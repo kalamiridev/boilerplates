@@ -1,0 +1,17 @@
+services:
+  app:
+    image: ghcr.io/linuxserver/prowlarr:develop
+    container_name: prowlarr
+    restart: unless-stopped
+    ports:
+      - "9696:9696"
+    security_opt:
+      - apparmor:unconfined
+    environment:
+      TZ: Europe/Zagreb
+    volumes:
+      - data:/config
+
+volumes:
+  data:
+    name: prowlarr_data
