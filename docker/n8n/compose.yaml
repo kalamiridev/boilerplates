@@ -18,30 +18,27 @@ services:
     network_mode: bridge
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /etc/docker/n8n/data:/home/node/.n8n
-      - /etc/docker/n8n/files:/files
+      - ./data:/home/node/.n8n
+      - ./files:/files
     environment:
-      NODE_ENV: production
-      WEBHOOK_URL: https://${N8N_HOST}
-      GENERIC_TIMEZONE: ${TZ}
-      TZ: ${TZ}
       N8N_ENCRYPTION_KEY: ${N8N_ENCRYPTION_KEY}
       N8N_HOST: ${N8N_HOST}
       N8N_PORT: 5678
       N8N_PROTOCOL: https
+      NODE_ENV: production
+      WEBHOOK_URL: https://${N8N_HOST}
+      GENERIC_TIMEZONE: ${TZ}
       N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS: true
       N8N_SECURE_COOKIE: true
       N8N_COMMUNITY_PACKAGES_ALLOW_TOOL_USAGE: true
       N8N_REINSTALL_MISSING_PACKAGES: true
+      TZ: ${TZ}
       DB_TYPE: postgresdb
       DB_POSTGRESDB_DATABASE: n8n
       DB_POSTGRESDB_HOST: ${DATABASE_URL}
       DB_POSTGRESDB_PORT: 5432
       DB_POSTGRESDB_USER: ${DATABASE_USER}
       DB_POSTGRESDB_PASSWORD: ${DATABASE_PASS}
-      N8N_RUNNERS_ENABLED: true
-      N8N_BLOCK_ENV_ACCESS_IN_NODE: true
-      N8N_GIT_NODE_DISABLE_BARE_REPOS: true
     env_file:
       - .env
     restart: unless-stopped
