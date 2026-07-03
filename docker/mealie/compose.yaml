@@ -1,26 +1,22 @@
----
-volumes:
-  data:
-    name: mealie_data
 services:
   mealie:
     image: ghcr.io/mealie-recipes/mealie:latest
     container_name: mealie
+    restart: unless-stopped
     mem_limit: 4g
     cpu_shares: 1024
     security_opt:
       - apparmor:unconfined
     read_only: false
     ports:
-      - 9925:9000
-    network_mode: bridge
+      - "9925:9000"
     volumes:
       - data:/app/data/
     environment:
       TZ: Europe/Zagreb
       MAX_WORKERS: 1
       WEB_CONCURRENCY: 1
-      ALLOW_SIGNUP: true #or false
+      ALLOW_SIGNUP: "true"
       BASE_URL: ${BASE_URL}
       DB_ENGINE: postgres
       POSTGRES_USER: ${POSTGRES_USER}
@@ -31,10 +27,13 @@ services:
       SMTP_HOST: smtp.gmail.com
       SMTP_PORT: 587
       SMTP_FROM_NAME: Mealie
-      SMTP_AUTH_STRATEGY: TLS # Options: TLS, SSL, NONE
+      SMTP_AUTH_STRATEGY: TLS
       SMTP_FROM_EMAIL: ${SMTP_FROM_EMAIL}
       SMTP_USER: ${SMTP_USER}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
       OPENAI_API_KEY: ${OPENAI_API_KEY}
       OPENAI_MODEL: ${OPENAI_MODEL}
-    restart: always
+
+volumes:
+  data:
+    name: mealie_data
