@@ -9,7 +9,7 @@ services:
     security_opt:
       - apparmor:unconfined
     volumes:
-      - "/etc/docker/languagetool:/ngrams"
+      - "/opt/languagetool:/ngrams"
     environment:
       - Java_Xmx=1g
       - Java_Xms=1g
