@@ -25,5 +25,5 @@ services:
       - BENTOPDF_ALLOWED_ORIGINS=* # CORS settings, adjust as needed
       - BENTOPDF_STORAGE_PATH=/bentopdf_data # Path inside the container for storing temporary files
     volumes:
-      - /etc/docker/bentopdf/data:/bentopdf_data
+      - ./data:/bentopdf_data
     restart: unless-stopped
