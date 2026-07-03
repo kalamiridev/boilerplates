@@ -1,14 +1,9 @@
----
 services:
   flame:
     image: pawelmalak/flame:latest
     container_name: flame
+    restart: unless-stopped
+    ports:
+      - "5210:5005"
     volumes:
       - /mnt/docker/flame:/app/data
-      - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      - 5210:5005
-    network_mode: bridge
-    environment:
-      - PASSWORD=${PASSWORD}
-    restart: always
