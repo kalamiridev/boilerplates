@@ -1,7 +1,7 @@
 ---
 services:
   nahpet:
-    image: ghcr.io/anhostfr/nah.pet:latest
+    image: ghcr.io/anhostfr/nah.pet:main
     container_name: nahpet
     healthcheck:
       test: ["CMD-SHELL", "nc -z 127.0.0.1 3000 || exit 1"]
