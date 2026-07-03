@@ -10,6 +10,6 @@ services:
       - 9090:9090
     network_mode: bridge
     volumes:
-      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - /opt/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
       - data:/prometheus
     restart: unless-stopped
