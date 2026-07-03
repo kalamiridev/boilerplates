@@ -11,5 +11,5 @@ services:
     ports:
       - 4005:4005
     volumes:
-      - /etc/docker/postgresus:/postgresus-data:rw
+      - /opt/postgresus:/postgresus-data:rw
     restart: unless-stopped
