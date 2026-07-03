@@ -1,26 +1,25 @@
----
+services:
+  server:
+    image: vaultwarden/server:1.36.0
+    container_name: vaultwarden
+    restart: always
+    ports:
+      - "3012:3012"
+      - "5151:80"
+    environment:
+      TZ: Europe/Zagreb
+      SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
+      SIGNUPS_VERIFY: ${SIGNUPS_VERIFY}
+      DOMAIN: ${DOMAIN}
+      SMTP_HOST: ${SMTP_HOST}
+      SMTP_PORT: ${SMTP_PORT}
+      SMTP_FROM: ${SMTP_FROM}
+      SMTP_SECURITY: starttls
+      SMTP_USERNAME: ${SMTP_USERNAME}
+      SMTP_PASSWORD: ${SMTP_PASSWORD}
+    volumes:
+      - data:/data
+
 volumes:
   data:
     name: vaultwarden_data
-services:
-  server:
-    container_name: vaultwarden
-    ports:
-      - 3012:3012
-      - 5151:80
-    network_mode: bridge
-    environment:
-      - TZ=Europe/Zagreb
-      - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
-      - SIGNUPS_VERIFY=${SIGNUPS_VERIFY}
-      - DOMAIN=${DOMAIN}
-      - SMTP_HOST=${SMTP_HOST}
-      - SMTP_PORT=${SMTP_PORT}
-      - SMTP_FROM=${SMTP_FROM}
-      - SMTP_SECURITY=starttls
-      - SMTP_USERNAME=${SMTP_USERNAME}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
-    volumes:
-      - data:/data
-    restart: always
-    image: vaultwarden/server
