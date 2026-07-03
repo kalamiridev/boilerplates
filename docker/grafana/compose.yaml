@@ -1,14 +1,13 @@
----
-volumes:
-  data:
-    name: grafana_data
 services:
   grafana:
     image: grafana/grafana-oss:latest
     container_name: grafana
+    restart: unless-stopped
     ports:
-      - 3000:3000
-    network_mode: bridge
+      - "3000:3000"
     volumes:
       - data:/var/lib/grafana
-    restart: unless-stopped
+
+volumes:
+  data:
+    name: grafana_data
