@@ -8,7 +8,7 @@ services:
       - ./data:/data:rw
     environment:
       AUTH_ENABLED: true
-      DEFAULT_USERNAME: ${DEFAULT_USERNAME}
-      DEFAULT_PASSWORD: ${DEFAULT_PASSWORD}
+      DEFAULT_USERNAME: sasa
+      DEFAULT_PASSWORD: sasav
       STORAGE_MODE: local
     restart: unless-stopped
