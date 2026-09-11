@@ -1,6 +1,6 @@
 services:
   caddy:
-    image: ghcr.io/caddybuilds/caddy-cloudflare:latest
+    image: ghcr.io/caddybuilds/caddy-cloudflare:2.11.4
     container_name: caddy
     command: ["caddy", "run", "--config", "/etc/caddy/config.json"]
     env_file:
@@ -10,9 +10,18 @@ services:
       - CLOUDFLARE_API_TOKEN=${CF_API_TOKEN}
       - ACME_AGREE=true
     ports:
-      - 2019:2019 # remove if you do not want admin API
+      #- 2019:2019 # remove if you do not want admin API
       - 80:80
       - 443:443
+
+    pids_limit: 256
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
     volumes:
       - /opt/caddy/config.json:/etc/caddy/config.json:ro
       - /opt/caddy/config:/config
