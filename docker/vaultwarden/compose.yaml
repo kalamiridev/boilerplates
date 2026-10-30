@@ -4,7 +4,6 @@ services:
     container_name: vaultwarden
     restart: always
     ports:
-      - "3012:3012"
       - "5151:80"
     environment:
       TZ: Europe/Zagreb
