@@ -7,6 +7,8 @@ services:
       - "5151:80"
     environment:
       TZ: Europe/Zagreb
+      # Promet dolazi samo kroz Cloudflare tunel; bez ovoga svi klijenti imaju IP cloudflareda.
+      IP_HEADER: CF-Connecting-IP
       SIGNUPS_ALLOWED: ${SIGNUPS_ALLOWED}
       SIGNUPS_VERIFY: ${SIGNUPS_VERIFY}
       DOMAIN: ${DOMAIN}
